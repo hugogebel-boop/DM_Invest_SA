@@ -7,7 +7,7 @@ export default function APropos() {
       <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
         <AnimateOnScroll>
           <h2 className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl xl:text-5xl font-serif text-dm-red mb-12 sm:mb-16 md:mb-20 lg:mb-24 text-left font-normal tracking-tight">
-            à propos
+            À propos
           </h2>
         </AnimateOnScroll>
 
