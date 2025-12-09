@@ -49,7 +49,7 @@ export default function APropos() {
             >
               <Image
                 src="/assets/Certifications/Logo VSV-ASG.png"
-                alt="VSV-ASG"
+                alt="Logo VSV-ASG - Association Suisse des Gestionnaires de fortune"
                 width={180}
                 height={80}
                 className="max-w-full h-auto object-contain"
@@ -63,7 +63,7 @@ export default function APropos() {
             >
               <Image
                 src="/assets/Certifications/Logo AOOS.png"
-                alt="AOOS"
+                alt="Logo AOOS - Organisme d'autorégulation reconnu LBA"
                 width={180}
                 height={80}
                 className="max-w-full h-auto object-contain"
@@ -77,7 +77,7 @@ export default function APropos() {
             >
               <Image
                 src="/assets/Certifications/Logo OFS.png"
-                alt="OFS"
+                alt="Logo OFS Ombud Finance Suisse - Médiation financière"
                 width={180}
                 height={80}
                 className="max-w-full h-auto object-contain"

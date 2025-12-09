@@ -28,7 +28,7 @@ export default function Hero() {
           <div className="flex justify-center">
             <Image
               src="/assets/Logo/Logo DM Invest.png"
-              alt="DM Invest SA"
+              alt="DM Invest SA - Logo - Gestion de fortune à Lausanne, Suisse"
               width={400}
               height={150}
               className="w-auto h-16 sm:h-20 md:h-24 lg:h-28 xl:h-32 object-contain px-4"

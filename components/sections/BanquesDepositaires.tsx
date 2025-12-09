@@ -18,7 +18,7 @@ export default function BanquesDepositaires() {
             <div className="w-full h-16 sm:h-20 md:h-24 bg-ivory flex items-center justify-center px-2">
               <Image
                 src="/assets/Logo/logo Credit suisse.png"
-                alt="Crédit Suisse"
+                alt="Logo Crédit Suisse - Banque dépositaire DM Invest"
                 width={150}
                 height={60}
                 className="max-w-full h-auto object-contain"
@@ -29,7 +29,7 @@ export default function BanquesDepositaires() {
             <div className="w-full h-16 sm:h-20 md:h-24 bg-ivory flex items-center justify-center px-2">
               <Image
                 src="/assets/Logo/Logo UBS.png"
-                alt="UBS"
+                alt="Logo UBS - Banque dépositaire DM Invest"
                 width={150}
                 height={60}
                 className="max-w-full h-auto object-contain"
@@ -40,7 +40,7 @@ export default function BanquesDepositaires() {
             <div className="w-full h-16 sm:h-20 md:h-24 bg-ivory flex items-center justify-center px-2">
               <Image
                 src="/assets/Logo/logo BCV.png"
-                alt="BCV"
+                alt="Logo BCV Banque Cantonale Vaudoise - Banque dépositaire DM Invest"
                 width={150}
                 height={60}
                 className="max-w-full h-auto object-contain"
@@ -51,7 +51,7 @@ export default function BanquesDepositaires() {
             <div className="w-full h-16 sm:h-20 md:h-24 bg-ivory flex items-center justify-center px-2">
               <Image
                 src="/assets/Logo/Logo Lombard Odier.png"
-                alt="Lombard Odier"
+                alt="Logo Lombard Odier - Banque dépositaire DM Invest"
                 width={150}
                 height={60}
                 className="max-w-full h-auto object-contain"
@@ -62,7 +62,7 @@ export default function BanquesDepositaires() {
             <div className="w-full h-16 sm:h-20 md:h-24 bg-ivory flex items-center justify-center px-2">
               <Image
                 src="/assets/Logo/Logo Swissquote.png"
-                alt="Swissquote"
+                alt="Logo Swissquote - Banque dépositaire DM Invest"
                 width={150}
                 height={60}
                 className="max-w-full h-auto object-contain"

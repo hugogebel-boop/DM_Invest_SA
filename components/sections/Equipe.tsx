@@ -14,11 +14,11 @@ export default function Equipe() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-12">
           {/* Yves Diserens */}
           <AnimateOnScroll delay={0.1}>
-            <div className="bg-dm-red/[0.03] border border-dm-red p-6 sm:p-8 md:p-10 h-full flex flex-col">
+            <div className="bg-dm-red/[0.03] p-6 sm:p-8 md:p-10 h-full flex flex-col">
             <div className="mb-4 sm:mb-6">
               <Image
                 src="/assets/Portrait/Yves.png"
-                alt="Yves Diserens"
+                alt="Yves Diserens - Actionnaire et administrateur de DM Invest SA, Gestionnaire de fortune"
                 width={180}
                 height={220}
                 className="w-full max-w-[140px] sm:max-w-[160px] md:max-w-[180px] h-auto mx-auto object-cover"
@@ -39,11 +39,11 @@ export default function Equipe() {
 
           {/* Michael Giller */}
           <AnimateOnScroll delay={0.2}>
-            <div className="bg-dm-red/[0.03] border border-dm-red p-6 sm:p-8 md:p-10 h-full flex flex-col">
+            <div className="bg-dm-red/[0.03] p-6 sm:p-8 md:p-10 h-full flex flex-col">
             <div className="mb-4 sm:mb-6">
               <Image
                 src="/assets/Portrait/Mike.png"
-                alt="Michael Giller"
+                alt="Michael Giller - Administrateur et gestionnaire de fortune chez DM Invest SA"
                 width={180}
                 height={220}
                 className="w-full max-w-[140px] sm:max-w-[160px] md:max-w-[180px] h-auto mx-auto object-cover"
@@ -62,11 +62,11 @@ export default function Equipe() {
 
           {/* Pierre Unternährer */}
           <AnimateOnScroll delay={0.3}>
-            <div className="bg-dm-red/[0.03] border border-dm-red p-6 sm:p-8 md:p-10 h-full flex flex-col">
+            <div className="bg-dm-red/[0.03] p-6 sm:p-8 md:p-10 h-full flex flex-col">
             <div className="mb-4 sm:mb-6">
               <Image
                 src="/assets/Portrait/Pierre.png"
-                alt="Pierre Unternährer"
+                alt="Pierre Unternährer - Administrateur et gestionnaire de fortune chez Saphir Invest SA"
                 width={180}
                 height={220}
                 className="w-full max-w-[140px] sm:max-w-[160px] md:max-w-[180px] h-auto mx-auto object-cover"
@@ -85,11 +85,11 @@ export default function Equipe() {
 
           {/* Sandrine Lavanchy */}
           <AnimateOnScroll delay={0.4}>
-            <div className="bg-dm-red/[0.03] border border-dm-red p-6 sm:p-8 md:p-10 h-full flex flex-col">
+            <div className="bg-dm-red/[0.03] p-6 sm:p-8 md:p-10 h-full flex flex-col">
             <div className="mb-4 sm:mb-6">
               <Image
                 src="/assets/Portrait/Sandrine.png"
-                alt="Sandrine Lavanchy"
+                alt="Sandrine Lavanchy - Assistante de gestion chez DM Invest SA"
                 width={180}
                 height={220}
                 className="w-full max-w-[140px] sm:max-w-[160px] md:max-w-[180px] h-auto mx-auto object-cover"

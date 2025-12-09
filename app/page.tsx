@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 export default function Home() {
   const structuredData = {
     '@context': 'https://schema.org',
-    '@type': 'FinancialService',
+    '@type': ['FinancialService', 'LocalBusiness'],
     name: 'DM Invest SA',
     description: 'Société suisse indépendante spécialisée dans la gestion de fortune depuis 1999',
     url: 'https://dminvest.ch',
@@ -53,6 +53,11 @@ export default function Home() {
     sameAs: [
       'https://www.vsv-asg.ch/fr/home',
     ],
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: '46.5197',
+      longitude: '6.6323',
+    },
   }
 
   const organizationData = {
