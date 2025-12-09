@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import AnimateOnScroll from '@/components/AnimateOnScroll'
+import { getAssetPath } from '@/lib/config'
 
 export default function Equipe() {
   return (
@@ -17,7 +18,7 @@ export default function Equipe() {
             <div className="bg-dm-red/[0.03] p-6 sm:p-8 md:p-10 h-full flex flex-col">
             <div className="mb-4 sm:mb-6">
               <Image
-                src="/assets/Portrait/Yves.png"
+                src={getAssetPath("/assets/Portrait/Yves.png")}
                 alt="Yves Diserens - Actionnaire et administrateur de DM Invest SA, Gestionnaire de fortune"
                 width={180}
                 height={220}
@@ -42,7 +43,7 @@ export default function Equipe() {
             <div className="bg-dm-red/[0.03] p-6 sm:p-8 md:p-10 h-full flex flex-col">
             <div className="mb-4 sm:mb-6">
               <Image
-                src="/assets/Portrait/Mike.png"
+                src={getAssetPath("/assets/Portrait/Mike.png")}
                 alt="Michael Giller - Administrateur et gestionnaire de fortune chez DM Invest SA"
                 width={180}
                 height={220}
@@ -65,7 +66,7 @@ export default function Equipe() {
             <div className="bg-dm-red/[0.03] p-6 sm:p-8 md:p-10 h-full flex flex-col">
             <div className="mb-4 sm:mb-6">
               <Image
-                src="/assets/Portrait/Pierre.png"
+                src={getAssetPath("/assets/Portrait/Pierre.png")}
                 alt="Pierre Unternährer - Administrateur et gestionnaire de fortune chez Saphir Invest SA"
                 width={180}
                 height={220}
@@ -88,7 +89,7 @@ export default function Equipe() {
             <div className="bg-dm-red/[0.03] p-6 sm:p-8 md:p-10 h-full flex flex-col">
             <div className="mb-4 sm:mb-6">
               <Image
-                src="/assets/Portrait/Sandrine.png"
+                src={getAssetPath("/assets/Portrait/Sandrine.png")}
                 alt="Sandrine Lavanchy - Assistante de gestion chez DM Invest SA"
                 width={180}
                 height={220}

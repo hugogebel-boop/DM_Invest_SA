@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { basePath } from '@/lib/config'
+import { basePath, getAssetPath } from '@/lib/config'
 
 export default function Hero() {
   return (
@@ -28,7 +28,7 @@ export default function Hero() {
         <div className="mb-24 sm:mb-32 md:mb-40 lg:mb-52 xl:mb-64">
           <div className="flex justify-center">
             <Image
-              src="/assets/Logo/Logo DM Invest.png"
+              src={getAssetPath("/assets/Logo/Logo DM Invest.png")}
               alt="DM Invest SA - Logo - Gestion de fortune à Lausanne, Suisse"
               width={400}
               height={150}

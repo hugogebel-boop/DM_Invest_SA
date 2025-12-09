@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import AnimateOnScroll from '@/components/AnimateOnScroll'
+import { getAssetPath } from '@/lib/config'
 
 export default function APropos() {
   return (
@@ -48,7 +49,7 @@ export default function APropos() {
               className="w-full max-w-[180px] sm:max-w-[200px] h-16 sm:h-20 bg-ivory flex items-center justify-center hover:opacity-80 transition-opacity px-4"
             >
               <Image
-                src="/assets/Certifications/Logo VSV-ASG.png"
+                src={getAssetPath("/assets/Certifications/Logo VSV-ASG.png")}
                 alt="Logo VSV-ASG - Association Suisse des Gestionnaires de fortune"
                 width={180}
                 height={80}
@@ -62,7 +63,7 @@ export default function APropos() {
               className="w-full max-w-[180px] sm:max-w-[200px] h-16 sm:h-20 bg-ivory flex items-center justify-center hover:opacity-80 transition-opacity px-4"
             >
               <Image
-                src="/assets/Certifications/Logo AOOS.png"
+                src={getAssetPath("/assets/Certifications/Logo AOOS.png")}
                 alt="Logo AOOS - Organisme d'autorégulation reconnu LBA"
                 width={180}
                 height={80}
@@ -76,7 +77,7 @@ export default function APropos() {
               className="w-full max-w-[180px] sm:max-w-[200px] h-16 sm:h-20 bg-ivory flex items-center justify-center hover:opacity-80 transition-opacity px-4"
             >
               <Image
-                src="/assets/Certifications/Logo OFS.png"
+                src={getAssetPath("/assets/Certifications/Logo OFS.png")}
                 alt="Logo OFS Ombud Finance Suisse - Médiation financière"
                 width={180}
                 height={80}

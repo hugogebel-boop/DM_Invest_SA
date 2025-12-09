@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import AnimateOnScroll from '@/components/AnimateOnScroll'
+import { getAssetPath } from '@/lib/config'
 
 export default function BanquesDepositaires() {
   return (
@@ -17,7 +18,7 @@ export default function BanquesDepositaires() {
           <div className="text-center">
             <div className="w-full h-16 sm:h-20 md:h-24 bg-ivory flex items-center justify-center px-2">
               <Image
-                src="/assets/Logo/logo Credit suisse.png"
+                src={getAssetPath("/assets/Logo/logo Credit suisse.png")}
                 alt="Logo Crédit Suisse - Banque dépositaire DM Invest"
                 width={150}
                 height={60}
@@ -28,7 +29,7 @@ export default function BanquesDepositaires() {
           <div className="text-center">
             <div className="w-full h-16 sm:h-20 md:h-24 bg-ivory flex items-center justify-center px-2">
               <Image
-                src="/assets/Logo/Logo UBS.png"
+                src={getAssetPath("/assets/Logo/Logo UBS.png")}
                 alt="Logo UBS - Banque dépositaire DM Invest"
                 width={150}
                 height={60}
@@ -39,7 +40,7 @@ export default function BanquesDepositaires() {
           <div className="text-center">
             <div className="w-full h-16 sm:h-20 md:h-24 bg-ivory flex items-center justify-center px-2">
               <Image
-                src="/assets/Logo/logo BCV.png"
+                src={getAssetPath("/assets/Logo/logo BCV.png")}
                 alt="Logo BCV Banque Cantonale Vaudoise - Banque dépositaire DM Invest"
                 width={150}
                 height={60}
@@ -50,7 +51,7 @@ export default function BanquesDepositaires() {
           <div className="text-center">
             <div className="w-full h-16 sm:h-20 md:h-24 bg-ivory flex items-center justify-center px-2">
               <Image
-                src="/assets/Logo/Logo Lombard Odier.png"
+                src={getAssetPath("/assets/Logo/Logo Lombard Odier.png")}
                 alt="Logo Lombard Odier - Banque dépositaire DM Invest"
                 width={150}
                 height={60}
@@ -61,7 +62,7 @@ export default function BanquesDepositaires() {
           <div className="text-center">
             <div className="w-full h-16 sm:h-20 md:h-24 bg-ivory flex items-center justify-center px-2">
               <Image
-                src="/assets/Logo/Logo Swissquote.png"
+                src={getAssetPath("/assets/Logo/Logo Swissquote.png")}
                 alt="Logo Swissquote - Banque dépositaire DM Invest"
                 width={150}
                 height={60}
