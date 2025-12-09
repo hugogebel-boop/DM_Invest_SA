@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { basePath } from '@/lib/config'
 
 export default function Hero() {
   return (
@@ -7,7 +8,7 @@ export default function Hero() {
       <div 
         className="fixed inset-0 -z-10"
         style={{
-          backgroundImage: 'url(/assets/Tableau/Mountains-by-StephanHerrgott-2017.jpg)',
+          backgroundImage: `url(${basePath}/assets/Tableau/Mountains-by-StephanHerrgott-2017.jpg)`,
           backgroundSize: 'cover',
           backgroundPosition: 'top center',
           backgroundAttachment: 'fixed',
