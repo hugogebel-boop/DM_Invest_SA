@@ -7,8 +7,8 @@ export default function manifest(): MetadataRoute.Manifest {
     description: 'DM Invest SA est une société suisse indépendante spécialisée dans la gestion de fortune depuis 1999. Basée à Lausanne.',
     start_url: '/',
     display: 'standalone',
-    background_color: '#ffffff',
-    theme_color: '#8B2635',
+    background_color: '#fcfbfe',
+    theme_color: '#1d395e',
     icons: [
       {
         src: '/assets/Logo/Logo DM Invest.png',

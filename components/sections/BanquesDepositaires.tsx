@@ -16,57 +16,62 @@ export default function BanquesDepositaires() {
         <AnimateOnScroll delay={0.1}>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 sm:gap-8 md:gap-12 lg:gap-16">
           <div className="text-center">
-            <div className="w-full h-16 sm:h-20 md:h-24 bg-ivory flex items-center justify-center px-2">
+            <div className="relative w-full aspect-[5/2] h-16 sm:h-20 md:h-24 bg-ivory flex items-center justify-center px-2 overflow-hidden">
               <Image
                 src={getAssetPath("/assets/Logo/logo Credit suisse.png")}
                 alt="Logo Crédit Suisse - Banque dépositaire DM Invest"
                 width={150}
                 height={60}
-                className="max-w-full h-auto object-contain"
+                className="w-full h-full object-contain object-center"
+                sizes="(max-width: 640px) 100px, (max-width: 768px) 120px, 150px"
               />
             </div>
           </div>
           <div className="text-center">
-            <div className="w-full h-16 sm:h-20 md:h-24 bg-ivory flex items-center justify-center px-2">
+            <div className="relative w-full aspect-[5/2] h-16 sm:h-20 md:h-24 bg-ivory flex items-center justify-center px-2 overflow-hidden">
               <Image
                 src={getAssetPath("/assets/Logo/Logo UBS.png")}
                 alt="Logo UBS - Banque dépositaire DM Invest"
                 width={150}
                 height={60}
-                className="max-w-full h-auto object-contain"
+                className="w-full h-full object-contain object-center"
+                sizes="(max-width: 640px) 100px, (max-width: 768px) 120px, 150px"
               />
             </div>
           </div>
           <div className="text-center">
-            <div className="w-full h-16 sm:h-20 md:h-24 bg-ivory flex items-center justify-center px-2">
+            <div className="relative w-full aspect-[5/2] h-16 sm:h-20 md:h-24 bg-ivory flex items-center justify-center px-2 overflow-hidden">
               <Image
                 src={getAssetPath("/assets/Logo/logo BCV.png")}
                 alt="Logo BCV Banque Cantonale Vaudoise - Banque dépositaire DM Invest"
                 width={150}
                 height={60}
-                className="max-w-full h-auto object-contain"
+                className="w-full h-full object-contain object-center"
+                sizes="(max-width: 640px) 100px, (max-width: 768px) 120px, 150px"
               />
             </div>
           </div>
           <div className="text-center">
-            <div className="w-full h-16 sm:h-20 md:h-24 bg-ivory flex items-center justify-center px-2">
+            <div className="relative w-full aspect-[5/2] h-16 sm:h-20 md:h-24 bg-ivory flex items-center justify-center px-2 overflow-hidden">
               <Image
                 src={getAssetPath("/assets/Logo/Logo Lombard Odier.png")}
                 alt="Logo Lombard Odier - Banque dépositaire DM Invest"
                 width={150}
                 height={60}
-                className="max-w-full h-auto object-contain"
+                className="w-full h-full object-contain object-center"
+                sizes="(max-width: 640px) 100px, (max-width: 768px) 120px, 150px"
               />
             </div>
           </div>
           <div className="text-center">
-            <div className="w-full h-16 sm:h-20 md:h-24 bg-ivory flex items-center justify-center px-2">
+            <div className="relative w-full aspect-[5/2] h-16 sm:h-20 md:h-24 bg-ivory flex items-center justify-center px-2 overflow-hidden">
               <Image
                 src={getAssetPath("/assets/Logo/Logo Swissquote.png")}
                 alt="Logo Swissquote - Banque dépositaire DM Invest"
                 width={150}
                 height={60}
-                className="max-w-full h-auto object-contain"
+                className="w-full h-full object-contain object-center"
+                sizes="(max-width: 640px) 100px, (max-width: 768px) 120px, 150px"
               />
             </div>
           </div>

@@ -6,21 +6,23 @@ export default function Hero() {
     <>
       {/* Fond fixe du tableau mobile */}
       <div 
-        className="fixed inset-0 -z-10 sm:hidden"
+        className="fixed inset-0 -z-10 sm:hidden overflow-hidden"
         style={{
           backgroundImage: `url(${encodeURI(getAssetPath("/assets/Tableau/Mountains-by-StephanHerrgott-2017 - Mobile.jpg"))})`,
           backgroundSize: 'cover',
-          backgroundPosition: 'top center',
+          backgroundPosition: 'center center',
+          backgroundRepeat: 'no-repeat',
           backgroundAttachment: 'fixed',
         }}
       />
       {/* Fond fixe du tableau desktop */}
       <div 
-        className="hidden sm:block fixed inset-0 -z-10"
+        className="hidden sm:block fixed inset-0 -z-10 overflow-hidden"
         style={{
           backgroundImage: `url(${encodeURI(getAssetPath("/assets/Tableau/Mountains-by-StephanHerrgott-2017.jpg"))})`,
           backgroundSize: 'cover',
-          backgroundPosition: 'top center',
+          backgroundPosition: 'center center',
+          backgroundRepeat: 'no-repeat',
           backgroundAttachment: 'fixed',
         }}
       />
@@ -29,15 +31,18 @@ export default function Hero() {
       <div className="fixed inset-0 flex flex-col justify-start items-center z-[5] pointer-events-none" style={{ paddingTop: '120px' }}>
         <div className="text-center px-4 sm:px-6 md:px-8 w-full max-w-5xl">
           <div className="mb-80 sm:mb-32 md:mb-56 lg:mb-72 xl:mb-80">
-            <div className="flex justify-center">
-              <Image
-                src={getAssetPath("/assets/Logo/Logo DM Invest.png")}
-                alt="DM Invest SA - Logo - Gestion de fortune à Lausanne, Suisse"
-                width={400}
-                height={150}
-                className="w-auto h-16 sm:h-20 md:h-24 lg:h-28 xl:h-32 object-contain px-4"
-                priority
-              />
+            <div className="flex justify-center items-center">
+              <div className="relative w-full max-w-[400px] aspect-[400/150] h-16 sm:h-20 md:h-24 lg:h-28 xl:h-32 px-4">
+                <Image
+                  src={getAssetPath("/assets/Logo/Logo DM Invest.png")}
+                  alt="DM Invest SA - Logo - Gestion de fortune à Lausanne, Suisse"
+                  width={400}
+                  height={150}
+                  className="w-full h-full object-contain"
+                  priority
+                  sizes="(max-width: 640px) 200px, (max-width: 768px) 300px, (max-width: 1024px) 350px, 400px"
+                />
+              </div>
             </div>
           </div>
         </div>

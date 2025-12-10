@@ -16,14 +16,17 @@ export default function Equipe() {
           {/* Yves Diserens */}
           <AnimateOnScroll delay={0.1}>
             <div className="bg-dm-red/[0.03] p-6 sm:p-8 md:p-10 h-full flex flex-col min-h-[400px] sm:min-h-0">
-            <div className="mb-4 sm:mb-6">
-              <Image
-                src={getAssetPath("/assets/Portrait/Yves.png")}
-                alt="Yves Diserens - Actionnaire et administrateur de DM Invest SA, Gestionnaire de fortune"
-                width={180}
-                height={220}
-                className="w-full max-w-[160px] sm:max-w-[160px] md:max-w-[180px] h-auto mx-auto object-cover"
-              />
+            <div className="mb-4 sm:mb-6 flex justify-center">
+              <div className="relative w-full max-w-[160px] sm:max-w-[160px] md:max-w-[180px] aspect-[180/220] mx-auto overflow-hidden">
+                <Image
+                  src={getAssetPath("/assets/Portrait/Yves.png")}
+                  alt="Yves Diserens - Actionnaire et administrateur de DM Invest SA, Gestionnaire de fortune"
+                  width={180}
+                  height={220}
+                  className="w-full h-full object-cover object-center"
+                  sizes="(max-width: 640px) 160px, (max-width: 768px) 160px, 180px"
+                />
+              </div>
             </div>
             <div className="text-center">
               <h3 className="text-2xl sm:text-lg md:text-xl lg:text-2xl font-serif text-dm-red mb-2 sm:mb-3 font-normal">
@@ -41,14 +44,17 @@ export default function Equipe() {
           {/* Michael Giller */}
           <AnimateOnScroll delay={0.2}>
             <div className="bg-dm-red/[0.03] p-6 sm:p-8 md:p-10 h-full flex flex-col min-h-[400px] sm:min-h-0">
-            <div className="mb-4 sm:mb-6">
-              <Image
-                src={getAssetPath("/assets/Portrait/Mike.png")}
-                alt="Michael Giller - Administrateur et gestionnaire de fortune chez DM Invest SA"
-                width={180}
-                height={220}
-                className="w-full max-w-[160px] sm:max-w-[160px] md:max-w-[180px] h-auto mx-auto object-cover"
-              />
+            <div className="mb-4 sm:mb-6 flex justify-center">
+              <div className="relative w-full max-w-[160px] sm:max-w-[160px] md:max-w-[180px] aspect-[180/220] mx-auto overflow-hidden">
+                <Image
+                  src={getAssetPath("/assets/Portrait/Mike.png")}
+                  alt="Michael Giller - Administrateur et gestionnaire de fortune chez DM Invest SA"
+                  width={180}
+                  height={220}
+                  className="w-full h-full object-cover object-center"
+                  sizes="(max-width: 640px) 160px, (max-width: 768px) 160px, 180px"
+                />
+              </div>
             </div>
             <div className="text-center">
               <h3 className="text-2xl sm:text-lg md:text-xl lg:text-2xl font-serif text-dm-red mb-2 sm:mb-3 font-normal">
@@ -64,14 +70,17 @@ export default function Equipe() {
           {/* Pierre Unternährer */}
           <AnimateOnScroll delay={0.3}>
             <div className="bg-dm-red/[0.03] p-6 sm:p-8 md:p-10 h-full flex flex-col min-h-[400px] sm:min-h-0">
-            <div className="mb-4 sm:mb-6">
-              <Image
-                src={getAssetPath("/assets/Portrait/Pierre.png")}
-                alt="Pierre Unternährer - Administrateur et gestionnaire de fortune chez Saphir Invest SA"
-                width={180}
-                height={220}
-                className="w-full max-w-[160px] sm:max-w-[160px] md:max-w-[180px] h-auto mx-auto object-cover"
-              />
+            <div className="mb-4 sm:mb-6 flex justify-center">
+              <div className="relative w-full max-w-[160px] sm:max-w-[160px] md:max-w-[180px] aspect-[180/220] mx-auto overflow-hidden">
+                <Image
+                  src={getAssetPath("/assets/Portrait/Pierre.png")}
+                  alt="Pierre Unternährer - Administrateur et gestionnaire de fortune chez Saphir Invest SA"
+                  width={180}
+                  height={220}
+                  className="w-full h-full object-cover object-center"
+                  sizes="(max-width: 640px) 160px, (max-width: 768px) 160px, 180px"
+                />
+              </div>
             </div>
             <div className="text-center">
               <h3 className="text-2xl sm:text-lg md:text-xl lg:text-2xl font-serif text-dm-red mb-2 sm:mb-3 font-normal">
@@ -87,14 +96,17 @@ export default function Equipe() {
           {/* Sandrine Lavanchy */}
           <AnimateOnScroll delay={0.4}>
             <div className="bg-dm-red/[0.03] p-6 sm:p-8 md:p-10 h-full flex flex-col min-h-[400px] sm:min-h-0">
-            <div className="mb-4 sm:mb-6">
-              <Image
-                src={getAssetPath("/assets/Portrait/Sandrine.png")}
-                alt="Sandrine Lavanchy - Assistante de gestion chez DM Invest SA"
-                width={180}
-                height={220}
-                className="w-full max-w-[160px] sm:max-w-[160px] md:max-w-[180px] h-auto mx-auto object-cover"
-              />
+            <div className="mb-4 sm:mb-6 flex justify-center">
+              <div className="relative w-full max-w-[160px] sm:max-w-[160px] md:max-w-[180px] aspect-[180/220] mx-auto overflow-hidden">
+                <Image
+                  src={getAssetPath("/assets/Portrait/Sandrine.png")}
+                  alt="Sandrine Lavanchy - Assistante de gestion chez DM Invest SA"
+                  width={180}
+                  height={220}
+                  className="w-full h-full object-cover object-center"
+                  sizes="(max-width: 640px) 160px, (max-width: 768px) 160px, 180px"
+                />
+              </div>
             </div>
             <div className="text-center">
               <h3 className="text-2xl sm:text-lg md:text-xl lg:text-2xl font-serif text-dm-red mb-2 sm:mb-3 font-normal">

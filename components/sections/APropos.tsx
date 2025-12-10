@@ -46,42 +46,45 @@ export default function APropos() {
               href="https://www.vsv-asg.ch/fr/home"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full max-w-[180px] sm:max-w-[200px] h-16 sm:h-20 bg-ivory flex items-center justify-center hover:opacity-80 transition-opacity px-4"
+              className="relative w-full max-w-[180px] sm:max-w-[200px] aspect-[180/80] h-16 sm:h-20 bg-ivory flex items-center justify-center hover:opacity-80 transition-opacity px-4 overflow-hidden"
             >
               <Image
                 src={getAssetPath("/assets/Certifications/Logo VSV-ASG.png")}
                 alt="Logo VSV-ASG - Association Suisse des Gestionnaires de fortune"
                 width={180}
                 height={80}
-                className="max-w-full h-auto object-contain"
+                className="w-full h-full object-contain object-center"
+                sizes="(max-width: 640px) 180px, 200px"
               />
             </a>
             <a
               href="https://www.aoos.ch/?lang=fr"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full max-w-[180px] sm:max-w-[200px] h-16 sm:h-20 bg-ivory flex items-center justify-center hover:opacity-80 transition-opacity px-4"
+              className="relative w-full max-w-[180px] sm:max-w-[200px] aspect-[180/80] h-16 sm:h-20 bg-ivory flex items-center justify-center hover:opacity-80 transition-opacity px-4 overflow-hidden"
             >
               <Image
                 src={getAssetPath("/assets/Certifications/Logo AOOS.png")}
                 alt="Logo AOOS - Organisme d'autorégulation reconnu LBA"
                 width={180}
                 height={80}
-                className="max-w-full h-auto object-contain"
+                className="w-full h-full object-contain object-center"
+                sizes="(max-width: 640px) 180px, 200px"
               />
             </a>
             <a
               href="https://ombudfinance.ch/accueil/"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full max-w-[180px] sm:max-w-[200px] h-16 sm:h-20 bg-ivory flex items-center justify-center hover:opacity-80 transition-opacity px-4"
+              className="relative w-full max-w-[180px] sm:max-w-[200px] aspect-[180/80] h-16 sm:h-20 bg-ivory flex items-center justify-center hover:opacity-80 transition-opacity px-4 overflow-hidden"
             >
               <Image
                 src={getAssetPath("/assets/Certifications/Logo OFS.png")}
                 alt="Logo OFS Ombud Finance Suisse - Médiation financière"
                 width={180}
                 height={80}
-                className="max-w-full h-auto object-contain"
+                className="w-full h-full object-contain object-center"
+                sizes="(max-width: 640px) 180px, 200px"
               />
             </a>
           </div>

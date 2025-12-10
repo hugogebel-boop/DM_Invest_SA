@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import ThemeColor from './ThemeColor'
+import PreloadImages from '@/components/PreloadImages'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://dminvest.ch'),
@@ -77,9 +79,49 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  // Calcul des chemins d'images pour le préchargement (côté serveur)
+  const isProduction = process.env.NODE_ENV === 'production'
+  const basePath = isProduction ? '/DM_Invest_SA' : ''
+  const mobileImage = `${basePath}/assets/Tableau/Mountains-by-StephanHerrgott-2017 - Mobile.jpg`
+  const desktopImage = `${basePath}/assets/Tableau/Mountains-by-StephanHerrgott-2017.jpg`
+  const logoImage = `${basePath}/assets/Logo/Logo DM Invest.png`
+
   return (
     <html lang="fr" className="scroll-smooth" style={{ margin: 0, padding: 0 }}>
+      <head>
+        {/* Préchargement des images critiques - script inline pour un chargement immédiat */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                const basePath = '${basePath}';
+                const mobileImg = basePath + '/assets/Tableau/Mountains-by-StephanHerrgott-2017 - Mobile.jpg';
+                const desktopImg = basePath + '/assets/Tableau/Mountains-by-StephanHerrgott-2017.jpg';
+                const logoImg = basePath + '/assets/Logo/Logo DM Invest.png';
+                
+                function addPreload(href, media) {
+                  if (!document.querySelector('link[href="' + href + '"]')) {
+                    const link = document.createElement('link');
+                    link.rel = 'preload';
+                    link.as = 'image';
+                    link.href = href;
+                    link.setAttribute('fetchpriority', 'high');
+                    if (media) link.media = media;
+                    document.head.appendChild(link);
+                  }
+                }
+                
+                addPreload(mobileImg, '(max-width: 640px)');
+                addPreload(desktopImg, '(min-width: 641px)');
+                addPreload(logoImg);
+              })();
+            `,
+          }}
+        />
+      </head>
       <body className="bg-transparent" style={{ margin: 0, padding: 0 }}>
+        <PreloadImages />
+        <ThemeColor />
         <main className="bg-transparent" style={{ margin: 0, padding: 0 }}>{children}</main>
       </body>
     </html>
