@@ -39,14 +39,14 @@ export default function MentionsLegales() {
           </Link>
         </div>
 
-        <h1 className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl xl:text-5xl font-serif text-dm-red mb-6 sm:mb-8 font-normal tracking-tight">
+        <h1 className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl xl:text-5xl font-serif text-dm-red mb-5 sm:mb-7 font-normal tracking-tight">
           Mentions légales
         </h1>
-        <div className="pl-4 sm:pl-6 md:pl-8 pr-4 sm:pr-6 md:pr-8 space-y-6 sm:space-y-8 text-sm sm:text-base md:text-base lg:text-base text-anthracite leading-relaxed">
+        <div className="pl-4 sm:pl-6 md:pl-8 pr-4 sm:pr-6 md:pr-8 space-y-5 sm:space-y-6 text-sm sm:text-base md:text-base lg:text-base text-anthracite leading-relaxed">
           {/* Propriétaire et Hébergement en deux colonnes */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 md:gap-12 lg:gap-16">
             <div>
-              <h2 className="text-xl sm:text-2xl md:text-2xl lg:text-3xl font-serif text-tableau-blue mb-3 sm:mb-4 font-normal">
+              <h2 className="text-xl sm:text-2xl md:text-2xl lg:text-3xl font-serif text-tableau-blue mb-2.5 sm:mb-3 font-normal">
                 Propriétaire du site &quot;dminvest.ch&quot;
               </h2>
               <div className="space-y-1">
@@ -64,7 +64,7 @@ export default function MentionsLegales() {
             </div>
 
             <div>
-              <h2 className="text-xl sm:text-2xl md:text-2xl lg:text-3xl font-serif text-tableau-blue mb-3 sm:mb-4 font-normal">
+              <h2 className="text-xl sm:text-2xl md:text-2xl lg:text-3xl font-serif text-tableau-blue mb-2.5 sm:mb-3 font-normal">
                 Hébergement
               </h2>
               <div className="space-y-1">
@@ -82,10 +82,10 @@ export default function MentionsLegales() {
           </div>
 
           <div>
-            <h2 className="text-xl sm:text-2xl md:text-2xl lg:text-3xl font-serif text-tableau-blue mb-3 sm:mb-4 font-normal">
+            <h2 className="text-xl sm:text-2xl md:text-2xl lg:text-3xl font-serif text-tableau-blue mb-2.5 sm:mb-3 font-normal">
               Webdesign, limites de responsabilités
             </h2>
-            <div className="space-y-4 text-justify">
+            <div className="space-y-3 text-justify">
               <p>
                 Tania Secalin-Creative Boxes (ci-après &quot;TS-CB&quot;) a créé ce site internet dminvest.ch après commande du propriétaire mentionné ci-dessus.
               </p>
@@ -99,7 +99,7 @@ export default function MentionsLegales() {
           </div>
 
           <div>
-            <h2 className="text-xl sm:text-2xl md:text-2xl lg:text-3xl font-serif text-tableau-blue mb-3 sm:mb-4 font-normal">
+            <h2 className="text-xl sm:text-2xl md:text-2xl lg:text-3xl font-serif text-tableau-blue mb-2.5 sm:mb-3 font-normal">
               MEDIA
             </h2>
             <p className="text-justify">
@@ -129,10 +129,10 @@ export default function MentionsLegales() {
         {/* Section Contact */}
         <div className="py-10 sm:py-12 md:py-16 lg:py-20">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
-            <h2 className="text-[40px] sm:text-3xl md:text-3xl lg:text-4xl xl:text-5xl font-serif text-ivory mb-12 sm:mb-12 md:mb-16 text-left font-normal tracking-tight">
+            <h2 className="text-[40px] sm:text-3xl md:text-3xl lg:text-4xl xl:text-5xl font-serif text-ivory mb-10 sm:mb-12 md:mb-14 text-left font-normal tracking-tight">
               Contact
             </h2>
-            <div className="pl-4 sm:pl-6 md:pl-8 pr-4 sm:pr-6 md:pr-8 text-left space-y-3 sm:space-y-4 text-base sm:text-lg md:text-lg lg:text-xl text-ivory leading-relaxed">
+            <div className="pl-4 sm:pl-6 md:pl-8 pr-4 sm:pr-6 md:pr-8 text-left space-y-2.5 sm:space-y-3 text-base sm:text-lg md:text-lg lg:text-xl text-ivory leading-relaxed">
               <div>
                 <p className="font-serif mb-2 sm:mb-3 text-lg sm:text-xl md:text-xl lg:text-2xl">
                   <span className="text-dm-red">DM</span>{' '}

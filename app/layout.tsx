@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     description: 'DM Invest SA est une société suisse indépendante spécialisée dans la gestion de fortune depuis 1999. Basée à Lausanne, nous offrons des services de gestion de patrimoine personnalisés, transparents et éthiques.',
     images: [
       {
-        url: 'https://dminvest.ch/assets/Logo/Logo DM Invest.png',
+        url: 'https://dminvest.ch/assets/Logo/Logo DM Invest White.png',
         width: 1200,
         height: 630,
         alt: 'DM Invest SA - Gestion de Fortune',
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'DM Invest SA | Gestion de Fortune | Lausanne, Suisse',
     description: 'DM Invest SA est une société suisse indépendante spécialisée dans la gestion de fortune depuis 1999.',
-    images: ['https://dminvest.ch/assets/Logo/Logo DM Invest.png'],
+    images: ['https://dminvest.ch/assets/Logo/Logo DM Invest White.png'],
   },
   robots: {
     index: true,
@@ -102,7 +102,7 @@ export default function RootLayout({
   const portraitSandrine = `${basePath}/assets/Portrait/Sandrine.png`
 
   return (
-    <html lang="fr" className="scroll-smooth" style={{ margin: 0, padding: 0 }}>
+    <html lang="fr" className="scroll-smooth" data-scroll-behavior="smooth" style={{ margin: 0, padding: 0 }}>
       <head>
         {/* Préchargement des images critiques - script inline pour un chargement immédiat */}
         <script

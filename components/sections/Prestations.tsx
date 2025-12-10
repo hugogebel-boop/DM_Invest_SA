@@ -5,7 +5,7 @@ export default function Prestations() {
     <section id="prestations" className="py-16 sm:py-20 md:py-24 lg:py-32 xl:py-40 bg-ivory">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
         <AnimateOnScroll>
-          <h2 className="text-[40px] sm:text-3xl md:text-3xl lg:text-4xl xl:text-5xl font-serif text-dm-red mb-12 sm:mb-16 md:mb-20 lg:mb-24 text-left font-normal tracking-tight">
+          <h2 className="text-[40px] sm:text-3xl md:text-3xl lg:text-4xl xl:text-5xl font-serif text-dm-red mb-10 sm:mb-12 md:mb-16 lg:mb-20 text-left font-normal tracking-tight">
             Prestations
           </h2>
         </AnimateOnScroll>
@@ -14,28 +14,28 @@ export default function Prestations() {
           {/* Mandat de gestion */}
           <AnimateOnScroll delay={0.1}>
             <div>
-              <h3 className="text-xl sm:text-lg md:text-xl lg:text-2xl font-serif text-tableau-blue mb-6 sm:mb-8 md:mb-10 lg:mb-12 font-normal tracking-wide">
+              <h3 className="text-xl sm:text-lg md:text-xl lg:text-2xl font-serif text-tableau-blue mb-5 sm:mb-6 md:mb-8 lg:mb-10 font-normal tracking-wide">
                 Mandat de gestion
               </h3>
-              <ul className="space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-5 text-base sm:text-lg md:text-lg lg:text-xl text-anthracite leading-relaxed">
+              <ul className="space-y-1 sm:space-y-2 md:space-y-1 lg:space-y-1 text-base sm:text-lg md:text-base lg:text-base text-anthracite leading-relaxed md:leading-normal">
                 <li className="flex items-start">
-                  <span className="text-tableau-blue mr-3 flex-shrink-0 font-serif leading-none text-lg sm:text-xl">•</span>
+                  <span className="text-tableau-blue mr-3 flex-shrink-0 font-serif leading-none text-lg sm:text-xl md:text-lg lg:text-lg">•</span>
                   <span>Définition de la stratégie d&apos;investissement et du profil de risque personnalisé</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-tableau-blue mr-3 flex-shrink-0 font-serif leading-none text-lg sm:text-xl">•</span>
+                  <span className="text-tableau-blue mr-3 flex-shrink-0 font-serif leading-none text-lg sm:text-xl md:text-lg lg:text-lg">•</span>
                   <span>Gestion active et respectueuse des normes ESG</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-tableau-blue mr-3 flex-shrink-0 font-serif leading-none text-lg sm:text-xl">•</span>
+                  <span className="text-tableau-blue mr-3 flex-shrink-0 font-serif leading-none text-lg sm:text-xl md:text-lg lg:text-lg">•</span>
                   <span>Pricing adapté</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-tableau-blue mr-3 flex-shrink-0 font-serif leading-none text-lg sm:text-xl">•</span>
+                  <span className="text-tableau-blue mr-3 flex-shrink-0 font-serif leading-none text-lg sm:text-xl md:text-lg lg:text-lg">•</span>
                   <span>Consolidation globale des avoirs bancaires</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-tableau-blue mr-3 flex-shrink-0 font-serif leading-none text-lg sm:text-xl">•</span>
+                  <span className="text-tableau-blue mr-3 flex-shrink-0 font-serif leading-none text-lg sm:text-xl md:text-lg lg:text-lg">•</span>
                   <span>Analyse et gestion du risque</span>
                 </li>
               </ul>
@@ -45,32 +45,32 @@ export default function Prestations() {
           {/* Nos atouts */}
           <AnimateOnScroll delay={0.2}>
             <div>
-              <h3 className="text-xl sm:text-lg md:text-xl lg:text-2xl font-serif text-tableau-blue mb-6 sm:mb-8 md:mb-10 lg:mb-12 font-normal tracking-wide">
+              <h3 className="text-xl sm:text-lg md:text-xl lg:text-2xl font-serif text-tableau-blue mb-5 sm:mb-6 md:mb-8 lg:mb-10 font-normal tracking-wide">
                 Nos atouts
               </h3>
-              <ul className="space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-5 text-base sm:text-lg md:text-lg lg:text-xl text-anthracite leading-relaxed">
+              <ul className="space-y-1 sm:space-y-2 md:space-y-1 lg:space-y-1 text-base sm:text-lg md:text-base lg:text-base text-anthracite leading-relaxed md:leading-normal">
                 <li className="flex items-start">
-                  <span className="text-tableau-blue mr-3 flex-shrink-0 font-serif leading-none text-lg sm:text-xl">•</span>
+                  <span className="text-tableau-blue mr-3 flex-shrink-0 font-serif leading-none text-lg sm:text-xl md:text-lg lg:text-lg">•</span>
                   <span>Suivi personnalisé</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-tableau-blue mr-3 flex-shrink-0 font-serif leading-none text-lg sm:text-xl">•</span>
+                  <span className="text-tableau-blue mr-3 flex-shrink-0 font-serif leading-none text-lg sm:text-xl md:text-lg lg:text-lg">•</span>
                   <span>Stabilité et continuité de l&apos;équipe</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-tableau-blue mr-3 flex-shrink-0 font-serif leading-none text-lg sm:text-xl">•</span>
+                  <span className="text-tableau-blue mr-3 flex-shrink-0 font-serif leading-none text-lg sm:text-xl md:text-lg lg:text-lg">•</span>
                   <span>Performance optimale</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-tableau-blue mr-3 flex-shrink-0 font-serif leading-none text-lg sm:text-xl">•</span>
+                  <span className="text-tableau-blue mr-3 flex-shrink-0 font-serif leading-none text-lg sm:text-xl md:text-lg lg:text-lg">•</span>
                   <span>Autonomie et indépendance</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-tableau-blue mr-3 flex-shrink-0 font-serif leading-none text-lg sm:text-xl">•</span>
+                  <span className="text-tableau-blue mr-3 flex-shrink-0 font-serif leading-none text-lg sm:text-xl md:text-lg lg:text-lg">•</span>
                   <span>Absence de conflit d&apos;intérêt</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-tableau-blue mr-3 flex-shrink-0 font-serif leading-none text-lg sm:text-xl">•</span>
+                  <span className="text-tableau-blue mr-3 flex-shrink-0 font-serif leading-none text-lg sm:text-xl md:text-lg lg:text-lg">•</span>
                   <span>Discrétion et protection de la sphère privée</span>
                 </li>
               </ul>

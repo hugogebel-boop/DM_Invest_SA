@@ -8,13 +8,13 @@ export default function Contact() {
       <div className="py-10 sm:py-12 md:py-16 lg:py-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
           <AnimateOnScroll>
-            <h2 className="text-[40px] sm:text-3xl md:text-3xl lg:text-4xl xl:text-5xl font-serif text-ivory mb-12 sm:mb-12 md:mb-16 text-left font-normal tracking-tight">
+            <h2 className="text-[40px] sm:text-3xl md:text-3xl lg:text-4xl xl:text-5xl font-serif text-ivory mb-10 sm:mb-12 md:mb-14 text-left font-normal tracking-tight">
               Contact
             </h2>
           </AnimateOnScroll>
 
           <AnimateOnScroll delay={0.1}>
-            <div className="pl-4 sm:pl-6 md:pl-8 pr-4 sm:pr-6 md:pr-8 text-left space-y-3 sm:space-y-4 text-base sm:text-lg md:text-lg lg:text-xl text-ivory leading-relaxed">
+            <div className="pl-4 sm:pl-6 md:pl-8 pr-4 sm:pr-6 md:pr-8 text-left space-y-2.5 sm:space-y-3 text-base sm:text-lg md:text-lg lg:text-xl text-ivory leading-relaxed">
               <div>
                 <p className="font-serif mb-2 sm:mb-3 text-lg sm:text-xl md:text-xl lg:text-2xl">
                   <span className="text-dm-red">DM</span>{' '}

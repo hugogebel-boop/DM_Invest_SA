@@ -13,7 +13,7 @@ export default function manifest(): MetadataRoute.Manifest {
     theme_color: '#1d395e',
     icons: [
       {
-        src: '/assets/Logo/Logo DM Invest.png',
+        src: '/assets/Logo/Logo DM Invest White.png',
         sizes: 'any',
         type: 'image/png',
       },
