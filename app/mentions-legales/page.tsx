@@ -42,7 +42,7 @@ export default function MentionsLegales() {
         <h1 className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl xl:text-5xl font-serif text-dm-red mb-6 sm:mb-8 font-normal tracking-tight">
           Mentions légales
         </h1>
-        <div className="pl-4 sm:pl-6 md:pl-8 space-y-6 sm:space-y-8 text-sm sm:text-base md:text-base lg:text-base text-anthracite leading-relaxed">
+        <div className="pl-4 sm:pl-6 md:pl-8 space-y-6 sm:space-y-8 text-sm sm:text-base md:text-base lg:text-base text-anthracite leading-relaxed text-justify">
           {/* Propriétaire et Hébergement en deux colonnes */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 md:gap-12 lg:gap-16">
             <div>

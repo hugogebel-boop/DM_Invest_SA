@@ -13,7 +13,7 @@ export default function APropos() {
         </AnimateOnScroll>
 
         <AnimateOnScroll delay={0.1}>
-          <div className="pl-4 sm:pl-6 md:pl-8 space-y-5 sm:space-y-6 text-base sm:text-lg md:text-lg lg:text-xl text-anthracite leading-relaxed">
+          <div className="pl-4 sm:pl-6 md:pl-8 space-y-5 sm:space-y-6 text-base sm:text-lg md:text-lg lg:text-xl text-anthracite leading-relaxed text-justify">
           <p>
             DM Invest est une société suisse indépendante spécialisée dans la <span className="font-bold">gestion de fortune</span> dont le siège est à Lausanne.
           </p>
