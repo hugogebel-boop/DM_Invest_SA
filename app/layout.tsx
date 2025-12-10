@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from 'next'
 import './globals.css'
-import ThemeColor from './ThemeColor'
 import PreloadImages from '@/components/PreloadImages'
 
 export const metadata: Metadata = {
@@ -105,10 +104,6 @@ export default function RootLayout({
   return (
     <html lang="fr" className="scroll-smooth" style={{ margin: 0, padding: 0 }}>
       <head>
-        {/* Theme color meta tag */}
-        <meta name="theme-color" content="#1d395e" />
-        <meta name="theme-color" media="(prefers-color-scheme: light)" content="#1d395e" />
-        <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1d395e" />
         {/* Préchargement des images critiques - script inline pour un chargement immédiat */}
         <script
           dangerouslySetInnerHTML={{
@@ -152,7 +147,6 @@ export default function RootLayout({
       </head>
       <body className="bg-transparent" style={{ margin: 0, padding: 0 }}>
         <PreloadImages />
-        <ThemeColor />
         <main className="bg-transparent" style={{ margin: 0, padding: 0 }}>{children}</main>
       </body>
     </html>

@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { basePath, getAssetPath } from '@/lib/config'
+import { getAssetPath } from '@/lib/config'
 
 export default function Hero() {
   return (
@@ -63,7 +63,7 @@ export default function Hero() {
       <div className="fixed inset-0 flex flex-col justify-center items-center z-[10] pointer-events-none translate-y-52 sm:translate-y-0 md:translate-y-28 lg:translate-y-40 xl:translate-y-48" style={{ minHeight: '100svh', height: '100svh' }}>
         <div className="text-center px-4 sm:px-6 md:px-8 w-full max-w-5xl">
           {/* Titre */}
-          <h1 className="sm:text-3xl md:text-7xl lg:text-8xl xl:text-9xl font-serif text-dm-red font-normal tracking-tight mb-4 sm:mb-20 md:mb-24 lg:mb-28 px-4" style={{ fontSize: 'clamp(38px, 4vw, 42px)' }}>
+          <h1 className="text-[38px] sm:text-3xl md:text-7xl lg:text-8xl xl:text-9xl font-serif text-dm-red font-normal tracking-tight mb-4 sm:mb-20 md:mb-24 lg:mb-28 px-4">
             Gestion de fortune
           </h1>
 
