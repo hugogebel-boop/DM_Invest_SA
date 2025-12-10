@@ -44,17 +44,17 @@ export default function Hero() {
       </div>
 
       {/* Titre et flèche fixes avec le fond */}
-      <div className="fixed inset-0 flex flex-col justify-center items-center z-[10] pointer-events-none md:translate-y-28 lg:translate-y-40 xl:translate-y-48">
+      <div className="fixed inset-0 flex flex-col justify-center items-center z-[10] pointer-events-none translate-y-52 sm:translate-y-0 md:translate-y-28 lg:translate-y-40 xl:translate-y-48">
         <div className="text-center px-4 sm:px-6 md:px-8 w-full max-w-5xl">
           {/* Titre */}
-          <h1 className="sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-serif text-dm-red font-normal tracking-tight mb-4 sm:mb-20 md:mb-24 lg:mb-28 px-4" style={{ fontSize: 'clamp(38px, 4vw, 42px)' }}>
+          <h1 className="sm:text-3xl md:text-7xl lg:text-8xl xl:text-9xl font-serif text-dm-red font-normal tracking-tight mb-4 sm:mb-20 md:mb-24 lg:mb-28 px-4" style={{ fontSize: 'clamp(38px, 4vw, 42px)' }}>
             Gestion de fortune
           </h1>
 
           {/* Flèche élégante vers le bas */}
           <div className="flex justify-center mt-4 sm:mt-6 md:mt-8">
             <svg
-              className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 text-dm-red"
+              className="w-5 h-5 sm:w-6 sm:h-6 md:w-10 md:h-10 lg:w-12 lg:h-12 text-dm-red"
               fill="none"
               strokeLinecap="round"
               strokeLinejoin="round"

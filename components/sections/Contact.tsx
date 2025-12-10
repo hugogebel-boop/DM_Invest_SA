@@ -8,7 +8,7 @@ export default function Contact() {
       <div className="py-10 sm:py-12 md:py-16 lg:py-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
           <AnimateOnScroll>
-            <h2 className="text-[40px] sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-serif text-white mb-12 sm:mb-12 md:mb-16 text-left font-normal tracking-tight">
+            <h2 className="text-[40px] sm:text-3xl md:text-3xl lg:text-4xl xl:text-5xl font-serif text-white mb-12 sm:mb-12 md:mb-16 text-left font-normal tracking-tight">
               Contact
             </h2>
           </AnimateOnScroll>
