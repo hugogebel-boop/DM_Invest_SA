@@ -3,7 +3,7 @@ import AnimateOnScroll from '@/components/AnimateOnScroll'
 export default function Introduction() {
   return (
     <section className="py-16 sm:py-20 md:py-24 lg:py-32 xl:py-40 bg-ivory">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
         <AnimateOnScroll>
           <div className="space-y-5 sm:space-y-6 text-base sm:text-lg md:text-lg lg:text-xl text-anthracite leading-relaxed">
             <p>

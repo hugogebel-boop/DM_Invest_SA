@@ -20,12 +20,12 @@ export default function Hero() {
         className="relative min-h-screen flex flex-col justify-start items-center"
         style={{
           margin: 0,
-          paddingTop: '80px',
+          paddingTop: '120px',
         }}
       >
-      <div className="relative z-10 text-center px-4 sm:px-6 md:px-8 w-full max-w-5xl mx-auto">
+      <div className="relative z-10 text-center px-4 sm:px-6 md:px-8 w-full max-w-4xl mx-auto">
         {/* Logo DM Invest */}
-        <div className="mb-24 sm:mb-32 md:mb-40 lg:mb-52 xl:mb-64">
+        <div className="mb-80 sm:mb-32 md:mb-40 lg:mb-52 xl:mb-64">
           <div className="flex justify-center">
             <Image
               src={getAssetPath("/assets/Logo/Logo DM Invest.png")}
@@ -39,7 +39,7 @@ export default function Hero() {
         </div>
 
         {/* Titre */}
-        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-serif text-dm-red font-normal tracking-tight mb-16 sm:mb-20 md:mb-24 lg:mb-28 px-4">
+        <h1 className="sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-serif text-dm-red font-normal tracking-tight mb-4 sm:mb-20 md:mb-24 lg:mb-28 px-4" style={{ fontSize: 'clamp(38px, 4vw, 42px)' }}>
           Gestion de fortune
         </h1>
 
