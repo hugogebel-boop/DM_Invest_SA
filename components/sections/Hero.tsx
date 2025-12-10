@@ -4,9 +4,19 @@ import { basePath, getAssetPath } from '@/lib/config'
 export default function Hero() {
   return (
     <>
-      {/* Fond fixe du tableau qui couvre toute la page */}
+      {/* Fond fixe du tableau mobile */}
       <div 
-        className="fixed inset-0 -z-10"
+        className="fixed inset-0 -z-10 sm:hidden"
+        style={{
+          backgroundImage: `url(${basePath}/assets/Tableau/Mountains-by-StephanHerrgott-2017-mobile.jpg)`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'top center',
+          backgroundAttachment: 'fixed',
+        }}
+      />
+      {/* Fond fixe du tableau desktop */}
+      <div 
+        className="hidden sm:block fixed inset-0 -z-10"
         style={{
           backgroundImage: `url(${basePath}/assets/Tableau/Mountains-by-StephanHerrgott-2017.jpg)`,
           backgroundSize: 'cover',
@@ -15,49 +25,57 @@ export default function Hero() {
         }}
       />
       
+      {/* Logo fixe - au-dessus de la peinture, en dessous du contenu */}
+      <div className="fixed inset-0 flex flex-col justify-start items-center z-[5] pointer-events-none" style={{ paddingTop: '120px' }}>
+        <div className="text-center px-4 sm:px-6 md:px-8 w-full max-w-4xl">
+          <div className="mb-80 sm:mb-32 md:mb-40 lg:mb-52 xl:mb-64">
+            <div className="flex justify-center">
+              <Image
+                src={getAssetPath("/assets/Logo/Logo DM Invest.png")}
+                alt="DM Invest SA - Logo - Gestion de fortune à Lausanne, Suisse"
+                width={400}
+                height={150}
+                className="w-auto h-16 sm:h-20 md:h-24 lg:h-28 xl:h-32 object-contain px-4"
+                priority
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Titre et flèche fixes avec le fond */}
+      <div className="fixed inset-0 flex flex-col justify-center items-center z-[10] pointer-events-none">
+        <div className="text-center px-4 sm:px-6 md:px-8 w-full max-w-4xl">
+          {/* Titre */}
+          <h1 className="sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-serif text-dm-red font-normal tracking-tight mb-4 sm:mb-20 md:mb-24 lg:mb-28 px-4" style={{ fontSize: 'clamp(38px, 4vw, 42px)' }}>
+            Gestion de fortune
+          </h1>
+
+          {/* Flèche élégante vers le bas */}
+          <div className="flex justify-center mt-4 sm:mt-6 md:mt-8">
+            <svg
+              className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 text-dm-red"
+              fill="none"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="1.5"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
+          </div>
+        </div>
+      </div>
+
       <section 
         id="accueil" 
-        className="relative min-h-screen flex flex-col justify-start items-center"
+        className="relative min-h-screen flex flex-col justify-start items-center z-[20]"
         style={{
           margin: 0,
           paddingTop: '120px',
         }}
       >
-      <div className="relative z-10 text-center px-4 sm:px-6 md:px-8 w-full max-w-4xl mx-auto">
-        {/* Logo DM Invest */}
-        <div className="mb-80 sm:mb-32 md:mb-40 lg:mb-52 xl:mb-64">
-          <div className="flex justify-center">
-            <Image
-              src={getAssetPath("/assets/Logo/Logo DM Invest.png")}
-              alt="DM Invest SA - Logo - Gestion de fortune à Lausanne, Suisse"
-              width={400}
-              height={150}
-              className="w-auto h-16 sm:h-20 md:h-24 lg:h-28 xl:h-32 object-contain px-4"
-              priority
-            />
-          </div>
-        </div>
-
-        {/* Titre */}
-        <h1 className="sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-serif text-dm-red font-normal tracking-tight mb-4 sm:mb-20 md:mb-24 lg:mb-28 px-4" style={{ fontSize: 'clamp(38px, 4vw, 42px)' }}>
-          Gestion de fortune
-        </h1>
-
-        {/* Flèche élégante vers le bas */}
-        <div className="flex justify-center mt-4 sm:mt-6 md:mt-8">
-          <svg
-            className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 text-dm-red"
-            fill="none"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="1.5"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-          </svg>
-        </div>
-      </div>
       </section>
     </>
   )

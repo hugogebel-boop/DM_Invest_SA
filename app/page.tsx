@@ -111,7 +111,7 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationData) }}
       />
       <Hero />
-      <div className="bg-ivory">
+      <div className="bg-ivory relative z-[20]">
         <Introduction />
         <Prestations />
         <APropos />
