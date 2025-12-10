@@ -14,7 +14,7 @@ export default function BanquesDepositaires() {
 
         {/* Liste des banques */}
         <AnimateOnScroll delay={0.1}>
-          <div className="pl-4 sm:pl-6 md:pl-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 sm:gap-8 md:gap-12 lg:gap-16">
+          <div className="pl-4 sm:pl-6 md:pl-8 pr-4 sm:pr-6 md:pr-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 sm:gap-8 md:gap-12 lg:gap-16">
           <div className="text-center">
             <div className="relative w-full aspect-[5/2] h-16 sm:h-20 md:h-24 bg-ivory flex items-center justify-center px-2 overflow-hidden">
               <Image

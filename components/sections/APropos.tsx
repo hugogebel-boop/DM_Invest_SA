@@ -13,7 +13,7 @@ export default function APropos() {
         </AnimateOnScroll>
 
         <AnimateOnScroll delay={0.1}>
-          <div className="pl-4 sm:pl-6 md:pl-8 space-y-5 sm:space-y-6 text-base sm:text-lg md:text-lg lg:text-xl text-anthracite leading-relaxed text-justify">
+          <div className="pl-4 sm:pl-6 md:pl-8 pr-4 sm:pr-6 md:pr-8 space-y-5 sm:space-y-6 text-base sm:text-lg md:text-lg lg:text-xl text-anthracite leading-relaxed text-justify">
           <p>
             DM Invest est une société suisse indépendante spécialisée dans la <span className="font-bold">gestion de fortune</span> dont le siège est à Lausanne.
           </p>
@@ -40,7 +40,7 @@ export default function APropos() {
 
         {/* Logos des organismes */}
         <AnimateOnScroll delay={0.2}>
-          <div className="pl-4 sm:pl-6 md:pl-8 mt-16 sm:mt-20 md:mt-24 lg:mt-32">
+          <div className="pl-4 sm:pl-6 md:pl-8 pr-4 sm:pr-6 md:pr-8 mt-16 sm:mt-20 md:mt-24 lg:mt-32">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-10 md:gap-12 lg:gap-16 items-center justify-items-center">
             <a
               href="https://www.vsv-asg.ch/fr/home"

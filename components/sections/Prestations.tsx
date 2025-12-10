@@ -10,7 +10,7 @@ export default function Prestations() {
           </h2>
         </AnimateOnScroll>
 
-        <div className="pl-4 sm:pl-6 md:pl-8 grid grid-cols-1 md:grid-cols-2 gap-10 sm:gap-12 md:gap-16 lg:gap-20">
+        <div className="pl-4 sm:pl-6 md:pl-8 pr-4 sm:pr-6 md:pr-8 grid grid-cols-1 md:grid-cols-2 gap-10 sm:gap-12 md:gap-16 lg:gap-20">
           {/* Mandat de gestion */}
           <AnimateOnScroll delay={0.1}>
             <div>

@@ -42,7 +42,7 @@ export default function MentionsLegales() {
         <h1 className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl xl:text-5xl font-serif text-dm-red mb-6 sm:mb-8 font-normal tracking-tight">
           Mentions légales
         </h1>
-        <div className="pl-4 sm:pl-6 md:pl-8 space-y-6 sm:space-y-8 text-sm sm:text-base md:text-base lg:text-base text-anthracite leading-relaxed text-justify">
+        <div className="pl-4 sm:pl-6 md:pl-8 pr-4 sm:pr-6 md:pr-8 space-y-6 sm:space-y-8 text-sm sm:text-base md:text-base lg:text-base text-anthracite leading-relaxed">
           {/* Propriétaire et Hébergement en deux colonnes */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 md:gap-12 lg:gap-16">
             <div>
@@ -85,7 +85,7 @@ export default function MentionsLegales() {
             <h2 className="text-xl sm:text-2xl md:text-2xl lg:text-3xl font-serif text-tableau-blue mb-3 sm:mb-4 font-normal">
               Webdesign, limites de responsabilités
             </h2>
-            <div className="space-y-4">
+            <div className="space-y-4 text-justify">
               <p>
                 Tania Secalin-Creative Boxes (ci-après &quot;TS-CB&quot;) a créé ce site internet dminvest.ch après commande du propriétaire mentionné ci-dessus.
               </p>
@@ -102,12 +102,12 @@ export default function MentionsLegales() {
             <h2 className="text-xl sm:text-2xl md:text-2xl lg:text-3xl font-serif text-tableau-blue mb-3 sm:mb-4 font-normal">
               MEDIA
             </h2>
-            <p>
+            <p className="text-justify">
               Les photographies sur le site dminvest.ch sont toutes propriété de dminvest.ch et sont DR. Les images illustrant le fond d&apos;écran sont le tableau de Stephan Herrgott no A010317 de la série &apos;Entre air et sur Terre&apos;, propriété de dminvest.ch.
             </p>
           </div>
 
-          <div>
+          <div className="text-justify">
             <p>
               CMS WordPress , theme Page Builder Framework.
             </p>
@@ -116,7 +116,7 @@ export default function MentionsLegales() {
             </p>
           </div>
 
-          <div className="pt-6 sm:pt-8">
+          <div className="pt-6 sm:pt-8 pb-12 sm:pb-16 md:pb-20 lg:pb-24">
             <Link href="/" className="text-dm-red underline hover:opacity-80 transition-opacity">
               Retour à l&apos;accueil
             </Link>
@@ -132,7 +132,7 @@ export default function MentionsLegales() {
             <h2 className="text-[40px] sm:text-3xl md:text-3xl lg:text-4xl xl:text-5xl font-serif text-ivory mb-12 sm:mb-12 md:mb-16 text-left font-normal tracking-tight">
               Contact
             </h2>
-            <div className="pl-4 sm:pl-6 md:pl-8 text-left space-y-3 sm:space-y-4 text-base sm:text-lg md:text-lg lg:text-xl text-ivory leading-relaxed">
+            <div className="pl-4 sm:pl-6 md:pl-8 pr-4 sm:pr-6 md:pr-8 text-left space-y-3 sm:space-y-4 text-base sm:text-lg md:text-lg lg:text-xl text-ivory leading-relaxed">
               <div>
                 <p className="font-serif mb-2 sm:mb-3 text-lg sm:text-xl md:text-xl lg:text-2xl">
                   <span className="text-dm-red">DM</span>{' '}
