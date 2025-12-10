@@ -25,7 +25,7 @@
     @apply text-anthracite font-sans antialiased;
     margin: 0 !important;
     padding: 0 !important;
-    background: transparent !important;
+    background: #1d395e !important;
     min-height: 100%;
     min-height: -webkit-fill-available;
     min-height: 100svh;

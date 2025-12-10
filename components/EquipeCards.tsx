@@ -47,7 +47,7 @@ export default function EquipeCards() {
       <AnimateOnScroll delay={0.1}>
         <div 
           ref={yvesCardRef}
-          className="bg-dm-red/[0.03] p-6 sm:p-8 md:p-10 flex flex-col sm:h-auto"
+          className="bg-dm-red/[0.03] p-6 sm:p-8 md:p-10 flex flex-col h-full"
         >
           <div className="mb-4 sm:mb-6 flex justify-center">
             <div className="relative w-full max-w-[160px] sm:max-w-[160px] md:max-w-[180px] aspect-[180/220] mx-auto overflow-hidden">
@@ -77,7 +77,7 @@ export default function EquipeCards() {
       {/* Michael Giller */}
       <AnimateOnScroll delay={0.2}>
         <div 
-          className="bg-dm-red/[0.03] p-6 sm:p-8 md:p-10 flex flex-col sm:h-auto"
+          className="bg-dm-red/[0.03] p-6 sm:p-8 md:p-10 flex flex-col h-full"
           style={cardStyle}
         >
           <div className="mb-4 sm:mb-6 flex justify-center">
@@ -106,7 +106,7 @@ export default function EquipeCards() {
       {/* Pierre Unternährer */}
       <AnimateOnScroll delay={0.3}>
         <div 
-          className="bg-dm-red/[0.03] p-6 sm:p-8 md:p-10 flex flex-col sm:h-auto"
+          className="bg-dm-red/[0.03] p-6 sm:p-8 md:p-10 flex flex-col h-full"
           style={cardStyle}
         >
           <div className="mb-4 sm:mb-6 flex justify-center">
@@ -135,7 +135,7 @@ export default function EquipeCards() {
       {/* Sandrine Lavanchy */}
       <AnimateOnScroll delay={0.4}>
         <div 
-          className="bg-dm-red/[0.03] p-6 sm:p-8 md:p-10 flex flex-col sm:h-auto"
+          className="bg-dm-red/[0.03] p-6 sm:p-8 md:p-10 flex flex-col h-full"
           style={cardStyle}
         >
           <div className="mb-4 sm:mb-6 flex justify-center">

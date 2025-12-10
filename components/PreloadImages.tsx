@@ -9,7 +9,7 @@ export default function PreloadImages() {
     // Ce script s'exécute dès le montage du composant pour un préchargement rapide
     const mobileImage = getAssetPath("/assets/Tableau/Mountains-by-StephanHerrgott-2017 - Mobile.jpg")
     const desktopImage = getAssetPath("/assets/Tableau/Mountains-by-StephanHerrgott-2017.jpg")
-    const logoImage = getAssetPath("/assets/Logo/Logo DM Invest.png")
+    const logoImage = getAssetPath("/assets/Logo/Logo DM Invest White.png")
     const portraitYves = getAssetPath("/assets/Portrait/Yves.png")
     const portraitMike = getAssetPath("/assets/Portrait/Mike.png")
     const portraitPierre = getAssetPath("/assets/Portrait/Pierre.png")

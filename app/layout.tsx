@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from 'next'
 import './globals.css'
-import PreloadImages from '@/components/PreloadImages'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://dminvest.ch'),
@@ -95,7 +94,7 @@ export default function RootLayout({
   const basePath = isProduction ? '/DM_Invest_SA' : ''
   const mobileImage = `${basePath}/assets/Tableau/Mountains-by-StephanHerrgott-2017 - Mobile.jpg`
   const desktopImage = `${basePath}/assets/Tableau/Mountains-by-StephanHerrgott-2017.jpg`
-  const logoImage = `${basePath}/assets/Logo/Logo DM Invest.png`
+  const logoImage = `${basePath}/assets/Logo/Logo DM Invest White.png`
   const portraitYves = `${basePath}/assets/Portrait/Yves.png`
   const portraitMike = `${basePath}/assets/Portrait/Mike.png`
   const portraitPierre = `${basePath}/assets/Portrait/Pierre.png`
@@ -112,7 +111,7 @@ export default function RootLayout({
                 const basePath = '${basePath}';
                 const mobileImg = basePath + '/assets/Tableau/Mountains-by-StephanHerrgott-2017 - Mobile.jpg';
                 const desktopImg = basePath + '/assets/Tableau/Mountains-by-StephanHerrgott-2017.jpg';
-                const logoImg = basePath + '/assets/Logo/Logo DM Invest.png';
+                const logoImg = basePath + '/assets/Logo/Logo DM Invest White.png';
                 const portraitYves = basePath + '/assets/Portrait/Yves.png';
                 const portraitMike = basePath + '/assets/Portrait/Mike.png';
                 const portraitPierre = basePath + '/assets/Portrait/Pierre.png';
@@ -146,7 +145,6 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-transparent" style={{ margin: 0, padding: 0 }}>
-        <PreloadImages />
         <main className="bg-transparent" style={{ margin: 0, padding: 0 }}>{children}</main>
       </body>
     </html>
