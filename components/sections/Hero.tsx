@@ -4,6 +4,15 @@ import { basePath, getAssetPath } from '@/lib/config'
 export default function Hero() {
   return (
     <>
+      {/* Fond bleu derrière le tableau */}
+      <div 
+        className="fixed inset-0 -z-20"
+        style={{
+          backgroundColor: '#1d395e',
+          minHeight: '100svh',
+          height: '100svh',
+        }}
+      />
       {/* Fond fixe du tableau mobile */}
       <div 
         className="fixed inset-0 -z-10 sm:hidden overflow-hidden"

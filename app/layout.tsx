@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import './globals.css'
 import ThemeColor from './ThemeColor'
 import PreloadImages from '@/components/PreloadImages'
@@ -72,13 +72,14 @@ export const metadata: Metadata = {
   },
   category: 'Finance',
   classification: 'Gestion de fortune',
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 5,
-    userScalable: true,
-    viewportFit: 'cover',
-  },
+}
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+  viewportFit: 'cover',
   themeColor: '#1d395e',
 }
 
