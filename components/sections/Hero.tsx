@@ -10,7 +10,7 @@ export default function Hero() {
         style={{
           backgroundImage: `url(${encodeURI(getAssetPath("/assets/Tableau/Mountains-by-StephanHerrgott-2017 - Mobile.jpg"))})`,
           backgroundSize: 'cover',
-          backgroundPosition: 'center top',
+          backgroundPosition: 'left top',
           backgroundRepeat: 'no-repeat',
           backgroundAttachment: 'scroll',
           minHeight: '100svh',
@@ -30,7 +30,7 @@ export default function Hero() {
       />
       
       {/* Logo fixe - au-dessus de la peinture, en dessous du contenu */}
-      <div className="fixed inset-0 flex flex-col justify-start items-center z-[5] pointer-events-none" style={{ paddingTop: '100px', minHeight: '100svh', height: '100svh' }}>
+      <div className="fixed inset-0 flex flex-col justify-start items-center z-[5] pointer-events-none" style={{ paddingTop: '80px', minHeight: '100svh', height: '100svh' }}>
         <div className="text-center px-4 sm:px-6 md:px-8 w-full max-w-5xl">
           <div className="mb-80 sm:mb-32 md:mb-56 lg:mb-72 xl:mb-80">
             <div className="flex justify-center items-center">
