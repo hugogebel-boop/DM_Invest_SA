@@ -85,6 +85,10 @@ export default function RootLayout({
   const mobileImage = `${basePath}/assets/Tableau/Mountains-by-StephanHerrgott-2017 - Mobile.jpg`
   const desktopImage = `${basePath}/assets/Tableau/Mountains-by-StephanHerrgott-2017.jpg`
   const logoImage = `${basePath}/assets/Logo/Logo DM Invest.png`
+  const portraitYves = `${basePath}/assets/Portrait/Yves.png`
+  const portraitMike = `${basePath}/assets/Portrait/Mike.png`
+  const portraitPierre = `${basePath}/assets/Portrait/Pierre.png`
+  const portraitSandrine = `${basePath}/assets/Portrait/Sandrine.png`
 
   return (
     <html lang="fr" className="scroll-smooth" style={{ margin: 0, padding: 0 }}>
@@ -98,22 +102,33 @@ export default function RootLayout({
                 const mobileImg = basePath + '/assets/Tableau/Mountains-by-StephanHerrgott-2017 - Mobile.jpg';
                 const desktopImg = basePath + '/assets/Tableau/Mountains-by-StephanHerrgott-2017.jpg';
                 const logoImg = basePath + '/assets/Logo/Logo DM Invest.png';
+                const portraitYves = basePath + '/assets/Portrait/Yves.png';
+                const portraitMike = basePath + '/assets/Portrait/Mike.png';
+                const portraitPierre = basePath + '/assets/Portrait/Pierre.png';
+                const portraitSandrine = basePath + '/assets/Portrait/Sandrine.png';
                 
-                function addPreload(href, media) {
+                function addPreload(href, media, priority) {
                   if (!document.querySelector('link[href="' + href + '"]')) {
                     const link = document.createElement('link');
                     link.rel = 'preload';
                     link.as = 'image';
                     link.href = href;
-                    link.setAttribute('fetchpriority', 'high');
+                    link.setAttribute('fetchpriority', priority || 'high');
                     if (media) link.media = media;
                     document.head.appendChild(link);
                   }
                 }
                 
-                addPreload(mobileImg, '(max-width: 640px)');
-                addPreload(desktopImg, '(min-width: 641px)');
-                addPreload(logoImg);
+                // Images critiques (above the fold) - priorité haute
+                addPreload(mobileImg, '(max-width: 640px)', 'high');
+                addPreload(desktopImg, '(min-width: 641px)', 'high');
+                addPreload(logoImg, null, 'high');
+                
+                // Portraits de l'équipe - priorité moyenne pour préchargement anticipé
+                addPreload(portraitYves, null, 'auto');
+                addPreload(portraitMike, null, 'auto');
+                addPreload(portraitPierre, null, 'auto');
+                addPreload(portraitSandrine, null, 'auto');
               })();
             `,
           }}

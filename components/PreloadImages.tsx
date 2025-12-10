@@ -10,36 +10,34 @@ export default function PreloadImages() {
     const mobileImage = getAssetPath("/assets/Tableau/Mountains-by-StephanHerrgott-2017 - Mobile.jpg")
     const desktopImage = getAssetPath("/assets/Tableau/Mountains-by-StephanHerrgott-2017.jpg")
     const logoImage = getAssetPath("/assets/Logo/Logo DM Invest.png")
+    const portraitYves = getAssetPath("/assets/Portrait/Yves.png")
+    const portraitMike = getAssetPath("/assets/Portrait/Mike.png")
+    const portraitPierre = getAssetPath("/assets/Portrait/Pierre.png")
+    const portraitSandrine = getAssetPath("/assets/Portrait/Sandrine.png")
 
-    // Précharger les images immédiatement avec fetchpriority high
-    const linkMobile = document.createElement('link')
-    linkMobile.rel = 'preload'
-    linkMobile.as = 'image'
-    linkMobile.href = mobileImage
-    linkMobile.media = '(max-width: 640px)'
-    linkMobile.setAttribute('fetchpriority', 'high')
-    if (!document.querySelector(`link[href="${mobileImage}"]`)) {
-      document.head.appendChild(linkMobile)
+    // Fonction helper pour ajouter un preload
+    const addPreload = (href: string, media?: string, priority: string = 'high') => {
+      if (!document.querySelector(`link[href="${href}"]`)) {
+        const link = document.createElement('link')
+        link.rel = 'preload'
+        link.as = 'image'
+        link.href = href
+        link.setAttribute('fetchpriority', priority)
+        if (media) link.media = media
+        document.head.appendChild(link)
+      }
     }
 
-    const linkDesktop = document.createElement('link')
-    linkDesktop.rel = 'preload'
-    linkDesktop.as = 'image'
-    linkDesktop.href = desktopImage
-    linkDesktop.media = '(min-width: 641px)'
-    linkDesktop.setAttribute('fetchpriority', 'high')
-    if (!document.querySelector(`link[href="${desktopImage}"]`)) {
-      document.head.appendChild(linkDesktop)
-    }
+    // Images critiques (above the fold) - priorité haute
+    addPreload(mobileImage, '(max-width: 640px)', 'high')
+    addPreload(desktopImage, '(min-width: 641px)', 'high')
+    addPreload(logoImage, undefined, 'high')
 
-    const linkLogo = document.createElement('link')
-    linkLogo.rel = 'preload'
-    linkLogo.as = 'image'
-    linkLogo.href = logoImage
-    linkLogo.setAttribute('fetchpriority', 'high')
-    if (!document.querySelector(`link[href="${logoImage}"]`)) {
-      document.head.appendChild(linkLogo)
-    }
+    // Portraits de l'équipe - priorité auto pour préchargement anticipé
+    addPreload(portraitYves, undefined, 'auto')
+    addPreload(portraitMike, undefined, 'auto')
+    addPreload(portraitPierre, undefined, 'auto')
+    addPreload(portraitSandrine, undefined, 'auto')
   }, [])
 
   return null
