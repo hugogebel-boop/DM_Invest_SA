@@ -28,8 +28,8 @@ export default function Home() {
     name: 'DM Invest SA',
     description: 'Société suisse indépendante spécialisée dans la gestion de fortune depuis 1999',
     url: 'https://dminvest.ch',
-    logo: 'https://dminvest.ch/assets/Logo/Logo DM Invest.png',
-    image: 'https://dminvest.ch/assets/Logo/Logo DM Invest.png',
+    logo: 'https://dminvest.ch/assets/Logo/Logo DM Invest White.png',
+    image: 'https://dminvest.ch/assets/Logo/Logo DM Invest White.png',
     address: {
       '@type': 'PostalAddress',
       streetAddress: 'Rue du Grand-Chêne 6',
@@ -65,7 +65,7 @@ export default function Home() {
     '@type': 'Organization',
     name: 'DM Invest SA',
     url: 'https://dminvest.ch',
-    logo: 'https://dminvest.ch/assets/Logo/Logo DM Invest.png',
+    logo: 'https://dminvest.ch/assets/Logo/Logo DM Invest White.png',
     contactPoint: {
       '@type': 'ContactPoint',
       telephone: '+41-21-648-00-15',
