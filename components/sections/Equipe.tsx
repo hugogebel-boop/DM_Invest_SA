@@ -5,9 +5,9 @@ import { getAssetPath } from '@/lib/config'
 export default function Equipe() {
   return (
     <section className="py-16 sm:py-20 md:py-24 lg:py-32 xl:py-40 bg-ivory">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
         <AnimateOnScroll>
-          <h2 className="text-[40px] sm:text-3xl md:text-3xl lg:text-4xl xl:text-5xl font-serif text-dm-red mb-12 sm:mb-16 md:mb-20 lg:mb-24 text-left font-normal tracking-tight">
+          <h2 className="text-[40px] sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-serif text-dm-red mb-12 sm:mb-16 md:mb-20 lg:mb-24 text-left font-normal tracking-tight">
             Notre équipe
           </h2>
         </AnimateOnScroll>

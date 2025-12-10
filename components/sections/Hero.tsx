@@ -8,7 +8,7 @@ export default function Hero() {
       <div 
         className="fixed inset-0 -z-10 sm:hidden"
         style={{
-          backgroundImage: `url(${basePath}/assets/Tableau/Mountains-by-StephanHerrgott-2017-mobile.jpg)`,
+          backgroundImage: `url(${encodeURI(getAssetPath("/assets/Tableau/Mountains-by-StephanHerrgott-2017 - Mobile.jpg"))})`,
           backgroundSize: 'cover',
           backgroundPosition: 'top center',
           backgroundAttachment: 'fixed',
@@ -18,7 +18,7 @@ export default function Hero() {
       <div 
         className="hidden sm:block fixed inset-0 -z-10"
         style={{
-          backgroundImage: `url(${basePath}/assets/Tableau/Mountains-by-StephanHerrgott-2017.jpg)`,
+          backgroundImage: `url(${encodeURI(getAssetPath("/assets/Tableau/Mountains-by-StephanHerrgott-2017.jpg"))})`,
           backgroundSize: 'cover',
           backgroundPosition: 'top center',
           backgroundAttachment: 'fixed',
@@ -27,8 +27,8 @@ export default function Hero() {
       
       {/* Logo fixe - au-dessus de la peinture, en dessous du contenu */}
       <div className="fixed inset-0 flex flex-col justify-start items-center z-[5] pointer-events-none" style={{ paddingTop: '120px' }}>
-        <div className="text-center px-4 sm:px-6 md:px-8 w-full max-w-4xl">
-          <div className="mb-80 sm:mb-32 md:mb-40 lg:mb-52 xl:mb-64">
+        <div className="text-center px-4 sm:px-6 md:px-8 w-full max-w-5xl">
+          <div className="mb-80 sm:mb-32 md:mb-56 lg:mb-72 xl:mb-80">
             <div className="flex justify-center">
               <Image
                 src={getAssetPath("/assets/Logo/Logo DM Invest.png")}
@@ -44,10 +44,10 @@ export default function Hero() {
       </div>
 
       {/* Titre et flèche fixes avec le fond */}
-      <div className="fixed inset-0 flex flex-col justify-center items-center z-[10] pointer-events-none">
-        <div className="text-center px-4 sm:px-6 md:px-8 w-full max-w-4xl">
+      <div className="fixed inset-0 flex flex-col justify-center items-center z-[10] pointer-events-none md:translate-y-28 lg:translate-y-40 xl:translate-y-48">
+        <div className="text-center px-4 sm:px-6 md:px-8 w-full max-w-5xl">
           {/* Titre */}
-          <h1 className="sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-serif text-dm-red font-normal tracking-tight mb-4 sm:mb-20 md:mb-24 lg:mb-28 px-4" style={{ fontSize: 'clamp(38px, 4vw, 42px)' }}>
+          <h1 className="sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-serif text-dm-red font-normal tracking-tight mb-4 sm:mb-20 md:mb-24 lg:mb-28 px-4" style={{ fontSize: 'clamp(38px, 4vw, 42px)' }}>
             Gestion de fortune
           </h1>
 
