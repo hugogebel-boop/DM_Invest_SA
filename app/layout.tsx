@@ -5,7 +5,7 @@ import ScrollToTop from '@/components/ScrollToTop'
 export const metadata: Metadata = {
   metadataBase: new URL('https://dminvest.ch'),
   title: {
-    default: 'DM Invest SA | Gestion de Fortune | Lausanne, Suisse',
+    default: 'DM Invest SA',
     template: '%s | DM Invest SA'
   },
   description: 'DM Invest SA est une société suisse indépendante spécialisée dans la gestion de fortune depuis 1999. Basée à Lausanne, nous offrons des services de gestion de patrimoine personnalisés, transparents et éthiques. Licence FINMA.',

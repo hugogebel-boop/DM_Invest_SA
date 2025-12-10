@@ -8,7 +8,7 @@ import BanquesDepositaires from '@/components/sections/BanquesDepositaires'
 import Contact from '@/components/sections/Contact'
 
 export const metadata: Metadata = {
-  title: 'DM Invest SA | Gestion de Fortune | Lausanne, Suisse',
+  title: 'DM Invest SA',
   description: 'DM Invest SA est une société suisse indépendante spécialisée dans la gestion de fortune depuis 1999. Basée à Lausanne, nous offrons des services de gestion de patrimoine personnalisés, transparents et éthiques. Licence FINMA.',
   openGraph: {
     title: 'DM Invest SA | Gestion de Fortune | Lausanne, Suisse',
