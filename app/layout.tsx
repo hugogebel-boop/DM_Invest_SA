@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next'
 import './globals.css'
+import ScrollToTop from '@/components/ScrollToTop'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://dminvest.ch'),
@@ -146,6 +147,7 @@ export default function RootLayout({
       </head>
       <body className="bg-transparent" style={{ margin: 0, padding: 0 }}>
         <main className="bg-transparent" style={{ margin: 0, padding: 0 }}>{children}</main>
+        <ScrollToTop />
       </body>
     </html>
   )
