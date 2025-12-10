@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
+import { getAssetPath } from '@/lib/config'
 
 export const metadata: Metadata = {
   title: 'Mentions Légales',
@@ -21,49 +23,66 @@ export const metadata: Metadata = {
 
 export default function MentionsLegales() {
   return (
-    <section className="py-16 sm:py-20 md:py-24 lg:py-32 xl:py-40 bg-ivory">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
+    <section className="pt-16 sm:pt-20 md:pt-24 lg:pt-32 xl:pt-40 bg-ivory">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
+        {/* Logo en haut */}
+        <div className="mb-12 sm:mb-16 md:mb-20 flex justify-center">
+          <Link href="/" className="relative w-full max-w-[300px] sm:max-w-[350px] md:max-w-[400px] aspect-[400/150] h-12 sm:h-16 md:h-20 block">
+            <Image
+              src={getAssetPath("/assets/Logo/Logo DM Invest Black.png")}
+              alt="DM Invest SA - Logo"
+              width={400}
+              height={150}
+              className="w-full h-full object-contain"
+              priority
+            />
+          </Link>
+        </div>
+
         <h1 className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl xl:text-5xl font-serif text-dm-red mb-6 sm:mb-8 font-normal tracking-tight">
           Mentions légales
         </h1>
-        <div className="space-y-6 sm:space-y-8 text-base sm:text-lg md:text-lg lg:text-xl text-anthracite leading-relaxed">
-          <div>
-            <h2 className="text-xl sm:text-2xl md:text-2xl lg:text-3xl font-serif text-dm-red mb-3 sm:mb-4 font-normal">
-              Propriétaire du site &quot;dminvest.ch&quot;
-            </h2>
-            <div className="space-y-2">
-              <p>Yves Diserens</p>
-              <p>DM Invest SA</p>
-              <p>Rue du Grand-Chêne 6</p>
-              <p>1003 Lausanne</p>
-              <p>Suisse</p>
+        <div className="pl-4 sm:pl-6 md:pl-8 space-y-6 sm:space-y-8 text-sm sm:text-base md:text-base lg:text-base text-anthracite leading-relaxed">
+          {/* Propriétaire et Hébergement en deux colonnes */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 md:gap-12 lg:gap-16">
+            <div>
+              <h2 className="text-xl sm:text-2xl md:text-2xl lg:text-3xl font-serif text-tableau-blue mb-3 sm:mb-4 font-normal">
+                Propriétaire du site &quot;dminvest.ch&quot;
+              </h2>
+              <div className="space-y-1">
+                <p>Yves Diserens</p>
+                <p>DM Invest SA</p>
+                <p>Rue du Grand-Chêne 6</p>
+                <p>1003 Lausanne</p>
+                <p>Suisse</p>
+              </div>
+              <p className="mt-4">
+                <a href="tel:+41216480015" className="text-dm-red hover:opacity-80 transition-colors">
+                  +41 (0)21 648 00 15
+                </a>
+              </p>
             </div>
-            <p className="mt-4">
-              <a href="tel:+41216480015" className="text-dm-red hover:opacity-80 transition-colors">
-                +41 (0)21 648 00 15
-              </a>
-            </p>
+
+            <div>
+              <h2 className="text-xl sm:text-2xl md:text-2xl lg:text-3xl font-serif text-tableau-blue mb-3 sm:mb-4 font-normal">
+                Hébergement
+              </h2>
+              <div className="space-y-1">
+                <p>Infomaniak Network SA</p>
+                <p>Avenue de la Praille 26</p>
+                <p>1227 Genève</p>
+                <p>Suisse</p>
+              </div>
+              <p className="mt-4">
+                <a href="tel:+41228203544" className="text-dm-red hover:opacity-80 transition-colors">
+                  +41 22 820 35 44
+                </a>
+              </p>
+            </div>
           </div>
 
           <div>
-            <h2 className="text-xl sm:text-2xl md:text-2xl lg:text-3xl font-serif text-dm-red mb-3 sm:mb-4 font-normal">
-              Hébergement
-            </h2>
-            <div className="space-y-2">
-              <p>Infomaniak Network SA</p>
-              <p>Avenue de la Praille 26</p>
-              <p>1227 Genève</p>
-              <p>Suisse</p>
-            </div>
-            <p className="mt-4">
-              <a href="tel:+41228203544" className="text-dm-red hover:opacity-80 transition-colors">
-                +41 22 820 35 44
-              </a>
-            </p>
-          </div>
-
-          <div>
-            <h2 className="text-xl sm:text-2xl md:text-2xl lg:text-3xl font-serif text-dm-red mb-3 sm:mb-4 font-normal">
+            <h2 className="text-xl sm:text-2xl md:text-2xl lg:text-3xl font-serif text-tableau-blue mb-3 sm:mb-4 font-normal">
               Webdesign, limites de responsabilités
             </h2>
             <div className="space-y-4">
@@ -80,7 +99,7 @@ export default function MentionsLegales() {
           </div>
 
           <div>
-            <h2 className="text-xl sm:text-2xl md:text-2xl lg:text-3xl font-serif text-dm-red mb-3 sm:mb-4 font-normal">
+            <h2 className="text-xl sm:text-2xl md:text-2xl lg:text-3xl font-serif text-tableau-blue mb-3 sm:mb-4 font-normal">
               MEDIA
             </h2>
             <p>
@@ -101,6 +120,62 @@ export default function MentionsLegales() {
             <Link href="/" className="text-dm-red underline hover:opacity-80 transition-opacity">
               Retour à l&apos;accueil
             </Link>
+          </div>
+        </div>
+      </div>
+
+      {/* Footer intégré - même que page d'accueil */}
+      <div className="bg-tableau-blue text-ivory">
+        {/* Section Contact */}
+        <div className="py-10 sm:py-12 md:py-16 lg:py-20">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
+            <h2 className="text-[40px] sm:text-3xl md:text-3xl lg:text-4xl xl:text-5xl font-serif text-ivory mb-12 sm:mb-12 md:mb-16 text-left font-normal tracking-tight">
+              Contact
+            </h2>
+            <div className="pl-4 sm:pl-6 md:pl-8 text-left space-y-3 sm:space-y-4 text-base sm:text-lg md:text-lg lg:text-xl text-ivory leading-relaxed">
+              <div>
+                <p className="font-serif mb-2 sm:mb-3 text-lg sm:text-xl md:text-xl lg:text-2xl">
+                  <span className="text-dm-red">DM</span>{' '}
+                  <span className="text-ivory">Invest SA</span>
+                </p>
+                <p>Rue du Grand-Chêne 6</p>
+                <p>1003 Lausanne</p>
+                <p>Switzerland</p>
+              </div>
+              <div>
+                <p>
+                  <a href="tel:+41216480015" className="text-ivory hover:text-dm-red transition-colors duration-200 underline text-base sm:text-lg md:text-lg lg:text-xl">
+                    +41 (0)21 648 00 15
+                  </a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Footer intégré */}
+        <div className="py-5 sm:py-6 md:py-8">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
+            <div className="flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-6 text-xs sm:text-sm md:text-sm font-sans text-ivory">
+              <div className="text-center sm:text-left text-ivory">
+                Art by{' '}
+                <a
+                  href="https://www.stephan-herrgott.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-ivory hover:text-dm-red transition-colors duration-200"
+                >
+                  Stephan Herrgott
+                </a>{' '}
+                |{' '}
+                <Link href="/mentions-legales" className="text-ivory hover:text-dm-red transition-colors duration-200">
+                  Mentions Légales
+                </Link>
+              </div>
+              <div className="text-center sm:text-right">
+                © 1999-2025 - DM Invest SA
+              </div>
+            </div>
           </div>
         </div>
       </div>

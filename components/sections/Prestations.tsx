@@ -10,7 +10,7 @@ export default function Prestations() {
           </h2>
         </AnimateOnScroll>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 sm:gap-12 md:gap-16 lg:gap-20">
+        <div className="pl-4 sm:pl-6 md:pl-8 grid grid-cols-1 md:grid-cols-2 gap-10 sm:gap-12 md:gap-16 lg:gap-20">
           {/* Mandat de gestion */}
           <AnimateOnScroll delay={0.1}>
             <div>
@@ -19,23 +19,23 @@ export default function Prestations() {
               </h3>
               <ul className="space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-5 text-base sm:text-lg md:text-lg lg:text-xl text-anthracite leading-relaxed">
                 <li className="flex items-start">
-                  <span className="text-tableau-blue mr-3 mt-1.5 flex-shrink-0 font-serif leading-none text-lg sm:text-xl">•</span>
+                  <span className="text-tableau-blue mr-3 flex-shrink-0 font-serif leading-none text-lg sm:text-xl">•</span>
                   <span>Définition de la stratégie d&apos;investissement et du profil de risque personnalisé</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-tableau-blue mr-3 mt-1.5 flex-shrink-0 font-serif leading-none text-lg sm:text-xl">•</span>
+                  <span className="text-tableau-blue mr-3 flex-shrink-0 font-serif leading-none text-lg sm:text-xl">•</span>
                   <span>Gestion active et respectueuse des normes ESG</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-tableau-blue mr-3 mt-1.5 flex-shrink-0 font-serif leading-none text-lg sm:text-xl">•</span>
+                  <span className="text-tableau-blue mr-3 flex-shrink-0 font-serif leading-none text-lg sm:text-xl">•</span>
                   <span>Pricing adapté</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-tableau-blue mr-3 mt-1.5 flex-shrink-0 font-serif leading-none text-lg sm:text-xl">•</span>
+                  <span className="text-tableau-blue mr-3 flex-shrink-0 font-serif leading-none text-lg sm:text-xl">•</span>
                   <span>Consolidation globale des avoirs bancaires</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-tableau-blue mr-3 mt-1.5 flex-shrink-0 font-serif leading-none text-lg sm:text-xl">•</span>
+                  <span className="text-tableau-blue mr-3 flex-shrink-0 font-serif leading-none text-lg sm:text-xl">•</span>
                   <span>Analyse et gestion du risque</span>
                 </li>
               </ul>
@@ -50,27 +50,27 @@ export default function Prestations() {
               </h3>
               <ul className="space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-5 text-base sm:text-lg md:text-lg lg:text-xl text-anthracite leading-relaxed">
                 <li className="flex items-start">
-                  <span className="text-tableau-blue mr-3 mt-1.5 flex-shrink-0 font-serif leading-none text-lg sm:text-xl">•</span>
+                  <span className="text-tableau-blue mr-3 flex-shrink-0 font-serif leading-none text-lg sm:text-xl">•</span>
                   <span>Suivi personnalisé</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-tableau-blue mr-3 mt-1.5 flex-shrink-0 font-serif leading-none text-lg sm:text-xl">•</span>
+                  <span className="text-tableau-blue mr-3 flex-shrink-0 font-serif leading-none text-lg sm:text-xl">•</span>
                   <span>Stabilité et continuité de l&apos;équipe</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-tableau-blue mr-3 mt-1.5 flex-shrink-0 font-serif leading-none text-lg sm:text-xl">•</span>
+                  <span className="text-tableau-blue mr-3 flex-shrink-0 font-serif leading-none text-lg sm:text-xl">•</span>
                   <span>Performance optimale</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-tableau-blue mr-3 mt-1.5 flex-shrink-0 font-serif leading-none text-lg sm:text-xl">•</span>
+                  <span className="text-tableau-blue mr-3 flex-shrink-0 font-serif leading-none text-lg sm:text-xl">•</span>
                   <span>Autonomie et indépendance</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-tableau-blue mr-3 mt-1.5 flex-shrink-0 font-serif leading-none text-lg sm:text-xl">•</span>
+                  <span className="text-tableau-blue mr-3 flex-shrink-0 font-serif leading-none text-lg sm:text-xl">•</span>
                   <span>Absence de conflit d&apos;intérêt</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-tableau-blue mr-3 mt-1.5 flex-shrink-0 font-serif leading-none text-lg sm:text-xl">•</span>
+                  <span className="text-tableau-blue mr-3 flex-shrink-0 font-serif leading-none text-lg sm:text-xl">•</span>
                   <span>Discrétion et protection de la sphère privée</span>
                 </li>
               </ul>

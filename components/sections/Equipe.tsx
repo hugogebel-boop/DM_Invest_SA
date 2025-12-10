@@ -11,7 +11,9 @@ export default function Equipe() {
           </h2>
         </AnimateOnScroll>
 
-        <EquipeCards />
+        <div className="pl-4 sm:pl-6 md:pl-8">
+          <EquipeCards />
+        </div>
       </div>
     </section>
   )
