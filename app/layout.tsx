@@ -80,7 +80,10 @@ export const viewport: Viewport = {
   maximumScale: 5,
   userScalable: true,
   viewportFit: 'cover',
-  themeColor: '#1d395e',
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#1d395e' },
+    { media: '(prefers-color-scheme: dark)', color: '#1d395e' },
+  ],
 }
 
 export default function RootLayout({
@@ -102,6 +105,10 @@ export default function RootLayout({
   return (
     <html lang="fr" className="scroll-smooth" style={{ margin: 0, padding: 0 }}>
       <head>
+        {/* Theme color meta tag */}
+        <meta name="theme-color" content="#1d395e" />
+        <meta name="theme-color" media="(prefers-color-scheme: light)" content="#1d395e" />
+        <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1d395e" />
         {/* Préchargement des images critiques - script inline pour un chargement immédiat */}
         <script
           dangerouslySetInnerHTML={{
