@@ -111,8 +111,8 @@ export default function Hero() {
                 filter: 'drop-shadow(0 0 1px rgba(142, 54, 56, 0.3))'
               }}
             >
-              {/* Ligne verticale qui s'arrête au niveau de la flèche */}
-              <path d="M12 3v11" />
+              {/* Ligne verticale qui se connecte bien avec la flèche */}
+              <path d="M12 3v12.5" />
               {/* Flèche avec courbes arrondies style calligraphique Playfair Display - plus épaisse et arrondie */}
               <path d="M18 13.5l-6 6.5-6-6.5" />
             </svg>
