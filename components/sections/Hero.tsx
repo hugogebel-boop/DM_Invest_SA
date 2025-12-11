@@ -3,34 +3,67 @@
 import Image from 'next/image'
 import { getAssetPath } from '@/lib/config'
 import { useScroll } from '@/contexts/ScrollContext'
+import { useState, useEffect } from 'react'
 
 export default function Hero() {
   const { isScrolledPastHero } = useScroll()
+  const [isLandscape, setIsLandscape] = useState(false)
+  const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 0)
+  
+  // Détection de l'orientation et de la largeur pour mobile
+  useEffect(() => {
+    const checkOrientation = () => {
+      const width = window.innerWidth
+      setWindowWidth(width)
+      // Sur mobile (< 640px), on détecte l'orientation
+      if (width < 640) {
+        setIsLandscape(width > window.innerHeight)
+      } else {
+        setIsLandscape(false)
+      }
+    }
+    
+    checkOrientation()
+    window.addEventListener('resize', checkOrientation)
+    window.addEventListener('orientationchange', checkOrientation)
+    
+    return () => {
+      window.removeEventListener('resize', checkOrientation)
+      window.removeEventListener('orientationchange', checkOrientation)
+    }
+  }, [])
   
   // Z-index du tableau : -z-10 quand on est dans le hero, -z-20 quand on a scrollé (derrière le fond bleu)
   const tableauZIndex = isScrolledPastHero ? -20 : -10
 
   return (
     <>
-      {/* Fond fixe du tableau mobile */}
+      {/* Fond fixe du tableau mobile PORTRAIT - cover pour remplir exactement largeur ET hauteur avec zoom minimal */}
+      {/* Visible uniquement sur mobile portrait (< 640px et orientation portrait) */}
       <div 
         className="fixed inset-0 sm:hidden overflow-hidden"
         style={{
+          display: isLandscape ? 'none' : 'block',
+          backgroundColor: '#1d395e',
           backgroundImage: `url(${encodeURI(getAssetPath("/assets/Tableau/Mountains-by-StephanHerrgott-2017 - Mobile.jpg"))})`,
           backgroundSize: 'cover',
-          backgroundPosition: 'left top',
+          WebkitBackgroundSize: 'cover',
+          backgroundPosition: 'center top',
           backgroundRepeat: 'no-repeat',
           backgroundAttachment: 'scroll',
-          minHeight: '100svh',
-          height: '100svh',
+          minHeight: '100vh',
+          height: '100vh',
+          maxHeight: '100vh',
+          width: '100%',
           zIndex: tableauZIndex,
         }}
       />
-      {/* Fond fixe du tableau tablette - cover pour remplir exactement largeur ET hauteur avec zoom minimal */}
-      {/* Visible de 640px à 1279px (tablettes et iPhones en paysage) */}
+      {/* Fond fixe du tableau mobile PAYSAGE / tablette - cover pour remplir exactement largeur ET hauteur avec zoom minimal */}
+      {/* Visible sur mobile paysage (< 640px et orientation paysage) ET sur tablette (640px à 1279px) */}
       <div 
-        className="hidden sm:block xl:hidden fixed inset-0 overflow-hidden"
+        className="fixed inset-0 overflow-hidden xl:hidden"
         style={{
+          display: (isLandscape && windowWidth < 640) || (windowWidth >= 640 && windowWidth < 1280) ? 'block' : 'none',
           backgroundColor: '#1d395e',
           backgroundImage: `url(${encodeURI(getAssetPath("/assets/Tableau/Mountains-by-StephanHerrgott-2017 - Tablette.jpg"))})`,
           backgroundSize: 'cover',
