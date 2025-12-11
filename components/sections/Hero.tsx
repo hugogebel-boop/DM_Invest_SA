@@ -52,8 +52,10 @@ export default function Hero() {
   // Le fond bleu et le bouton rouge utilisent la même logique (isScrolledPastHero)
   // Sur mobile : le fond bleu ne passe devant que quand le bouton rouge apparaît (même condition)
   // Sur desktop/tablette : même logique
-  // Z-index du tableau : -z-10 quand on est dans le hero, -z-20 quand on a scrollé (derrière le fond bleu)
-  const tableauZIndex = isScrolledPastHero ? -20 : -10
+  // Z-index du tableau : 
+  // - Dans le hero : -5 (devant le fond bleu qui est à -25)
+  // - Après scroll : -20 (derrière le fond bleu qui est à 15)
+  const tableauZIndex = isScrolledPastHero ? -20 : -5
 
   return (
     <>
@@ -142,10 +144,13 @@ export default function Hero() {
       />
       
       {/* Overlay bleu qui passe devant le tableau et le texte du hero quand on scroll en bas */}
-      {/* Utilise la même logique que le bouton rouge : isScrolledPastHero */}
-      {/* Sur mobile : le fond bleu ne passe devant que quand le bouton rouge apparaît */}
+      {/* Utilise EXACTEMENT la même logique que le bouton rouge : isScrolledPastHero */}
+      {/* Changement instantané (sans transition) mais au même moment où le bouton s'active */}
+      {/* Dans le hero : z-index -25 (derrière le tableau à -5) et opacity 0 (invisible) */}
+      {/* Après scroll : z-index 15 (devant le tableau à -20) et opacity 1 (visible) */}
+      {/* Sur mobile : le fond bleu passe devant exactement quand le bouton rouge apparaît */}
       <div 
-        className="fixed inset-0 transition-opacity duration-300 pointer-events-none"
+        className="fixed inset-0 pointer-events-none"
         style={{
           backgroundColor: '#1d395e',
           zIndex: isScrolledPastHero ? 15 : -25,
