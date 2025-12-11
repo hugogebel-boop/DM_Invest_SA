@@ -82,6 +82,11 @@ export default function Hero() {
   // - Après scroll : -20 (derrière le fond bleu qui est à 15)
   // Utilisation de 10 pour garantir que le tableau soit toujours devant le fond bleu au chargement
   const tableauZIndex = isScrolledPastHero ? -20 : 10
+  
+  // Z-index du logo, texte et flèche : même logique que le tableau
+  // - Dans le hero (au chargement et avant scroll) : 20 (devant le tableau à 10)
+  // - Après scroll : -20 (derrière le fond bleu qui est à 15)
+  const heroContentZIndex = isScrolledPastHero ? -20 : 20
 
   return (
     <>
@@ -187,8 +192,8 @@ export default function Hero() {
       />
       
       {/* Logo fixe - au-dessus de la peinture, devant le tableau */}
-      {/* Z-index 20 pour être devant le tableau (z-index 10) */}
-      <div className="fixed inset-0 flex flex-col justify-start items-center pointer-events-none" style={{ paddingTop: '80px', minHeight: '100svh', height: '100svh', zIndex: 20 }}>
+      {/* Z-index dynamique : 20 dans le hero, -20 après scroll (derrière le fond bleu) */}
+      <div className="fixed inset-0 flex flex-col justify-start items-center pointer-events-none" style={{ paddingTop: '80px', minHeight: '100svh', height: '100svh', zIndex: heroContentZIndex }}>
         <div className="text-center px-4 sm:px-6 md:px-8 w-full max-w-5xl">
           <div className="mb-80 sm:mb-32 md:mb-56 lg:mb-72 xl:mb-80">
             <div className="flex justify-center items-center">
@@ -210,8 +215,8 @@ export default function Hero() {
       </div>
 
       {/* Titre et flèche fixes avec le fond - même niveau que le logo */}
-      {/* Z-index 20 comme le logo pour rester dans le hero uniquement */}
-      <div className="fixed inset-0 flex flex-col justify-center items-center pointer-events-none translate-y-52 sm:translate-y-0 md:translate-y-28 lg:translate-y-40 xl:translate-y-48" style={{ minHeight: '100svh', height: '100svh', zIndex: 20 }}>
+      {/* Z-index dynamique : 20 dans le hero, -20 après scroll (derrière le fond bleu) */}
+      <div className="fixed inset-0 flex flex-col justify-center items-center pointer-events-none translate-y-52 sm:translate-y-0 md:translate-y-28 lg:translate-y-40 xl:translate-y-48" style={{ minHeight: '100svh', height: '100svh', zIndex: heroContentZIndex }}>
         <div className="text-center px-4 sm:px-6 md:px-8 w-full max-w-5xl">
           {/* Titre */}
           <h1 className="text-[38px] sm:text-3xl md:text-5xl lg:text-6xl xl:text-6xl font-serif text-dm-red font-normal tracking-tight mb-4 sm:mb-20 md:mb-24 lg:mb-28 px-4">
