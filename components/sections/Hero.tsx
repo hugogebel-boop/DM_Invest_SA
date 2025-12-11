@@ -17,11 +17,11 @@ export default function Hero() {
           height: '100svh',
         }}
       />
-      {/* Fond fixe du tableau tablette (même approche que mobile) */}
+      {/* Fond fixe du tableau tablette (utilise l'image mobile pour éviter le zoom) */}
       <div 
         className="hidden sm:block lg:hidden fixed inset-0 -z-10 overflow-hidden"
         style={{
-          backgroundImage: `url(${encodeURI(getAssetPath("/assets/Tableau/Mountains-by-StephanHerrgott-2017 - Tablette.jpg"))})`,
+          backgroundImage: `url(${encodeURI(getAssetPath("/assets/Tableau/Mountains-by-StephanHerrgott-2017 - Mobile.jpg"))})`,
           backgroundSize: 'cover',
           backgroundPosition: 'left top',
           backgroundRepeat: 'no-repeat',
@@ -72,18 +72,25 @@ export default function Hero() {
             Gestion de fortune
           </h1>
 
-          {/* Flèche élégante vers le bas */}
+          {/* Flèche élégante vers le bas - style Playfair Display avec courbes calligraphiques */}
           <div className="flex justify-center mt-4 sm:mt-6 md:mt-8">
             <svg
               className="w-5 h-5 sm:w-6 sm:h-6 md:w-10 md:h-10 lg:w-12 lg:h-12 text-dm-red"
               fill="none"
               strokeLinecap="round"
               strokeLinejoin="round"
-              strokeWidth="1.5"
+              strokeWidth="1.2"
               viewBox="0 0 24 24"
               stroke="currentColor"
+              style={{ 
+                fontFamily: 'Playfair Display, serif',
+                filter: 'drop-shadow(0 0 0.5px rgba(142, 54, 56, 0.2))'
+              }}
             >
-              <path d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+              {/* Ligne verticale avec transition douce */}
+              <path d="M12 3v18" />
+              {/* Flèche avec courbes arrondies style calligraphique Playfair Display */}
+              <path d="M19 14l-7 7m0 0l-7-7" />
             </svg>
           </div>
         </div>

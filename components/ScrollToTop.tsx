@@ -1,14 +1,16 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import { usePathname } from 'next/navigation'
 
 export default function ScrollToTop() {
   const [isVisible, setIsVisible] = useState(false)
+  const pathname = usePathname()
 
   useEffect(() => {
     const toggleVisibility = () => {
-      // Vérifier si on a scrollé au-delà du hero (100vh)
-      if (window.scrollY > window.innerHeight) {
+      // Vérifier si on a scrollé au-delà du hero (100vh) et si on est sur la page d'accueil
+      if (window.scrollY > window.innerHeight && pathname === '/') {
         setIsVisible(true)
       } else {
         setIsVisible(false)
@@ -16,11 +18,12 @@ export default function ScrollToTop() {
     }
 
     window.addEventListener('scroll', toggleVisibility)
+    toggleVisibility() // Vérifier au chargement
 
     return () => {
       window.removeEventListener('scroll', toggleVisibility)
     }
-  }, [])
+  }, [pathname])
 
   const scrollToTop = () => {
     window.scrollTo({

@@ -74,28 +74,38 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: '/assets/Logo/favicon_io DM Invest/favicon-16x16.png',
+        url: process.env.NODE_ENV === 'production' 
+          ? '/DM_Invest_SA/assets/Logo/favicon_io DM Invest/favicon-16x16.png'
+          : '/assets/Logo/favicon_io DM Invest/favicon-16x16.png',
         sizes: '16x16',
         type: 'image/png',
       },
       {
-        url: '/assets/Logo/favicon_io DM Invest/favicon-32x32.png',
+        url: process.env.NODE_ENV === 'production'
+          ? '/DM_Invest_SA/assets/Logo/favicon_io DM Invest/favicon-32x32.png'
+          : '/assets/Logo/favicon_io DM Invest/favicon-32x32.png',
         sizes: '32x32',
         type: 'image/png',
       },
       {
-        url: '/assets/Logo/favicon_io DM Invest/favicon.ico',
+        url: process.env.NODE_ENV === 'production'
+          ? '/DM_Invest_SA/assets/Logo/favicon_io DM Invest/favicon.ico'
+          : '/assets/Logo/favicon_io DM Invest/favicon.ico',
         sizes: 'any',
       },
     ],
     shortcut: [
       {
-        url: '/assets/Logo/favicon_io DM Invest/favicon.ico',
+        url: process.env.NODE_ENV === 'production'
+          ? '/DM_Invest_SA/assets/Logo/favicon_io DM Invest/favicon.ico'
+          : '/assets/Logo/favicon_io DM Invest/favicon.ico',
       },
     ],
     apple: [
       {
-        url: '/assets/Logo/favicon_io DM Invest/apple-touch-icon.png',
+        url: process.env.NODE_ENV === 'production'
+          ? '/DM_Invest_SA/assets/Logo/favicon_io DM Invest/apple-touch-icon.png'
+          : '/assets/Logo/favicon_io DM Invest/apple-touch-icon.png',
         sizes: '180x180',
         type: 'image/png',
       },
@@ -131,10 +141,22 @@ export default function RootLayout({
   const portraitMike = `${basePath}/assets/Portrait/Mike.png`
   const portraitPierre = `${basePath}/assets/Portrait/Pierre.png`
   const portraitSandrine = `${basePath}/assets/Portrait/Sandrine.png`
+  
+  // Chemins des favicons avec basePath
+  const favicon16 = `${basePath}/assets/Logo/favicon_io DM Invest/favicon-16x16.png`
+  const favicon32 = `${basePath}/assets/Logo/favicon_io DM Invest/favicon-32x32.png`
+  const faviconIco = `${basePath}/assets/Logo/favicon_io DM Invest/favicon.ico`
+  const appleTouchIcon = `${basePath}/assets/Logo/favicon_io DM Invest/apple-touch-icon.png`
 
   return (
     <html lang="fr" className="scroll-smooth" data-scroll-behavior="smooth" style={{ margin: 0, padding: 0 }}>
       <head>
+        {/* Favicons avec basePath explicite */}
+        <link rel="icon" type="image/png" sizes="16x16" href={`${basePath}/assets/Logo/favicon_io DM Invest/favicon-16x16.png`} />
+        <link rel="icon" type="image/png" sizes="32x32" href={`${basePath}/assets/Logo/favicon_io DM Invest/favicon-32x32.png`} />
+        <link rel="icon" type="image/x-icon" href={`${basePath}/assets/Logo/favicon_io DM Invest/favicon.ico`} />
+        <link rel="shortcut icon" href={`${basePath}/assets/Logo/favicon_io DM Invest/favicon.ico`} />
+        <link rel="apple-touch-icon" sizes="180x180" href={`${basePath}/assets/Logo/favicon_io DM Invest/apple-touch-icon.png`} />
         {/* Préchargement des images critiques - script inline pour un chargement immédiat */}
         <script
           dangerouslySetInnerHTML={{
