@@ -132,12 +132,12 @@ export default function Hero() {
       />
       {/* Fond fixe du tableau tablette PAYSAGE - utilise contain pour iPad réel (Safari interprète cover différemment) */}
       {/* Visible uniquement sur tablette PAYSAGE (640px à 1279px et orientation paysage) */}
-      {/* Tableau utilisé : "Mountains-by-StephanHerrgott-2017 - Mobile.jpg" avec contain pour voir l'image entière sans zoom */}
+      {/* Tableau utilisé : "Mountains-by-StephanHerrgott-2017 - Tablette.jpg" avec contain pour voir l'image entière sans zoom */}
       <div 
         className={`fixed inset-0 overflow-hidden xl:hidden ${!isMounted || !(windowWidth > 0 && windowWidth >= 640 && windowWidth < 1280 && isTabletLandscape) ? 'hidden' : ''}`}
         style={{
           backgroundColor: '#1d395e',
-          backgroundImage: `url(${encodeURI(getAssetPath("/assets/Tableau/Mountains-by-StephanHerrgott-2017 - Mobile.jpg"))})`,
+          backgroundImage: `url(${encodeURI(getAssetPath("/assets/Tableau/Mountains-by-StephanHerrgott-2017 - Tablette.jpg"))})`,
           backgroundSize: 'contain',
           WebkitBackgroundSize: 'contain',
           backgroundPosition: 'center top',
