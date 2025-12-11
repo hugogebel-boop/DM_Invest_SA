@@ -22,10 +22,11 @@ export default function Hero() {
         className="hidden sm:block lg:hidden fixed inset-0 -z-10 overflow-hidden"
         style={{
           backgroundImage: `url(${encodeURI(getAssetPath("/assets/Tableau/Mountains-by-StephanHerrgott-2017.jpg"))})`,
-          backgroundSize: 'cover',
+          backgroundSize: 'contain', // éviter le zoom sur tablette
           backgroundPosition: 'center top',
           backgroundRepeat: 'no-repeat',
           backgroundAttachment: 'scroll',
+          backgroundColor: '#1d395e', // couleur de fond si bandes visibles
         }}
       />
       {/* Fond fixe du tableau desktop (garde l'effet parallax) */}

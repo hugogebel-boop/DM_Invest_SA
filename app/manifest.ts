@@ -11,6 +11,10 @@ export default function manifest(): MetadataRoute.Manifest {
   const isProduction = process.env.NODE_ENV === 'production'
   const basePath = isProduction ? '/DM_Invest_SA' : ''
   
+  const logoIcon = basePath
+    ? encodeURI(`${basePath}/assets/Logo/Logo DM Invest.png`)
+    : '/assets/Logo/Logo DM Invest.png'
+
   return {
     name: 'DM Invest SA - Gestion de Fortune',
     short_name: 'DM Invest',
@@ -23,7 +27,7 @@ export default function manifest(): MetadataRoute.Manifest {
       {
         // Le chemin doit inclure le basePath pour GitHub Pages
         // Next.js devrait l'appliquer automatiquement, mais on le met explicitement pour être sûr
-        src: basePath ? `${basePath}/assets/Logo/Logo DM Invest White.png` : '/assets/Logo/Logo DM Invest White.png',
+        src: logoIcon,
         sizes: 'any',
         type: 'image/png',
       },

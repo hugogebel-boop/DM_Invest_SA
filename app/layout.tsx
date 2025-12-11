@@ -71,6 +71,16 @@ export const metadata: Metadata = {
   },
   category: 'Finance',
   classification: 'Gestion de fortune',
+  icons: {
+    icon: [
+      {
+        url: 'https://dminvest.ch/assets/Logo/Logo%20DM%20Invest.png',
+        type: 'image/png',
+      },
+    ],
+    shortcut: ['https://dminvest.ch/assets/Logo/Logo%20DM%20Invest.png'],
+    apple: ['https://dminvest.ch/assets/Logo/Logo%20DM%20Invest.png'],
+  },
 }
 
 export const viewport: Viewport = {
