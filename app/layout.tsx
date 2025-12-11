@@ -74,12 +74,32 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: 'https://dminvest.ch/assets/Logo/Logo%20DM%20Invest.png',
+        url: '/assets/Logo/favicon_io DM Invest/favicon-16x16.png',
+        sizes: '16x16',
+        type: 'image/png',
+      },
+      {
+        url: '/assets/Logo/favicon_io DM Invest/favicon-32x32.png',
+        sizes: '32x32',
+        type: 'image/png',
+      },
+      {
+        url: '/assets/Logo/favicon_io DM Invest/favicon.ico',
+        sizes: 'any',
+      },
+    ],
+    shortcut: [
+      {
+        url: '/assets/Logo/favicon_io DM Invest/favicon.ico',
+      },
+    ],
+    apple: [
+      {
+        url: '/assets/Logo/favicon_io DM Invest/apple-touch-icon.png',
+        sizes: '180x180',
         type: 'image/png',
       },
     ],
-    shortcut: ['https://dminvest.ch/assets/Logo/Logo%20DM%20Invest.png'],
-    apple: ['https://dminvest.ch/assets/Logo/Logo%20DM%20Invest.png'],
   },
 }
 

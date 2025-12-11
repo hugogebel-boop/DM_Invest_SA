@@ -11,10 +11,6 @@ export default function manifest(): MetadataRoute.Manifest {
   const isProduction = process.env.NODE_ENV === 'production'
   const basePath = isProduction ? '/DM_Invest_SA' : ''
   
-  const logoIcon = basePath
-    ? encodeURI(`${basePath}/assets/Logo/Logo DM Invest.png`)
-    : '/assets/Logo/Logo DM Invest.png'
-
   return {
     name: 'DM Invest SA - Gestion de Fortune',
     short_name: 'DM Invest',
@@ -25,10 +21,17 @@ export default function manifest(): MetadataRoute.Manifest {
     theme_color: '#1d395e',
     icons: [
       {
-        // Le chemin doit inclure le basePath pour GitHub Pages
-        // Next.js devrait l'appliquer automatiquement, mais on le met explicitement pour être sûr
-        src: logoIcon,
-        sizes: 'any',
+        src: basePath 
+          ? `${basePath}/assets/Logo/favicon_io DM Invest/android-chrome-192x192.png`
+          : '/assets/Logo/favicon_io DM Invest/android-chrome-192x192.png',
+        sizes: '192x192',
+        type: 'image/png',
+      },
+      {
+        src: basePath
+          ? `${basePath}/assets/Logo/favicon_io DM Invest/android-chrome-512x512.png`
+          : '/assets/Logo/favicon_io DM Invest/android-chrome-512x512.png',
+        sizes: '512x512',
         type: 'image/png',
       },
     ],

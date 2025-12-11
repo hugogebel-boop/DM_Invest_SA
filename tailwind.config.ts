@@ -12,7 +12,7 @@ const config: Config = {
         // Palette DM Invest - 4 couleurs + blanc uniquement
         'dm-red': '#8E3638', // Rouge profond - signature (accents, titres, boutons, hover)
         'ivory': '#fcfbfe', // Fond principal (arrière-plans, sections)
-        'anthracite': '#1D1D1D', // Anthracite - texte principal + contraste (paragraphes, navigation, titres sombres)
+        'anthracite': '#0d1c2e', // Anthracite - texte principal + contraste (paragraphes, navigation, titres sombres)
         'tableau-blue': '#1d395e', // Bleu du tableau - accents et harmonie
         'white': '#FFFFFF', // Blanc
       },
