@@ -17,17 +17,18 @@ export default function Hero() {
           height: '100svh',
         }}
       />
-      {/* Fond fixe du tableau tablette (optimisé comme mobile) */}
+      {/* Fond fixe du tableau tablette (même approche que mobile) */}
       <div 
         className="hidden sm:block lg:hidden fixed inset-0 -z-10 overflow-hidden"
         style={{
           backgroundImage: `url(${encodeURI(getAssetPath("/assets/Tableau/Mountains-by-StephanHerrgott-2017 - Tablette.jpg"))})`,
           backgroundSize: 'cover',
-          backgroundPosition: 'center top',
+          backgroundPosition: 'left top',
           backgroundRepeat: 'no-repeat',
           backgroundAttachment: 'scroll',
           minHeight: '100svh',
           height: '100svh',
+          width: '100%',
         }}
       />
       {/* Fond fixe du tableau desktop (garde l'effet parallax) */}
