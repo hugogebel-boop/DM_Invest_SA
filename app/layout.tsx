@@ -186,9 +186,25 @@ export default function RootLayout({
                 }
                 
                 // Images critiques (above the fold) - priorité haute
-                addPreload(mobileImg, '(max-width: 640px)', 'high');
-                addPreload(tabletImg, '(min-width: 641px) and (max-width: 1023px)', 'high');
-                addPreload(desktopImg, '(min-width: 1024px)', 'high');
+                // Préchargement avec orientation (pour navigateurs modernes)
+                // Mobile portrait (< 640px, orientation portrait)
+                addPreload(mobileImg, '(max-width: 639px) and (orientation: portrait)', 'high');
+                // Mobile paysage (< 640px, orientation paysage) - utilise tableau tablette
+                addPreload(tabletImg, '(max-width: 639px) and (orientation: landscape)', 'high');
+                // Tablette portrait (640px à 1399px, orientation portrait)
+                addPreload(tabletImg, '(min-width: 640px) and (max-width: 1399px) and (orientation: portrait)', 'high');
+                // Tablette paysage (640px à 1399px, orientation paysage)
+                addPreload(tabletImg, '(min-width: 640px) and (max-width: 1399px) and (orientation: landscape)', 'high');
+                // Desktop (>= 1400px)
+                addPreload(desktopImg, '(min-width: 1400px)', 'high');
+                
+                // Préchargement de secours sans orientation (pour compatibilité)
+                // Le navigateur choisira la bonne image selon sa largeur
+                addPreload(mobileImg, '(max-width: 639px)', 'high');
+                addPreload(tabletImg, '(min-width: 640px) and (max-width: 1399px)', 'high');
+                addPreload(desktopImg, '(min-width: 1400px)', 'high');
+                
+                // Logo - tous devices, priorité maximale (sans media query)
                 addPreload(logoImg, null, 'high');
                 
                 // Portraits de l'équipe - priorité moyenne pour préchargement anticipé
