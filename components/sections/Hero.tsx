@@ -13,17 +13,24 @@ export default function Hero() {
   // Détection de l'orientation et de la largeur pour mobile
   useEffect(() => {
     const checkOrientation = () => {
+      if (typeof window === 'undefined') return
+      
       const width = window.innerWidth
+      const height = window.innerHeight
       setWindowWidth(width)
+      
       // Sur mobile (< 640px), on détecte l'orientation
       if (width < 640) {
-        setIsLandscape(width > window.innerHeight)
+        setIsLandscape(width > height)
       } else {
         setIsLandscape(false)
       }
     }
     
+    // Initialisation immédiate
     checkOrientation()
+    
+    // Écouteurs d'événements
     window.addEventListener('resize', checkOrientation)
     window.addEventListener('orientationchange', checkOrientation)
     
@@ -40,10 +47,11 @@ export default function Hero() {
     <>
       {/* Fond fixe du tableau mobile PORTRAIT - cover pour remplir exactement largeur ET hauteur avec zoom minimal */}
       {/* Visible uniquement sur mobile portrait (< 640px et orientation portrait) */}
+      {/* Tableau utilisé : "Mountains-by-StephanHerrgott-2017 - Mobile.jpg" */}
       <div 
         className="fixed inset-0 sm:hidden overflow-hidden"
         style={{
-          display: isLandscape ? 'none' : 'block',
+          display: (windowWidth === 0 || windowWidth >= 640 || isLandscape) ? 'none' : 'block',
           backgroundColor: '#1d395e',
           backgroundImage: `url(${encodeURI(getAssetPath("/assets/Tableau/Mountains-by-StephanHerrgott-2017 - Mobile.jpg"))})`,
           backgroundSize: 'cover',
@@ -60,10 +68,11 @@ export default function Hero() {
       />
       {/* Fond fixe du tableau mobile PAYSAGE / tablette - cover pour remplir exactement largeur ET hauteur avec zoom minimal */}
       {/* Visible sur mobile paysage (< 640px et orientation paysage) ET sur tablette (640px à 1279px) */}
+      {/* Tableau utilisé : "Mountains-by-StephanHerrgott-2017 - Tablette.jpg" */}
       <div 
         className="fixed inset-0 overflow-hidden xl:hidden"
         style={{
-          display: (isLandscape && windowWidth < 640) || (windowWidth >= 640 && windowWidth < 1280) ? 'block' : 'none',
+          display: (windowWidth > 0 && ((isLandscape && windowWidth < 640) || (windowWidth >= 640 && windowWidth < 1280))) ? 'block' : 'none',
           backgroundColor: '#1d395e',
           backgroundImage: `url(${encodeURI(getAssetPath("/assets/Tableau/Mountains-by-StephanHerrgott-2017 - Tablette.jpg"))})`,
           backgroundSize: 'cover',
@@ -80,9 +89,11 @@ export default function Hero() {
       />
       {/* Fond fixe du tableau desktop - cover pour remplir exactement largeur ET hauteur avec zoom minimal */}
       {/* Visible à partir de 1280px uniquement (vrais écrans desktop) */}
+      {/* Tableau utilisé : "Mountains-by-StephanHerrgott-2017.jpg" */}
       <div 
         className="hidden xl:block fixed inset-0 overflow-hidden"
         style={{
+          backgroundColor: '#1d395e',
           backgroundImage: `url(${encodeURI(getAssetPath("/assets/Tableau/Mountains-by-StephanHerrgott-2017.jpg"))})`,
           backgroundSize: 'cover',
           WebkitBackgroundSize: 'cover',
