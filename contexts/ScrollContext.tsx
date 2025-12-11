@@ -14,16 +14,24 @@ export function ScrollProvider({ children }: { children: ReactNode }) {
   const pathname = usePathname()
 
   useEffect(() => {
+    let ticking = false
+    
     const handleScroll = () => {
-      // Vérifier si on a scrollé au-delà du hero (100vh) et si on est sur la page d'accueil
-      if (window.scrollY > window.innerHeight && pathname === '/') {
-        setIsScrolledPastHero(true)
-      } else {
-        setIsScrolledPastHero(false)
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          // Vérifier si on a scrollé au-delà du hero (100vh) et si on est sur la page d'accueil
+          if (window.scrollY > window.innerHeight && pathname === '/') {
+            setIsScrolledPastHero(true)
+          } else {
+            setIsScrolledPastHero(false)
+          }
+          ticking = false
+        })
+        ticking = true
       }
     }
 
-    window.addEventListener('scroll', handleScroll)
+    window.addEventListener('scroll', handleScroll, { passive: true })
     handleScroll() // Vérifier au chargement
 
     return () => {
