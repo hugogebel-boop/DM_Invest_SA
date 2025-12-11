@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     description: 'DM Invest SA est une société suisse indépendante spécialisée dans la gestion de fortune depuis 1999. Basée à Lausanne, nous offrons des services de gestion de patrimoine personnalisés, transparents et éthiques.',
     images: [
       {
-        url: 'https://dminvest.ch/assets/Logo/Logo DM Invest White.png',
+        url: 'https://dminvest.ch/assets/webp/Logo DM Invest White.webp',
         width: 1200,
         height: 630,
         alt: 'DM Invest SA - Gestion de Fortune',
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'DM Invest SA | Gestion de Fortune | Lausanne, Suisse',
     description: 'DM Invest SA est une société suisse indépendante spécialisée dans la gestion de fortune depuis 1999.',
-    images: ['https://dminvest.ch/assets/Logo/Logo DM Invest White.png'],
+    images: ['https://dminvest.ch/assets/webp/Logo DM Invest White.webp'],
   },
   robots: {
     index: true,
@@ -134,14 +134,14 @@ export default function RootLayout({
   // Calcul des chemins d'images pour le préchargement (côté serveur)
   const isProduction = process.env.NODE_ENV === 'production'
   const basePath = isProduction ? '/DM_Invest_SA' : ''
-  const mobileImage = `${basePath}/assets/Tableau/Mountains-by-StephanHerrgott-2017 - Mobile.jpg`
-  const tabletImage = `${basePath}/assets/Tableau/Mountains-by-StephanHerrgott-2017 - Tablette.jpg`
-  const desktopImage = `${basePath}/assets/Tableau/Mountains-by-StephanHerrgott-2017.jpg`
-  const logoImage = `${basePath}/assets/Logo/Logo DM Invest White.png`
-  const portraitYves = `${basePath}/assets/Portrait/Yves.png`
-  const portraitMike = `${basePath}/assets/Portrait/Mike.png`
-  const portraitPierre = `${basePath}/assets/Portrait/Pierre.png`
-  const portraitSandrine = `${basePath}/assets/Portrait/Sandrine.png`
+  const mobileImage = `${basePath}/assets/webp/Mountains-by-StephanHerrgott-2017 - Mobile.webp`
+  const tabletImage = `${basePath}/assets/webp/Mountains-by-StephanHerrgott-2017 - Tablette.webp`
+  const desktopImage = `${basePath}/assets/webp/Mountains-by-StephanHerrgott-2017.webp`
+  const logoImage = `${basePath}/assets/webp/Logo DM Invest White.webp`
+  const portraitYves = `${basePath}/assets/webp/Yves.webp`
+  const portraitMike = `${basePath}/assets/webp/Mike.webp`
+  const portraitPierre = `${basePath}/assets/webp/Pierre.webp`
+  const portraitSandrine = `${basePath}/assets/webp/Sandrine.webp`
   
   // Chemins des favicons avec basePath
   const favicon16 = `${basePath}/assets/Logo/favicon_io DM Invest/favicon-16x16.png`
@@ -164,14 +164,14 @@ export default function RootLayout({
             __html: `
               (function() {
                 const basePath = '${basePath}';
-                const mobileImg = basePath + '/assets/Tableau/Mountains-by-StephanHerrgott-2017 - Mobile.jpg';
-                const tabletImg = basePath + '/assets/Tableau/Mountains-by-StephanHerrgott-2017 - Tablette.jpg';
-                const desktopImg = basePath + '/assets/Tableau/Mountains-by-StephanHerrgott-2017.jpg';
-                const logoImg = basePath + '/assets/Logo/Logo DM Invest White.png';
-                const portraitYves = basePath + '/assets/Portrait/Yves.png';
-                const portraitMike = basePath + '/assets/Portrait/Mike.png';
-                const portraitPierre = basePath + '/assets/Portrait/Pierre.png';
-                const portraitSandrine = basePath + '/assets/Portrait/Sandrine.png';
+                const mobileImg = basePath + '/assets/webp/Mountains-by-StephanHerrgott-2017 - Mobile.webp';
+                const tabletImg = basePath + '/assets/webp/Mountains-by-StephanHerrgott-2017 - Tablette.webp';
+                const desktopImg = basePath + '/assets/webp/Mountains-by-StephanHerrgott-2017.webp';
+                const logoImg = basePath + '/assets/webp/Logo DM Invest White.webp';
+                const portraitYves = basePath + '/assets/webp/Yves.webp';
+                const portraitMike = basePath + '/assets/webp/Mike.webp';
+                const portraitPierre = basePath + '/assets/webp/Pierre.webp';
+                const portraitSandrine = basePath + '/assets/webp/Sandrine.webp';
                 
                 function addPreload(href, media, priority) {
                   if (!document.querySelector('link[href="' + href + '"]')) {

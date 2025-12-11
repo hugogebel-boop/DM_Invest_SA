@@ -52,7 +52,7 @@ export default function EquipeCards() {
           <div className="mb-4 sm:mb-6 flex justify-center">
             <div className="relative w-full max-w-[160px] sm:max-w-[160px] md:max-w-[180px] aspect-[180/220] mx-auto overflow-hidden">
               <Image
-                src={getAssetPath("/assets/Portrait/Yves.png")}
+                src={getAssetPath("/assets/webp/Yves.webp")}
                 alt="Yves Diserens - Actionnaire et administrateur de DM Invest SA, Gestionnaire de fortune"
                 width={180}
                 height={220}
@@ -83,7 +83,7 @@ export default function EquipeCards() {
           <div className="mb-4 sm:mb-6 flex justify-center">
             <div className="relative w-full max-w-[160px] sm:max-w-[160px] md:max-w-[180px] aspect-[180/220] mx-auto overflow-hidden">
               <Image
-                src={getAssetPath("/assets/Portrait/Mike.png")}
+                src={getAssetPath("/assets/webp/Mike.webp")}
                 alt="Michael Giller - Administrateur et gestionnaire de fortune chez DM Invest SA"
                 width={180}
                 height={220}
@@ -112,7 +112,7 @@ export default function EquipeCards() {
           <div className="mb-4 sm:mb-6 flex justify-center">
             <div className="relative w-full max-w-[160px] sm:max-w-[160px] md:max-w-[180px] aspect-[180/220] mx-auto overflow-hidden">
               <Image
-                src={getAssetPath("/assets/Portrait/Pierre.png")}
+                src={getAssetPath("/assets/webp/Pierre.webp")}
                 alt="Pierre Unternährer - Administrateur et gestionnaire de fortune chez Saphir Invest SA"
                 width={180}
                 height={220}
@@ -141,7 +141,7 @@ export default function EquipeCards() {
           <div className="mb-4 sm:mb-6 flex justify-center">
             <div className="relative w-full max-w-[160px] sm:max-w-[160px] md:max-w-[180px] aspect-[180/220] mx-auto overflow-hidden">
               <Image
-                src={getAssetPath("/assets/Portrait/Sandrine.png")}
+                src={getAssetPath("/assets/webp/Sandrine.webp")}
                 alt="Sandrine Lavanchy - Assistante de gestion chez DM Invest SA"
                 width={180}
                 height={220}

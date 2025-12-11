@@ -102,12 +102,12 @@ export default function Hero() {
     <>
       {/* Fond fixe du tableau mobile PORTRAIT - cover pour remplir exactement largeur ET hauteur avec zoom minimal */}
       {/* Visible uniquement sur mobile portrait (< 640px et orientation portrait) */}
-      {/* Tableau utilisé : "Mountains-by-StephanHerrgott-2017 - Mobile.jpg" */}
+      {/* Tableau utilisé : "Mountains-by-StephanHerrgott-2017 - Mobile.webp" */}
       <div 
         className={`fixed inset-0 sm:hidden overflow-hidden ${!isMounted || windowWidth >= 640 || (windowWidth > 0 && isLandscape) ? 'hidden' : ''}`}
         style={{
           backgroundColor: '#1d395e',
-          backgroundImage: `url(${encodeURI(getAssetPath("/assets/Tableau/Mountains-by-StephanHerrgott-2017 - Mobile.jpg"))})`,
+          backgroundImage: `url(${encodeURI(getAssetPath("/assets/webp/Mountains-by-StephanHerrgott-2017 - Mobile.webp"))})`,
           backgroundSize: 'cover',
           WebkitBackgroundSize: 'cover',
           backgroundPosition: 'center top',
@@ -123,12 +123,12 @@ export default function Hero() {
       />
       {/* Fond fixe du tableau mobile PAYSAGE / tablette PORTRAIT */}
       {/* Visible sur mobile paysage (< 640px et orientation paysage) ET sur tablette PORTRAIT (640px à 1399px) */}
-      {/* Tableau utilisé : "Mountains-by-StephanHerrgott-2017 - Tablette.jpg" */}
+      {/* Tableau utilisé : "Mountains-by-StephanHerrgott-2017 - Tablette.webp" */}
       <div 
         className={`fixed inset-0 overflow-hidden xl:hidden ${!isMounted || !(windowWidth > 0 && ((isLandscape && windowWidth < 640) || (windowWidth >= 640 && windowWidth < 1400 && !isTabletLandscape))) ? 'hidden' : ''}`}
         style={{
           backgroundColor: '#1d395e',
-          backgroundImage: `url(${encodeURI(getAssetPath("/assets/Tableau/Mountains-by-StephanHerrgott-2017 - Tablette.jpg"))})`,
+          backgroundImage: `url(${encodeURI(getAssetPath("/assets/webp/Mountains-by-StephanHerrgott-2017 - Tablette.webp"))})`,
           backgroundSize: 'cover',
           WebkitBackgroundSize: 'cover',
           backgroundPosition: 'center top',
@@ -144,7 +144,7 @@ export default function Hero() {
       />
       {/* Fond fixe du tableau tablette PAYSAGE - Version spécifique pour Safari */}
       {/* Visible uniquement sur tablette PAYSAGE (640px à 1399px et orientation paysage) */}
-      {/* Tableau utilisé : "Mountains-by-StephanHerrgott-2017 - Tablette.jpg" */}
+      {/* Tableau utilisé : "Mountains-by-StephanHerrgott-2017 - Tablette.webp" */}
       {isMounted && windowWidth > 0 && windowWidth >= 640 && windowWidth < 1400 && isTabletLandscape && isSafari && (
         <div 
           className="fixed inset-0 overflow-hidden xl:hidden"
@@ -155,7 +155,7 @@ export default function Hero() {
         >
           {/* Version Safari : sans styles inline qui forcent la hauteur, laisse object-contain gérer */}
           <img
-            src={getAssetPath("/assets/Tableau/Mountains-by-StephanHerrgott-2017 - Tablette.jpg")}
+            src={getAssetPath("/assets/webp/Mountains-by-StephanHerrgott-2017 - Tablette.webp")}
             alt="Tableau de Stephan Herrgott"
             className="w-full h-full object-contain object-top"
             // Pas de styles inline pour Safari - laisse le conteneur parent gérer les dimensions
@@ -164,7 +164,7 @@ export default function Hero() {
       )}
       {/* Fond fixe du tableau tablette PAYSAGE - Version pour les autres navigateurs */}
       {/* Visible uniquement sur tablette PAYSAGE (640px à 1399px et orientation paysage) */}
-      {/* Tableau utilisé : "Mountains-by-StephanHerrgott-2017 - Tablette.jpg" */}
+      {/* Tableau utilisé : "Mountains-by-StephanHerrgott-2017 - Tablette.webp" */}
       {isMounted && windowWidth > 0 && windowWidth >= 640 && windowWidth < 1400 && isTabletLandscape && !isSafari && (
         <div 
           className="fixed inset-0 overflow-hidden xl:hidden"
@@ -175,7 +175,7 @@ export default function Hero() {
         >
           {/* Version autres navigateurs : avec styles inline pour compatibilité */}
           <img
-            src={getAssetPath("/assets/Tableau/Mountains-by-StephanHerrgott-2017 - Tablette.jpg")}
+            src={getAssetPath("/assets/webp/Mountains-by-StephanHerrgott-2017 - Tablette.webp")}
             alt="Tableau de Stephan Herrgott"
             className="w-full h-full object-contain object-top"
             style={{
@@ -189,12 +189,12 @@ export default function Hero() {
       )}
       {/* Fond fixe du tableau desktop - cover pour remplir exactement largeur ET hauteur avec zoom minimal */}
       {/* Visible à partir de 1400px uniquement (vrais écrans desktop) */}
-      {/* Tableau utilisé : "Mountains-by-StephanHerrgott-2017.jpg" */}
+      {/* Tableau utilisé : "Mountains-by-StephanHerrgott-2017.webp" */}
       <div 
         className="hidden xl:block fixed inset-0 overflow-hidden"
         style={{
           backgroundColor: '#1d395e',
-          backgroundImage: `url(${encodeURI(getAssetPath("/assets/Tableau/Mountains-by-StephanHerrgott-2017.jpg"))})`,
+          backgroundImage: `url(${encodeURI(getAssetPath("/assets/webp/Mountains-by-StephanHerrgott-2017.webp"))})`,
           backgroundSize: 'cover',
           WebkitBackgroundSize: 'cover',
           backgroundPosition: 'center top',
@@ -233,7 +233,7 @@ export default function Hero() {
             <div className="flex justify-center items-center">
               <div className="relative w-full max-w-[400px] md:max-w-[600px] lg:max-w-[700px] xl:max-w-[800px] aspect-[400/150] h-16 sm:h-20 md:h-36 lg:h-44 xl:h-52 px-4">
                 <Image
-                  src={getAssetPath("/assets/Logo/Logo DM Invest White.png")}
+                  src={getAssetPath("/assets/webp/Logo DM Invest White.webp")}
                   alt="DM Invest SA - Logo - Gestion de fortune à Lausanne, Suisse"
                   width={400}
                   height={150}

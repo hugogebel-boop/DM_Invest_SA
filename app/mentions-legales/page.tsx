@@ -29,7 +29,7 @@ export default function MentionsLegales() {
         <div className="mb-12 sm:mb-16 md:mb-20 flex justify-center">
           <Link href="/" className="relative w-full max-w-[300px] sm:max-w-[350px] md:max-w-[400px] aspect-[400/150] h-12 sm:h-16 md:h-20 block">
             <Image
-              src={getAssetPath("/assets/Logo/Logo DM Invest Black.png")}
+              src={getAssetPath("/assets/webp/Logo DM Invest Black.webp")}
               alt="DM Invest SA - Logo"
               width={400}
               height={150}
