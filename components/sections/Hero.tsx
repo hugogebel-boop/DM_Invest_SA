@@ -12,16 +12,22 @@ export default function Hero() {
   const [windowWidth, setWindowWidth] = useState(0)
   const [isMounted, setIsMounted] = useState(false)
   const [isIPad, setIsIPad] = useState(false)
+  const [isSafari, setIsSafari] = useState(false)
   
   // Éviter les erreurs d'hydratation : on ne rend les éléments conditionnels qu'après le montage
   useEffect(() => {
     setIsMounted(true)
-    // Détection spécifique d'iPad
+    // Détection spécifique d'iPad et Safari
     if (typeof window !== 'undefined' && typeof navigator !== 'undefined') {
       const userAgent = navigator.userAgent.toLowerCase()
       const isIPadDevice = /ipad/.test(userAgent) || 
         (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)
       setIsIPad(isIPadDevice)
+      
+      // Détection Safari (sur appareil mobile/tablette)
+      const isSafariBrowser = /^((?!chrome|android).)*safari/i.test(navigator.userAgent) ||
+        (!!navigator.vendor && navigator.vendor.indexOf('Apple') > -1)
+      setIsSafari(!!isSafariBrowser)
     }
   }, [])
   
@@ -136,10 +142,10 @@ export default function Hero() {
         }}
         suppressHydrationWarning
       />
-      {/* Fond fixe du tableau tablette PAYSAGE - utilise balise img pour iPad (Safari interprète background-image différemment) */}
+      {/* Fond fixe du tableau tablette PAYSAGE - Version spécifique pour Safari */}
       {/* Visible uniquement sur tablette PAYSAGE (640px à 1399px et orientation paysage) */}
-      {/* Tableau utilisé : "Mountains-by-StephanHerrgott-2017 - Tablette.jpg" avec object-contain pour éviter zoom excessif */}
-      {isMounted && windowWidth > 0 && windowWidth >= 640 && windowWidth < 1400 && isTabletLandscape && (
+      {/* Tableau utilisé : "Mountains-by-StephanHerrgott-2017 - Tablette.jpg" */}
+      {isMounted && windowWidth > 0 && windowWidth >= 640 && windowWidth < 1400 && isTabletLandscape && isSafari && (
         <div 
           className="fixed inset-0 overflow-hidden xl:hidden"
           style={{
@@ -147,6 +153,27 @@ export default function Hero() {
             zIndex: tableauZIndex,
           }}
         >
+          {/* Version Safari : sans styles inline qui forcent la hauteur, laisse object-contain gérer */}
+          <img
+            src={getAssetPath("/assets/Tableau/Mountains-by-StephanHerrgott-2017 - Tablette.jpg")}
+            alt="Tableau de Stephan Herrgott"
+            className="w-full h-full object-contain object-top"
+            // Pas de styles inline pour Safari - laisse le conteneur parent gérer les dimensions
+          />
+        </div>
+      )}
+      {/* Fond fixe du tableau tablette PAYSAGE - Version pour les autres navigateurs */}
+      {/* Visible uniquement sur tablette PAYSAGE (640px à 1399px et orientation paysage) */}
+      {/* Tableau utilisé : "Mountains-by-StephanHerrgott-2017 - Tablette.jpg" */}
+      {isMounted && windowWidth > 0 && windowWidth >= 640 && windowWidth < 1400 && isTabletLandscape && !isSafari && (
+        <div 
+          className="fixed inset-0 overflow-hidden xl:hidden"
+          style={{
+            backgroundColor: '#1d395e',
+            zIndex: tableauZIndex,
+          }}
+        >
+          {/* Version autres navigateurs : avec styles inline pour compatibilité */}
           <img
             src={getAssetPath("/assets/Tableau/Mountains-by-StephanHerrgott-2017 - Tablette.jpg")}
             alt="Tableau de Stephan Herrgott"
