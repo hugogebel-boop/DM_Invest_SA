@@ -17,16 +17,17 @@ export default function Hero() {
           height: '100svh',
         }}
       />
-      {/* Fond fixe du tableau tablette (scroll pour éviter le zoom) */}
+      {/* Fond fixe du tableau tablette (optimisé comme mobile) */}
       <div 
         className="hidden sm:block lg:hidden fixed inset-0 -z-10 overflow-hidden"
         style={{
-          backgroundImage: `url(${encodeURI(getAssetPath("/assets/Tableau/Mountains-by-StephanHerrgott-2017.jpg"))})`,
-          backgroundSize: 'contain', // éviter le zoom sur tablette
+          backgroundImage: `url(${encodeURI(getAssetPath("/assets/Tableau/Mountains-by-StephanHerrgott-2017 - Tablette.jpg"))})`,
+          backgroundSize: 'cover',
           backgroundPosition: 'center top',
           backgroundRepeat: 'no-repeat',
           backgroundAttachment: 'scroll',
-          backgroundColor: '#1d395e', // couleur de fond si bandes visibles
+          minHeight: '100svh',
+          height: '100svh',
         }}
       />
       {/* Fond fixe du tableau desktop (garde l'effet parallax) */}

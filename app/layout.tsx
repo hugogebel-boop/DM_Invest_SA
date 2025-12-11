@@ -124,6 +124,7 @@ export default function RootLayout({
   const isProduction = process.env.NODE_ENV === 'production'
   const basePath = isProduction ? '/DM_Invest_SA' : ''
   const mobileImage = `${basePath}/assets/Tableau/Mountains-by-StephanHerrgott-2017 - Mobile.jpg`
+  const tabletImage = `${basePath}/assets/Tableau/Mountains-by-StephanHerrgott-2017 - Tablette.jpg`
   const desktopImage = `${basePath}/assets/Tableau/Mountains-by-StephanHerrgott-2017.jpg`
   const logoImage = `${basePath}/assets/Logo/Logo DM Invest White.png`
   const portraitYves = `${basePath}/assets/Portrait/Yves.png`
@@ -141,6 +142,7 @@ export default function RootLayout({
               (function() {
                 const basePath = '${basePath}';
                 const mobileImg = basePath + '/assets/Tableau/Mountains-by-StephanHerrgott-2017 - Mobile.jpg';
+                const tabletImg = basePath + '/assets/Tableau/Mountains-by-StephanHerrgott-2017 - Tablette.jpg';
                 const desktopImg = basePath + '/assets/Tableau/Mountains-by-StephanHerrgott-2017.jpg';
                 const logoImg = basePath + '/assets/Logo/Logo DM Invest White.png';
                 const portraitYves = basePath + '/assets/Portrait/Yves.png';
@@ -162,7 +164,8 @@ export default function RootLayout({
                 
                 // Images critiques (above the fold) - priorité haute
                 addPreload(mobileImg, '(max-width: 640px)', 'high');
-                addPreload(desktopImg, '(min-width: 641px)', 'high');
+                addPreload(tabletImg, '(min-width: 641px) and (max-width: 1023px)', 'high');
+                addPreload(desktopImg, '(min-width: 1024px)', 'high');
                 addPreload(logoImg, null, 'high');
                 
                 // Portraits de l'équipe - priorité moyenne pour préchargement anticipé
