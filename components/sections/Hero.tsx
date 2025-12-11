@@ -10,6 +10,28 @@ export default function Hero() {
   const [isLandscape, setIsLandscape] = useState(false)
   const [isTabletLandscape, setIsTabletLandscape] = useState(false)
   const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 0)
+  const [shouldShowBlueOverlay, setShouldShowBlueOverlay] = useState(false)
+  
+  // Vérification locale pour garantir que le fond bleu reste derrière au chargement
+  // On vérifie directement la position du scroll pour éviter les problèmes de timing
+  useEffect(() => {
+    const checkScrollPosition = () => {
+      if (typeof window === 'undefined') return
+      // Vérifier explicitement si on a scrollé au-delà du hero
+      const scrolledPast = window.scrollY > window.innerHeight
+      setShouldShowBlueOverlay(scrolledPast)
+    }
+    
+    // Vérifier au montage
+    checkScrollPosition()
+    
+    // Écouter les changements de scroll
+    window.addEventListener('scroll', checkScrollPosition)
+    
+    return () => {
+      window.removeEventListener('scroll', checkScrollPosition)
+    }
+  }, [])
   
   // Détection de l'orientation et de la largeur pour mobile et tablette
   // Amélioration pour iPad : délai après orientationchange pour laisser le temps au viewport de se mettre à jour
@@ -68,14 +90,13 @@ export default function Hero() {
     }
   }, [])
   
-  // Le fond bleu et le bouton rouge utilisent la même logique (isScrolledPastHero)
-  // Sur mobile : le fond bleu ne passe devant que quand le bouton rouge apparaît (même condition)
-  // Sur desktop/tablette : même logique
+  // Le fond bleu utilise shouldShowBlueOverlay (vérification locale directe) pour garantir qu'il reste derrière au chargement
+  // Le bouton rouge utilise isScrolledPastHero (du contexte)
   // Z-index du tableau : 
-  // - Dans le hero (au chargement et avant scroll) : 1 (devant le fond bleu qui est à -25)
+  // - Dans le hero (au chargement et avant scroll) : 1 (devant le fond bleu qui est à -50)
   // - Après scroll : -20 (derrière le fond bleu qui est à 15)
-  // Utilisation de 1 (au lieu de 0) pour garantir que le tableau soit toujours devant le fond bleu au chargement
-  const tableauZIndex = isScrolledPastHero ? -20 : 1
+  // Utilisation de 1 pour garantir que le tableau soit toujours devant le fond bleu au chargement
+  const tableauZIndex = shouldShowBlueOverlay ? -20 : 1
 
   return (
     <>
@@ -164,20 +185,19 @@ export default function Hero() {
       />
       
       {/* Overlay bleu qui passe devant le tableau et le texte du hero quand on scroll en bas */}
-      {/* Utilise EXACTEMENT la même logique que le bouton rouge : isScrolledPastHero */}
+      {/* Utilise shouldShowBlueOverlay (vérification locale directe) pour garantir qu'il reste derrière au chargement */}
       {/* Changement instantané (sans transition) mais au même moment où le bouton s'active */}
       {/* Dans le hero (au chargement) : z-index -50 (très bas, derrière le tableau à 1) et opacity 0 + visibility hidden (invisible) */}
       {/* Après scroll : z-index 15 (devant le tableau à -20) et opacity 1 + visibility visible (visible) */}
-      {/* Sur mobile : le fond bleu passe devant exactement quand le bouton rouge apparaît */}
       {/* Garantit que le tableau est toujours visible au chargement sur tous les navigateurs, même en cas de problème de timing */}
       <div 
         className="fixed inset-0 pointer-events-none"
         style={{
           backgroundColor: '#1d395e',
-          zIndex: isScrolledPastHero ? 15 : -50,
-          opacity: isScrolledPastHero ? 1 : 0,
-          // Double sécurité : visibility hidden + opacity 0 pour garantir l'invisibilité au chargement
-          visibility: isScrolledPastHero ? 'visible' : 'hidden',
+          zIndex: shouldShowBlueOverlay ? 15 : -50,
+          opacity: shouldShowBlueOverlay ? 1 : 0,
+          // Triple sécurité : visibility hidden + opacity 0 + z-index très bas pour garantir l'invisibilité au chargement
+          visibility: shouldShowBlueOverlay ? 'visible' : 'hidden',
         }}
       />
       
