@@ -72,10 +72,10 @@ export default function Hero() {
   // Sur mobile : le fond bleu ne passe devant que quand le bouton rouge apparaît (même condition)
   // Sur desktop/tablette : même logique
   // Z-index du tableau : 
-  // - Dans le hero (au chargement et avant scroll) : 0 (devant le fond bleu qui est à -25)
+  // - Dans le hero (au chargement et avant scroll) : 1 (devant le fond bleu qui est à -25)
   // - Après scroll : -20 (derrière le fond bleu qui est à 15)
-  // Utilisation de 0 au lieu de -5 pour garantir la compatibilité sur tous les navigateurs
-  const tableauZIndex = isScrolledPastHero ? -20 : 0
+  // Utilisation de 1 (au lieu de 0) pour garantir que le tableau soit toujours devant le fond bleu au chargement
+  const tableauZIndex = isScrolledPastHero ? -20 : 1
 
   return (
     <>
@@ -166,17 +166,17 @@ export default function Hero() {
       {/* Overlay bleu qui passe devant le tableau et le texte du hero quand on scroll en bas */}
       {/* Utilise EXACTEMENT la même logique que le bouton rouge : isScrolledPastHero */}
       {/* Changement instantané (sans transition) mais au même moment où le bouton s'active */}
-      {/* Dans le hero (au chargement) : z-index -25 (derrière le tableau à 0) et opacity 0 (invisible) */}
-      {/* Après scroll : z-index 15 (devant le tableau à -20) et opacity 1 (visible) */}
+      {/* Dans le hero (au chargement) : z-index -50 (très bas, derrière le tableau à 1) et opacity 0 + visibility hidden (invisible) */}
+      {/* Après scroll : z-index 15 (devant le tableau à -20) et opacity 1 + visibility visible (visible) */}
       {/* Sur mobile : le fond bleu passe devant exactement quand le bouton rouge apparaît */}
-      {/* Garantit que le tableau est toujours visible au chargement sur tous les navigateurs */}
+      {/* Garantit que le tableau est toujours visible au chargement sur tous les navigateurs, même en cas de problème de timing */}
       <div 
         className="fixed inset-0 pointer-events-none"
         style={{
           backgroundColor: '#1d395e',
-          zIndex: isScrolledPastHero ? 15 : -25,
+          zIndex: isScrolledPastHero ? 15 : -50,
           opacity: isScrolledPastHero ? 1 : 0,
-          // Force l'opacity à 0 au chargement pour garantir la compatibilité
+          // Double sécurité : visibility hidden + opacity 0 pour garantir l'invisibilité au chargement
           visibility: isScrolledPastHero ? 'visible' : 'hidden',
         }}
       />
