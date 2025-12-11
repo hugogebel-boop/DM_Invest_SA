@@ -46,8 +46,9 @@ export default function Hero() {
         setIsLandscape(width > height)
         setIsTabletLandscape(false)
       } 
-      // Sur tablette (640px à 1279px), on détecte aussi l'orientation
-      else if (width >= 640 && width < 1280) {
+      // Sur tablette (640px à 1399px), on détecte aussi l'orientation
+      // Limite à 1400px pour inclure les grandes tablettes, mais seulement si c'est vraiment une tablette
+      else if (width >= 640 && width < 1400) {
         setIsLandscape(false)
         // Paysage = largeur strictement supérieure à la hauteur
         const isLandscapeMode = width > height
@@ -115,10 +116,10 @@ export default function Hero() {
         suppressHydrationWarning
       />
       {/* Fond fixe du tableau mobile PAYSAGE / tablette PORTRAIT */}
-      {/* Visible sur mobile paysage (< 640px et orientation paysage) ET sur tablette PORTRAIT (640px à 1279px) */}
+      {/* Visible sur mobile paysage (< 640px et orientation paysage) ET sur tablette PORTRAIT (640px à 1399px) */}
       {/* Tableau utilisé : "Mountains-by-StephanHerrgott-2017 - Tablette.jpg" */}
       <div 
-        className={`fixed inset-0 overflow-hidden xl:hidden ${!isMounted || !(windowWidth > 0 && ((isLandscape && windowWidth < 640) || (windowWidth >= 640 && windowWidth < 1280 && !isTabletLandscape))) ? 'hidden' : ''}`}
+        className={`fixed inset-0 overflow-hidden xl:hidden ${!isMounted || !(windowWidth > 0 && ((isLandscape && windowWidth < 640) || (windowWidth >= 640 && windowWidth < 1400 && !isTabletLandscape))) ? 'hidden' : ''}`}
         style={{
           backgroundColor: '#1d395e',
           backgroundImage: `url(${encodeURI(getAssetPath("/assets/Tableau/Mountains-by-StephanHerrgott-2017 - Tablette.jpg"))})`,
@@ -136,9 +137,9 @@ export default function Hero() {
         suppressHydrationWarning
       />
       {/* Fond fixe du tableau tablette PAYSAGE - utilise balise img pour iPad (Safari interprète background-image différemment) */}
-      {/* Visible uniquement sur tablette PAYSAGE (640px à 1279px et orientation paysage) */}
+      {/* Visible uniquement sur tablette PAYSAGE (640px à 1399px et orientation paysage) */}
       {/* Tableau utilisé : "Mountains-by-StephanHerrgott-2017 - Tablette.jpg" avec object-contain pour éviter zoom excessif */}
-      {isMounted && windowWidth > 0 && windowWidth >= 640 && windowWidth < 1280 && isTabletLandscape && (
+      {isMounted && windowWidth > 0 && windowWidth >= 640 && windowWidth < 1400 && isTabletLandscape && (
         <div 
           className="fixed inset-0 overflow-hidden xl:hidden"
           style={{
@@ -160,7 +161,7 @@ export default function Hero() {
         </div>
       )}
       {/* Fond fixe du tableau desktop - cover pour remplir exactement largeur ET hauteur avec zoom minimal */}
-      {/* Visible à partir de 1280px uniquement (vrais écrans desktop) */}
+      {/* Visible à partir de 1400px uniquement (vrais écrans desktop) */}
       {/* Tableau utilisé : "Mountains-by-StephanHerrgott-2017.jpg" */}
       <div 
         className="hidden xl:block fixed inset-0 overflow-hidden"
