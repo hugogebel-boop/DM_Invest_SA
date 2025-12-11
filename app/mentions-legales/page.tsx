@@ -25,9 +25,13 @@ export default function MentionsLegales() {
   return (
     <section className="pt-16 sm:pt-20 md:pt-24 lg:pt-32 xl:pt-40 bg-ivory">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
-        {/* Logo en haut */}
+        {/* Logo en haut - cliquable pour retour à l'accueil */}
         <div className="mb-12 sm:mb-16 md:mb-20 flex justify-center">
-          <Link href="/" className="relative w-full max-w-[300px] sm:max-w-[350px] md:max-w-[400px] aspect-[400/150] h-12 sm:h-16 md:h-20 block">
+          <Link 
+            href="/" 
+            className="relative w-full max-w-[300px] sm:max-w-[350px] md:max-w-[400px] aspect-[400/150] h-12 sm:h-16 md:h-20 block"
+            aria-label="Retour à l'accueil - DM Invest SA"
+          >
             <Image
               src={getAssetPath("/assets/webp/Logo DM Invest Black.webp")}
               alt="DM Invest SA - Logo"
