@@ -26,28 +26,21 @@ export default function Hero() {
           zIndex: tableauZIndex,
         }}
       />
-      {/* Fond fixe du tableau tablette - utilisation d'img native pour éviter les bugs Safari iPad */}
-      <div
-        className="hidden sm:block lg:hidden fixed inset-0 overflow-hidden flex items-start justify-center"
+      {/* Fond fixe du tableau tablette - même logique que mobile adaptée pour tablette */}
+      <div 
+        className="hidden sm:block lg:hidden fixed inset-0 overflow-hidden"
         style={{
+          backgroundImage: `url(${encodeURI(getAssetPath("/assets/Tableau/Mountains-by-StephanHerrgott-2017 - Tablette.jpg"))})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center top',
+          backgroundRepeat: 'no-repeat',
+          backgroundAttachment: 'scroll',
+          minHeight: '100svh',
+          height: '100svh',
           zIndex: tableauZIndex,
-          backgroundColor: '#1d395e',
-          pointerEvents: 'none',
         }}
-      >
-        <img
-          src={encodeURI(getAssetPath("/assets/Tableau/Mountains-by-StephanHerrgott-2017 - Tablette.jpg"))}
-          alt="Tableau de Stephan Herrgott"
-          className="w-full h-full object-contain object-top"
-          style={{
-            maxWidth: '100%',
-            maxHeight: '100%',
-            width: 'auto',
-            height: 'auto',
-          }}
-        />
-      </div>
-      {/* Fond fixe du tableau desktop (garde l'effet parallax) */}
+      />
+      {/* Fond fixe du tableau desktop - même logique que mobile adaptée pour desktop (avec parallax) */}
       <div 
         className="hidden lg:block fixed inset-0 overflow-hidden"
         style={{
@@ -56,6 +49,8 @@ export default function Hero() {
           backgroundPosition: 'center top',
           backgroundRepeat: 'no-repeat',
           backgroundAttachment: 'fixed',
+          minHeight: '100svh',
+          height: '100svh',
           zIndex: tableauZIndex,
         }}
       />
