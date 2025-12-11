@@ -3,12 +3,33 @@
 import Image from 'next/image'
 import { getAssetPath } from '@/lib/config'
 import { useScroll } from '@/contexts/ScrollContext'
+import { useState, useEffect } from 'react'
 
 export default function Hero() {
   const { isScrolledPastHero } = useScroll()
+  const [isLandscape, setIsLandscape] = useState(false)
+  
+  // Détection de l'orientation pour ajuster le backgroundSize en paysage
+  useEffect(() => {
+    const checkOrientation = () => {
+      setIsLandscape(window.innerWidth > window.innerHeight)
+    }
+    
+    checkOrientation()
+    window.addEventListener('resize', checkOrientation)
+    window.addEventListener('orientationchange', checkOrientation)
+    
+    return () => {
+      window.removeEventListener('resize', checkOrientation)
+      window.removeEventListener('orientationchange', checkOrientation)
+    }
+  }, [])
   
   // Z-index du tableau : -z-10 quand on est dans le hero, -z-20 quand on a scrollé (derrière le fond bleu)
   const tableauZIndex = isScrolledPastHero ? -20 : -10
+  
+  // BackgroundSize pour tablette : cover en portrait, 100% auto en paysage pour éviter le zoom excessif
+  const tabletBackgroundSize = isLandscape ? '100% auto' : 'cover'
 
   return (
     <>
@@ -26,15 +47,15 @@ export default function Hero() {
           zIndex: tableauZIndex,
         }}
       />
-      {/* Fond fixe du tableau tablette - cover pour remplir exactement largeur ET hauteur avec zoom minimal */}
+      {/* Fond fixe du tableau tablette - cover en portrait, 100% auto en paysage pour éviter le zoom excessif */}
       {/* Visible de 640px à 1279px (tablettes et iPhones en paysage) */}
       <div 
         className="hidden sm:block xl:hidden fixed inset-0 overflow-hidden"
         style={{
           backgroundColor: '#1d395e',
           backgroundImage: `url(${encodeURI(getAssetPath("/assets/Tableau/Mountains-by-StephanHerrgott-2017 - Tablette.jpg"))})`,
-          backgroundSize: 'cover',
-          WebkitBackgroundSize: 'cover',
+          backgroundSize: tabletBackgroundSize,
+          WebkitBackgroundSize: tabletBackgroundSize,
           backgroundPosition: 'center top',
           backgroundRepeat: 'no-repeat',
           backgroundAttachment: 'scroll',
