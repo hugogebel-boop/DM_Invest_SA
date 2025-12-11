@@ -12,12 +12,19 @@ export default function Hero() {
   const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 0)
   
   // Détection de l'orientation et de la largeur pour mobile et tablette
+  // Amélioration pour iPad : délai après orientationchange pour laisser le temps au viewport de se mettre à jour
   useEffect(() => {
     const checkOrientation = () => {
       if (typeof window === 'undefined') return
       
-      const width = window.innerWidth
-      const height = window.innerHeight
+      // Sur iPad, on attend un peu après orientationchange pour que le viewport se mette à jour
+      const getDimensions = () => {
+        const width = window.innerWidth
+        const height = window.innerHeight
+        return { width, height }
+      }
+      
+      const { width, height } = getDimensions()
       setWindowWidth(width)
       
       // Sur mobile (< 640px), on détecte l'orientation
@@ -28,7 +35,12 @@ export default function Hero() {
       // Sur tablette (640px à 1279px), on détecte aussi l'orientation
       else if (width >= 640 && width < 1280) {
         setIsLandscape(false)
-        setIsTabletLandscape(width > height)
+        // Pour iPad, on vérifie aussi avec screen.orientation si disponible
+        const isLandscapeMode = width > height || 
+          (typeof window.screen !== 'undefined' && 
+           typeof window.screen.orientation !== 'undefined' && 
+           window.screen.orientation.angle % 180 !== 0)
+        setIsTabletLandscape(isLandscapeMode)
       } 
       else {
         setIsLandscape(false)
@@ -41,11 +53,18 @@ export default function Hero() {
     
     // Écouteurs d'événements
     window.addEventListener('resize', checkOrientation)
-    window.addEventListener('orientationchange', checkOrientation)
+    
+    // Pour orientationchange, on attend un peu pour iPad
+    const handleOrientationChange = () => {
+      // Délai pour laisser le viewport se mettre à jour sur iPad
+      setTimeout(checkOrientation, 100)
+    }
+    
+    window.addEventListener('orientationchange', handleOrientationChange)
     
     return () => {
       window.removeEventListener('resize', checkOrientation)
-      window.removeEventListener('orientationchange', checkOrientation)
+      window.removeEventListener('orientationchange', handleOrientationChange)
     }
   }, [])
   
@@ -53,9 +72,10 @@ export default function Hero() {
   // Sur mobile : le fond bleu ne passe devant que quand le bouton rouge apparaît (même condition)
   // Sur desktop/tablette : même logique
   // Z-index du tableau : 
-  // - Dans le hero : -5 (devant le fond bleu qui est à -25)
+  // - Dans le hero (au chargement et avant scroll) : 0 (devant le fond bleu qui est à -25)
   // - Après scroll : -20 (derrière le fond bleu qui est à 15)
-  const tableauZIndex = isScrolledPastHero ? -20 : -5
+  // Utilisation de 0 au lieu de -5 pour garantir la compatibilité sur tous les navigateurs
+  const tableauZIndex = isScrolledPastHero ? -20 : 0
 
   return (
     <>
@@ -101,18 +121,18 @@ export default function Hero() {
           zIndex: tableauZIndex,
         }}
       />
-      {/* Fond fixe du tableau tablette PAYSAGE - utilise l'image desktop mieux adaptée au format paysage */}
+      {/* Fond fixe du tableau tablette PAYSAGE - utilise contain pour voir l'image entière sans zoom */}
       {/* Visible uniquement sur tablette PAYSAGE (640px à 1279px et orientation paysage) */}
-      {/* Tableau utilisé : "Mountains-by-StephanHerrgott-2017.jpg" (image desktop) */}
+      {/* Tableau utilisé : "Mountains-by-StephanHerrgott-2017 - Tablette.jpg" avec contain pour éviter le zoom */}
       <div 
         className="fixed inset-0 overflow-hidden xl:hidden"
         style={{
           display: (windowWidth > 0 && windowWidth >= 640 && windowWidth < 1280 && isTabletLandscape) ? 'block' : 'none',
           backgroundColor: '#1d395e',
-          backgroundImage: `url(${encodeURI(getAssetPath("/assets/Tableau/Mountains-by-StephanHerrgott-2017.jpg"))})`,
-          backgroundSize: 'cover',
-          WebkitBackgroundSize: 'cover',
-          backgroundPosition: 'center top',
+          backgroundImage: `url(${encodeURI(getAssetPath("/assets/Tableau/Mountains-by-StephanHerrgott-2017 - Tablette.jpg"))})`,
+          backgroundSize: 'contain',
+          WebkitBackgroundSize: 'contain',
+          backgroundPosition: 'center center',
           backgroundRepeat: 'no-repeat',
           backgroundAttachment: 'scroll',
           minHeight: '100vh',
@@ -146,15 +166,18 @@ export default function Hero() {
       {/* Overlay bleu qui passe devant le tableau et le texte du hero quand on scroll en bas */}
       {/* Utilise EXACTEMENT la même logique que le bouton rouge : isScrolledPastHero */}
       {/* Changement instantané (sans transition) mais au même moment où le bouton s'active */}
-      {/* Dans le hero : z-index -25 (derrière le tableau à -5) et opacity 0 (invisible) */}
+      {/* Dans le hero (au chargement) : z-index -25 (derrière le tableau à 0) et opacity 0 (invisible) */}
       {/* Après scroll : z-index 15 (devant le tableau à -20) et opacity 1 (visible) */}
       {/* Sur mobile : le fond bleu passe devant exactement quand le bouton rouge apparaît */}
+      {/* Garantit que le tableau est toujours visible au chargement sur tous les navigateurs */}
       <div 
         className="fixed inset-0 pointer-events-none"
         style={{
           backgroundColor: '#1d395e',
           zIndex: isScrolledPastHero ? 15 : -25,
           opacity: isScrolledPastHero ? 1 : 0,
+          // Force l'opacity à 0 au chargement pour garantir la compatibilité
+          visibility: isScrolledPastHero ? 'visible' : 'hidden',
         }}
       />
       
