@@ -17,15 +17,16 @@ export default function Hero() {
           height: '100svh',
         }}
       />
-      {/* Fond fixe du tableau tablette (utilise l'image mobile pour éviter le zoom) */}
+      {/* Fond fixe du tableau tablette - optimisé pour portrait et paysage */}
       <div 
         className="hidden sm:block lg:hidden fixed inset-0 -z-10 overflow-hidden"
         style={{
-          backgroundImage: `url(${encodeURI(getAssetPath("/assets/Tableau/Mountains-by-StephanHerrgott-2017 - Mobile.jpg"))})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'left top',
+          backgroundImage: `url(${encodeURI(getAssetPath("/assets/Tableau/Mountains-by-StephanHerrgott-2017 - Tablette.jpg"))})`,
+          backgroundSize: '100% auto',
+          backgroundPosition: 'center top',
           backgroundRepeat: 'no-repeat',
           backgroundAttachment: 'scroll',
+          backgroundColor: '#1d395e',
           minHeight: '100svh',
           height: '100svh',
           width: '100%',
