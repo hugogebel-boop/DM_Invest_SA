@@ -26,25 +26,26 @@ export default function Hero() {
           zIndex: tableauZIndex,
         }}
       />
-      {/* Fond fixe du tableau tablette - utilisation d'Image au lieu de background CSS pour éviter les bugs Safari iPad */}
+      {/* Fond fixe du tableau tablette - utilisation d'img native pour éviter les bugs Safari iPad */}
       <div
-        className="hidden sm:block lg:hidden fixed inset-0 overflow-hidden"
+        className="hidden sm:block lg:hidden fixed inset-0 overflow-hidden flex items-start justify-center"
         style={{
           zIndex: tableauZIndex,
           backgroundColor: '#1d395e',
           pointerEvents: 'none',
         }}
       >
-        <div className="relative w-full h-full">
-          <Image
-            src={getAssetPath("/assets/Tableau/Mountains-by-StephanHerrgott-2017 - Tablette.jpg")}
-            alt="Tableau de Stephan Herrgott"
-            fill
-            priority
-            sizes="100vw"
-            className="object-contain object-top"
-          />
-        </div>
+        <img
+          src={encodeURI(getAssetPath("/assets/Tableau/Mountains-by-StephanHerrgott-2017 - Tablette.jpg"))}
+          alt="Tableau de Stephan Herrgott"
+          className="w-full h-full object-contain object-top"
+          style={{
+            maxWidth: '100%',
+            maxHeight: '100%',
+            width: 'auto',
+            height: 'auto',
+          }}
+        />
       </div>
       {/* Fond fixe du tableau desktop (garde l'effet parallax) */}
       <div 
