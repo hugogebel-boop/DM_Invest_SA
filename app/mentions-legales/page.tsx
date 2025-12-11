@@ -31,6 +31,7 @@ export default function MentionsLegales() {
             href="/" 
             className="relative w-full max-w-[300px] sm:max-w-[350px] md:max-w-[400px] aspect-[400/150] h-12 sm:h-16 md:h-20 block"
             aria-label="Retour à l'accueil - DM Invest SA"
+            prefetch={false}
           >
             <Image
               src={getAssetPath("/assets/webp/Logo DM Invest Black.webp")}
@@ -121,7 +122,7 @@ export default function MentionsLegales() {
           </div>
 
           <div className="pt-6 sm:pt-8 pb-12 sm:pb-16 md:pb-20 lg:pb-24">
-            <Link href="/" className="text-dm-red underline hover:opacity-80 transition-opacity">
+            <Link href="/" className="text-dm-red underline hover:opacity-80 transition-opacity" prefetch={false}>
               Retour à l&apos;accueil
             </Link>
           </div>
@@ -172,7 +173,7 @@ export default function MentionsLegales() {
                   Stephan Herrgott
                 </a>{' '}
                 |{' '}
-                <Link href="/mentions-legales" className="text-ivory hover:text-dm-red transition-colors duration-200">
+                <Link href="/mentions-legales" className="text-ivory hover:text-dm-red transition-colors duration-200" prefetch={false}>
                   Mentions Légales
                 </Link>
               </div>
