@@ -45,18 +45,21 @@ export default function Hero() {
           zIndex: tableauZIndex,
         }}
       />
-      {/* Fond fixe du tableau desktop - même logique que mobile adaptée pour desktop (avec parallax) */}
+      {/* Fond fixe du tableau desktop - cover pour remplir exactement largeur ET hauteur avec zoom minimal */}
       {/* Visible à partir de 1280px uniquement (vrais écrans desktop) */}
       <div 
         className="hidden xl:block fixed inset-0 overflow-hidden"
         style={{
           backgroundImage: `url(${encodeURI(getAssetPath("/assets/Tableau/Mountains-by-StephanHerrgott-2017.jpg"))})`,
           backgroundSize: 'cover',
+          WebkitBackgroundSize: 'cover',
           backgroundPosition: 'center top',
           backgroundRepeat: 'no-repeat',
           backgroundAttachment: 'fixed',
           minHeight: '100svh',
           height: '100svh',
+          maxHeight: '100svh',
+          width: '100%',
           zIndex: tableauZIndex,
         }}
       />
