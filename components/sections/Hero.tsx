@@ -9,14 +9,12 @@ export default function Hero() {
   const { isScrolledPastHero } = useScroll()
   const [isLandscape, setIsLandscape] = useState(false)
   const [isTabletLandscape, setIsTabletLandscape] = useState(false)
-  const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 0)
-  // Utilisation directe de isScrolledPastHero pour synchronisation parfaite avec le bouton
-  // Vérification au montage pour garantir qu'on est dans le hero au chargement
+  const [windowWidth, setWindowWidth] = useState(0)
+  const [isMounted, setIsMounted] = useState(false)
+  
+  // Éviter les erreurs d'hydratation : on ne rend les éléments conditionnels qu'après le montage
   useEffect(() => {
-    if (typeof window !== 'undefined' && window.scrollY <= window.innerHeight) {
-      // Si on est dans le hero au chargement, s'assurer que le scroll est à 0
-      // (déjà géré par ScrollContext, mais on force ici pour être sûr)
-    }
+    setIsMounted(true)
   }, [])
   
   // Détection de l'orientation et de la largeur pour mobile et tablette
@@ -94,9 +92,8 @@ export default function Hero() {
       {/* Visible uniquement sur mobile portrait (< 640px et orientation portrait) */}
       {/* Tableau utilisé : "Mountains-by-StephanHerrgott-2017 - Mobile.jpg" */}
       <div 
-        className="fixed inset-0 sm:hidden overflow-hidden"
+        className={`fixed inset-0 sm:hidden overflow-hidden ${!isMounted || windowWidth >= 640 || (windowWidth > 0 && isLandscape) ? 'hidden' : ''}`}
         style={{
-          display: (windowWidth >= 640 || (windowWidth > 0 && isLandscape)) ? 'none' : 'block',
           backgroundColor: '#1d395e',
           backgroundImage: `url(${encodeURI(getAssetPath("/assets/Tableau/Mountains-by-StephanHerrgott-2017 - Mobile.jpg"))})`,
           backgroundSize: 'cover',
@@ -110,14 +107,14 @@ export default function Hero() {
           width: '100%',
           zIndex: tableauZIndex,
         }}
+        suppressHydrationWarning
       />
       {/* Fond fixe du tableau mobile PAYSAGE / tablette PORTRAIT */}
       {/* Visible sur mobile paysage (< 640px et orientation paysage) ET sur tablette PORTRAIT (640px à 1279px) */}
       {/* Tableau utilisé : "Mountains-by-StephanHerrgott-2017 - Tablette.jpg" */}
       <div 
-        className="fixed inset-0 overflow-hidden xl:hidden"
+        className={`fixed inset-0 overflow-hidden xl:hidden ${!isMounted || !(windowWidth > 0 && ((isLandscape && windowWidth < 640) || (windowWidth >= 640 && windowWidth < 1280 && !isTabletLandscape))) ? 'hidden' : ''}`}
         style={{
-          display: (windowWidth > 0 && ((isLandscape && windowWidth < 640) || (windowWidth >= 640 && windowWidth < 1280 && !isTabletLandscape))) ? 'block' : 'none',
           backgroundColor: '#1d395e',
           backgroundImage: `url(${encodeURI(getAssetPath("/assets/Tableau/Mountains-by-StephanHerrgott-2017 - Tablette.jpg"))})`,
           backgroundSize: 'cover',
@@ -131,14 +128,14 @@ export default function Hero() {
           width: '100%',
           zIndex: tableauZIndex,
         }}
+        suppressHydrationWarning
       />
       {/* Fond fixe du tableau tablette PAYSAGE - utilise l'image mobile avec cover (fonctionne mieux) */}
       {/* Visible uniquement sur tablette PAYSAGE (640px à 1279px et orientation paysage) */}
       {/* Tableau utilisé : "Mountains-by-StephanHerrgott-2017 - Mobile.jpg" avec cover pour éviter le zoom excessif */}
       <div 
-        className="fixed inset-0 overflow-hidden xl:hidden"
+        className={`fixed inset-0 overflow-hidden xl:hidden ${!isMounted || !(windowWidth > 0 && windowWidth >= 640 && windowWidth < 1280 && isTabletLandscape) ? 'hidden' : ''}`}
         style={{
-          display: (windowWidth > 0 && windowWidth >= 640 && windowWidth < 1280 && isTabletLandscape) ? 'block' : 'none',
           backgroundColor: '#1d395e',
           backgroundImage: `url(${encodeURI(getAssetPath("/assets/Tableau/Mountains-by-StephanHerrgott-2017 - Mobile.jpg"))})`,
           backgroundSize: 'cover',
@@ -152,6 +149,7 @@ export default function Hero() {
           width: '100%',
           zIndex: tableauZIndex,
         }}
+        suppressHydrationWarning
       />
       {/* Fond fixe du tableau desktop - cover pour remplir exactement largeur ET hauteur avec zoom minimal */}
       {/* Visible à partir de 1280px uniquement (vrais écrans desktop) */}
