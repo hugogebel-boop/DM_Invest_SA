@@ -1,12 +1,20 @@
+'use client'
+
 import Image from 'next/image'
 import { getAssetPath } from '@/lib/config'
+import { useScroll } from '@/contexts/ScrollContext'
 
 export default function Hero() {
+  const { isScrolledPastHero } = useScroll()
+  
+  // Z-index du tableau : -z-10 quand on est dans le hero, -z-20 quand on a scrollé (derrière le fond bleu)
+  const tableauZIndex = isScrolledPastHero ? -20 : -10
+
   return (
     <>
       {/* Fond fixe du tableau mobile */}
       <div 
-        className="fixed inset-0 -z-10 sm:hidden overflow-hidden"
+        className="fixed inset-0 sm:hidden overflow-hidden"
         style={{
           backgroundImage: `url(${encodeURI(getAssetPath("/assets/Tableau/Mountains-by-StephanHerrgott-2017 - Mobile.jpg"))})`,
           backgroundSize: 'cover',
@@ -15,11 +23,12 @@ export default function Hero() {
           backgroundAttachment: 'scroll',
           minHeight: '100svh',
           height: '100svh',
+          zIndex: tableauZIndex,
         }}
       />
       {/* Fond fixe du tableau tablette - optimisé pour portrait et paysage */}
       <div 
-        className="hidden sm:block lg:hidden fixed inset-0 -z-10 overflow-hidden"
+        className="hidden sm:block lg:hidden fixed inset-0 overflow-hidden"
         style={{
           backgroundImage: `url(${encodeURI(getAssetPath("/assets/Tableau/Mountains-by-StephanHerrgott-2017 - Tablette.jpg"))})`,
           backgroundSize: '100% auto',
@@ -30,17 +39,29 @@ export default function Hero() {
           minHeight: '100svh',
           height: '100svh',
           width: '100%',
+          zIndex: tableauZIndex,
         }}
       />
       {/* Fond fixe du tableau desktop (garde l'effet parallax) */}
       <div 
-        className="hidden lg:block fixed inset-0 -z-10 overflow-hidden"
+        className="hidden lg:block fixed inset-0 overflow-hidden"
         style={{
           backgroundImage: `url(${encodeURI(getAssetPath("/assets/Tableau/Mountains-by-StephanHerrgott-2017.jpg"))})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center top',
           backgroundRepeat: 'no-repeat',
           backgroundAttachment: 'fixed',
+          zIndex: tableauZIndex,
+        }}
+      />
+      
+      {/* Overlay bleu qui passe devant le tableau quand on scroll en bas */}
+      <div 
+        className="fixed inset-0 transition-opacity duration-300 pointer-events-none"
+        style={{
+          backgroundColor: '#1d395e',
+          zIndex: isScrolledPastHero ? -15 : -25,
+          opacity: isScrolledPastHero ? 1 : 0,
         }}
       />
       
