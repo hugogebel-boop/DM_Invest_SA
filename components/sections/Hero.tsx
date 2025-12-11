@@ -8,9 +8,10 @@ import { useState, useEffect } from 'react'
 export default function Hero() {
   const { isScrolledPastHero } = useScroll()
   const [isLandscape, setIsLandscape] = useState(false)
+  const [isTabletLandscape, setIsTabletLandscape] = useState(false)
   const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 0)
   
-  // Détection de l'orientation et de la largeur pour mobile
+  // Détection de l'orientation et de la largeur pour mobile et tablette
   useEffect(() => {
     const checkOrientation = () => {
       if (typeof window === 'undefined') return
@@ -22,8 +23,16 @@ export default function Hero() {
       // Sur mobile (< 640px), on détecte l'orientation
       if (width < 640) {
         setIsLandscape(width > height)
-      } else {
+        setIsTabletLandscape(false)
+      } 
+      // Sur tablette (640px à 1279px), on détecte aussi l'orientation
+      else if (width >= 640 && width < 1280) {
         setIsLandscape(false)
+        setIsTabletLandscape(width > height)
+      } 
+      else {
+        setIsLandscape(false)
+        setIsTabletLandscape(false)
       }
     }
     
@@ -40,6 +49,9 @@ export default function Hero() {
     }
   }, [])
   
+  // Le fond bleu et le bouton rouge utilisent la même logique (isScrolledPastHero)
+  // Sur mobile : le fond bleu ne passe devant que quand le bouton rouge apparaît (même condition)
+  // Sur desktop/tablette : même logique
   // Z-index du tableau : -z-10 quand on est dans le hero, -z-20 quand on a scrollé (derrière le fond bleu)
   const tableauZIndex = isScrolledPastHero ? -20 : -10
 
@@ -66,15 +78,36 @@ export default function Hero() {
           zIndex: tableauZIndex,
         }}
       />
-      {/* Fond fixe du tableau mobile PAYSAGE / tablette - cover pour remplir exactement largeur ET hauteur avec zoom minimal */}
-      {/* Visible sur mobile paysage (< 640px et orientation paysage) ET sur tablette (640px à 1279px) */}
+      {/* Fond fixe du tableau mobile PAYSAGE / tablette PORTRAIT */}
+      {/* Visible sur mobile paysage (< 640px et orientation paysage) ET sur tablette PORTRAIT (640px à 1279px) */}
       {/* Tableau utilisé : "Mountains-by-StephanHerrgott-2017 - Tablette.jpg" */}
       <div 
         className="fixed inset-0 overflow-hidden xl:hidden"
         style={{
-          display: (windowWidth > 0 && ((isLandscape && windowWidth < 640) || (windowWidth >= 640 && windowWidth < 1280))) ? 'block' : 'none',
+          display: (windowWidth > 0 && ((isLandscape && windowWidth < 640) || (windowWidth >= 640 && windowWidth < 1280 && !isTabletLandscape))) ? 'block' : 'none',
           backgroundColor: '#1d395e',
           backgroundImage: `url(${encodeURI(getAssetPath("/assets/Tableau/Mountains-by-StephanHerrgott-2017 - Tablette.jpg"))})`,
+          backgroundSize: 'cover',
+          WebkitBackgroundSize: 'cover',
+          backgroundPosition: 'center top',
+          backgroundRepeat: 'no-repeat',
+          backgroundAttachment: 'scroll',
+          minHeight: '100vh',
+          height: '100vh',
+          maxHeight: '100vh',
+          width: '100%',
+          zIndex: tableauZIndex,
+        }}
+      />
+      {/* Fond fixe du tableau tablette PAYSAGE - utilise l'image desktop mieux adaptée au format paysage */}
+      {/* Visible uniquement sur tablette PAYSAGE (640px à 1279px et orientation paysage) */}
+      {/* Tableau utilisé : "Mountains-by-StephanHerrgott-2017.jpg" (image desktop) */}
+      <div 
+        className="fixed inset-0 overflow-hidden xl:hidden"
+        style={{
+          display: (windowWidth > 0 && windowWidth >= 640 && windowWidth < 1280 && isTabletLandscape) ? 'block' : 'none',
+          backgroundColor: '#1d395e',
+          backgroundImage: `url(${encodeURI(getAssetPath("/assets/Tableau/Mountains-by-StephanHerrgott-2017.jpg"))})`,
           backgroundSize: 'cover',
           WebkitBackgroundSize: 'cover',
           backgroundPosition: 'center top',
@@ -109,6 +142,8 @@ export default function Hero() {
       />
       
       {/* Overlay bleu qui passe devant le tableau et le texte du hero quand on scroll en bas */}
+      {/* Utilise la même logique que le bouton rouge : isScrolledPastHero */}
+      {/* Sur mobile : le fond bleu ne passe devant que quand le bouton rouge apparaît */}
       <div 
         className="fixed inset-0 transition-opacity duration-300 pointer-events-none"
         style={{
