@@ -26,19 +26,22 @@ export default function Hero() {
           zIndex: tableauZIndex,
         }}
       />
-      {/* Fond fixe du tableau tablette - optimisé pour portrait et paysage */}
+      {/* Fond fixe du tableau tablette - limité au hero uniquement (100svh) */}
       <div 
-        className="hidden sm:block lg:hidden fixed inset-0 overflow-hidden"
+        className="hidden sm:block lg:hidden fixed overflow-hidden"
         style={{
+          top: 0,
+          left: 0,
+          right: 0,
+          height: '100svh',
+          maxHeight: '100svh',
+          width: '100%',
           backgroundImage: `url(${encodeURI(getAssetPath("/assets/Tableau/Mountains-by-StephanHerrgott-2017 - Tablette.jpg"))})`,
-          backgroundSize: '100% auto',
+          backgroundSize: 'cover',
           backgroundPosition: 'center top',
           backgroundRepeat: 'no-repeat',
           backgroundAttachment: 'scroll',
           backgroundColor: '#1d395e',
-          minHeight: '100svh',
-          height: '100svh',
-          width: '100%',
           zIndex: tableauZIndex,
         }}
       />
@@ -55,12 +58,12 @@ export default function Hero() {
         }}
       />
       
-      {/* Overlay bleu qui passe devant le tableau quand on scroll en bas */}
+      {/* Overlay bleu qui passe devant le tableau et le texte du hero quand on scroll en bas */}
       <div 
         className="fixed inset-0 transition-opacity duration-300 pointer-events-none"
         style={{
           backgroundColor: '#1d395e',
-          zIndex: isScrolledPastHero ? -15 : -25,
+          zIndex: isScrolledPastHero ? 15 : -25,
           opacity: isScrolledPastHero ? 1 : 0,
         }}
       />
