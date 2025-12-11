@@ -26,21 +26,22 @@ export default function Hero() {
           zIndex: tableauZIndex,
         }}
       />
-      {/* Fond fixe du tableau tablette - contain pour garantir qu'il n'y a JAMAIS de zoom sur Safari iPad */}
+      {/* Fond fixe du tableau tablette - cover pour remplir exactement largeur ET hauteur avec zoom minimal */}
       {/* Visible de 640px à 1279px (tablettes et iPhones en paysage) */}
       <div 
         className="hidden sm:block xl:hidden fixed inset-0 overflow-hidden"
         style={{
           backgroundColor: '#1d395e',
           backgroundImage: `url(${encodeURI(getAssetPath("/assets/Tableau/Mountains-by-StephanHerrgott-2017 - Tablette.jpg"))})`,
-          backgroundSize: 'contain',
-          WebkitBackgroundSize: 'contain',
+          backgroundSize: 'cover',
+          WebkitBackgroundSize: 'cover',
           backgroundPosition: 'center top',
           backgroundRepeat: 'no-repeat',
           backgroundAttachment: 'scroll',
           minHeight: '100vh',
           height: '100vh',
           maxHeight: '100vh',
+          width: '100%',
           zIndex: tableauZIndex,
         }}
       />
