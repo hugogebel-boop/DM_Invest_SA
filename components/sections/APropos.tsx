@@ -4,10 +4,10 @@ import { getAssetPath } from '@/lib/config'
 
 export default function APropos() {
   return (
-    <section id="a-propos" className="py-16 sm:py-20 md:py-24 lg:py-32 xl:py-40 bg-ivory">
+    <section id="a-propos" className="py-16 sm:py-20 md:py-24 lg:py-24 xl:py-28 bg-ivory">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
         <AnimateOnScroll>
-          <h2 className="text-[40px] sm:text-3xl md:text-3xl lg:text-4xl xl:text-5xl font-serif text-dm-red mb-10 sm:mb-12 md:mb-16 lg:mb-20 text-left font-normal tracking-tight">
+          <h2 className="text-[40px] sm:text-3xl md:text-3xl lg:text-4xl xl:text-5xl font-serif text-dm-red mb-10 sm:mb-12 md:mb-16 lg:mb-14 text-left font-normal tracking-tight pl-4 sm:pl-0">
             À propos
           </h2>
         </AnimateOnScroll>
@@ -40,7 +40,7 @@ export default function APropos() {
 
         {/* Logos des organismes */}
         <AnimateOnScroll delay={0.2}>
-          <div className="pl-4 sm:pl-6 md:pl-8 pr-4 sm:pr-6 md:pr-8 mt-16 sm:mt-20 md:mt-24 lg:mt-32">
+          <div className="pl-4 sm:pl-6 md:pl-8 pr-4 sm:pr-6 md:pr-8 mt-16 sm:mt-20 md:mt-24 lg:mt-20">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-10 md:gap-12 lg:gap-16 items-center justify-items-center">
             <a
               href="https://www.vsv-asg.ch/fr/home"

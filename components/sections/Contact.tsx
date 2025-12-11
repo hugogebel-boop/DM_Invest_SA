@@ -5,10 +5,10 @@ export default function Contact() {
   return (
     <section id="contact" className="bg-tableau-blue text-ivory">
       {/* Section Contact */}
-      <div className="py-10 sm:py-12 md:py-16 lg:py-20">
+      <div className="py-10 sm:py-12 md:py-16 lg:py-16">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
           <AnimateOnScroll>
-            <h2 className="text-[40px] sm:text-3xl md:text-3xl lg:text-4xl xl:text-5xl font-serif text-ivory mb-10 sm:mb-12 md:mb-14 text-left font-normal tracking-tight">
+            <h2 className="text-[40px] sm:text-3xl md:text-3xl lg:text-4xl xl:text-5xl font-serif text-ivory mb-10 sm:mb-12 md:mb-14 lg:mb-12 text-left font-normal tracking-tight pl-4 sm:pl-0">
               Contact
             </h2>
           </AnimateOnScroll>
