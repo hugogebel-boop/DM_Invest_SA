@@ -26,27 +26,22 @@ export default function Hero() {
           zIndex: tableauZIndex,
         }}
       />
-      {/* Fond fixe du tableau tablette - utilisation d'img native pour Safari iPad réel (évite les bugs background-size) */}
+      {/* Fond fixe du tableau tablette - même logique que mobile adaptée pour tablette avec ajustements Safari iPad */}
       <div 
         className="hidden sm:block lg:hidden fixed inset-0 overflow-hidden"
         style={{
-          backgroundColor: '#1d395e',
+          backgroundImage: `url(${encodeURI(getAssetPath("/assets/Tableau/Mountains-by-StephanHerrgott-2017 - Tablette.jpg"))})`,
+          backgroundSize: '100% auto',
+          WebkitBackgroundSize: '100% auto',
+          backgroundPosition: 'center top',
+          backgroundRepeat: 'no-repeat',
+          backgroundAttachment: 'scroll',
+          minHeight: '100vh',
+          height: '100vh',
+          maxHeight: '100vh',
           zIndex: tableauZIndex,
-          display: 'flex',
-          alignItems: 'flex-start',
-          justifyContent: 'center',
         }}
-      >
-        <img
-          src={encodeURI(getAssetPath("/assets/Tableau/Mountains-by-StephanHerrgott-2017 - Tablette.jpg"))}
-          alt="Tableau de Stephan Herrgott"
-          className="w-full h-screen object-contain object-top"
-          style={{
-            maxHeight: '100vh',
-            height: '100vh',
-          }}
-        />
-      </div>
+      />
       {/* Fond fixe du tableau desktop - même logique que mobile adaptée pour desktop (avec parallax) */}
       <div 
         className="hidden lg:block fixed inset-0 overflow-hidden"
