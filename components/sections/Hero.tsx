@@ -26,7 +26,7 @@ export default function Hero() {
           zIndex: tableauZIndex,
         }}
       />
-      {/* Fond fixe du tableau tablette - limité au hero uniquement (100svh) */}
+      {/* Fond fixe du tableau tablette - limité au hero uniquement (100svh) avec contain pour éviter le zoom */}
       <div 
         className="hidden sm:block lg:hidden fixed overflow-hidden"
         style={{
@@ -37,7 +37,7 @@ export default function Hero() {
           maxHeight: '100svh',
           width: '100%',
           backgroundImage: `url(${encodeURI(getAssetPath("/assets/Tableau/Mountains-by-StephanHerrgott-2017 - Tablette.jpg"))})`,
-          backgroundSize: 'cover',
+          backgroundSize: 'contain',
           backgroundPosition: 'center top',
           backgroundRepeat: 'no-repeat',
           backgroundAttachment: 'scroll',
