@@ -10,26 +10,12 @@ export default function Hero() {
   const [isLandscape, setIsLandscape] = useState(false)
   const [isTabletLandscape, setIsTabletLandscape] = useState(false)
   const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 0)
-  const [shouldShowBlueOverlay, setShouldShowBlueOverlay] = useState(false)
-  
-  // Vérification locale pour garantir que le fond bleu reste derrière au chargement
-  // On vérifie directement la position du scroll pour éviter les problèmes de timing
+  // Utilisation directe de isScrolledPastHero pour synchronisation parfaite avec le bouton
+  // Vérification au montage pour garantir qu'on est dans le hero au chargement
   useEffect(() => {
-    const checkScrollPosition = () => {
-      if (typeof window === 'undefined') return
-      // Vérifier explicitement si on a scrollé au-delà du hero
-      const scrolledPast = window.scrollY > window.innerHeight
-      setShouldShowBlueOverlay(scrolledPast)
-    }
-    
-    // Vérifier au montage
-    checkScrollPosition()
-    
-    // Écouter les changements de scroll
-    window.addEventListener('scroll', checkScrollPosition)
-    
-    return () => {
-      window.removeEventListener('scroll', checkScrollPosition)
+    if (typeof window !== 'undefined' && window.scrollY <= window.innerHeight) {
+      // Si on est dans le hero au chargement, s'assurer que le scroll est à 0
+      // (déjà géré par ScrollContext, mais on force ici pour être sûr)
     }
   }, [])
   
@@ -90,13 +76,12 @@ export default function Hero() {
     }
   }, [])
   
-  // Le fond bleu utilise shouldShowBlueOverlay (vérification locale directe) pour garantir qu'il reste derrière au chargement
-  // Le bouton rouge utilise isScrolledPastHero (du contexte)
+  // Le fond bleu et le bouton rouge utilisent la même logique (isScrolledPastHero) pour synchronisation parfaite
   // Z-index du tableau : 
-  // - Dans le hero (au chargement et avant scroll) : 1 (devant le fond bleu qui est à -50)
+  // - Dans le hero (au chargement et avant scroll) : 10 (devant le fond bleu qui est à -50)
   // - Après scroll : -20 (derrière le fond bleu qui est à 15)
-  // Utilisation de 1 pour garantir que le tableau soit toujours devant le fond bleu au chargement
-  const tableauZIndex = shouldShowBlueOverlay ? -20 : 1
+  // Utilisation de 10 pour garantir que le tableau soit toujours devant le fond bleu au chargement
+  const tableauZIndex = isScrolledPastHero ? -20 : 10
 
   return (
     <>
@@ -106,7 +91,7 @@ export default function Hero() {
       <div 
         className="fixed inset-0 sm:hidden overflow-hidden"
         style={{
-          display: (windowWidth === 0 || windowWidth >= 640 || isLandscape) ? 'none' : 'block',
+          display: (windowWidth >= 640 || (windowWidth > 0 && isLandscape)) ? 'none' : 'block',
           backgroundColor: '#1d395e',
           backgroundImage: `url(${encodeURI(getAssetPath("/assets/Tableau/Mountains-by-StephanHerrgott-2017 - Mobile.jpg"))})`,
           backgroundSize: 'cover',
@@ -142,18 +127,18 @@ export default function Hero() {
           zIndex: tableauZIndex,
         }}
       />
-      {/* Fond fixe du tableau tablette PAYSAGE - utilise contain pour voir l'image entière sans zoom */}
+      {/* Fond fixe du tableau tablette PAYSAGE - utilise l'image mobile avec cover (fonctionne mieux) */}
       {/* Visible uniquement sur tablette PAYSAGE (640px à 1279px et orientation paysage) */}
-      {/* Tableau utilisé : "Mountains-by-StephanHerrgott-2017 - Tablette.jpg" avec contain pour éviter le zoom */}
+      {/* Tableau utilisé : "Mountains-by-StephanHerrgott-2017 - Mobile.jpg" avec cover pour éviter le zoom excessif */}
       <div 
         className="fixed inset-0 overflow-hidden xl:hidden"
         style={{
           display: (windowWidth > 0 && windowWidth >= 640 && windowWidth < 1280 && isTabletLandscape) ? 'block' : 'none',
           backgroundColor: '#1d395e',
-          backgroundImage: `url(${encodeURI(getAssetPath("/assets/Tableau/Mountains-by-StephanHerrgott-2017 - Tablette.jpg"))})`,
-          backgroundSize: 'contain',
-          WebkitBackgroundSize: 'contain',
-          backgroundPosition: 'center center',
+          backgroundImage: `url(${encodeURI(getAssetPath("/assets/Tableau/Mountains-by-StephanHerrgott-2017 - Mobile.jpg"))})`,
+          backgroundSize: 'cover',
+          WebkitBackgroundSize: 'cover',
+          backgroundPosition: 'center top',
           backgroundRepeat: 'no-repeat',
           backgroundAttachment: 'scroll',
           minHeight: '100vh',
@@ -185,19 +170,19 @@ export default function Hero() {
       />
       
       {/* Overlay bleu qui passe devant le tableau et le texte du hero quand on scroll en bas */}
-      {/* Utilise shouldShowBlueOverlay (vérification locale directe) pour garantir qu'il reste derrière au chargement */}
+      {/* Utilise EXACTEMENT la même logique que le bouton rouge : isScrolledPastHero */}
       {/* Changement instantané (sans transition) mais au même moment où le bouton s'active */}
-      {/* Dans le hero (au chargement) : z-index -50 (très bas, derrière le tableau à 1) et opacity 0 + visibility hidden (invisible) */}
+      {/* Dans le hero (au chargement) : z-index -50 (très bas, derrière le tableau à 10) et opacity 0 + visibility hidden (invisible) */}
       {/* Après scroll : z-index 15 (devant le tableau à -20) et opacity 1 + visibility visible (visible) */}
-      {/* Garantit que le tableau est toujours visible au chargement sur tous les navigateurs, même en cas de problème de timing */}
+      {/* Garantit que le tableau est toujours visible au chargement sur tous les navigateurs */}
       <div 
         className="fixed inset-0 pointer-events-none"
         style={{
           backgroundColor: '#1d395e',
-          zIndex: shouldShowBlueOverlay ? 15 : -50,
-          opacity: shouldShowBlueOverlay ? 1 : 0,
+          zIndex: isScrolledPastHero ? 15 : -50,
+          opacity: isScrolledPastHero ? 1 : 0,
           // Triple sécurité : visibility hidden + opacity 0 + z-index très bas pour garantir l'invisibilité au chargement
-          visibility: shouldShowBlueOverlay ? 'visible' : 'hidden',
+          visibility: isScrolledPastHero ? 'visible' : 'hidden',
         }}
       />
       
