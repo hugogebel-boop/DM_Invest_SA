@@ -1,5 +1,5 @@
-import Link from 'next/link'
 import AnimateOnScroll from '@/components/AnimateOnScroll'
+import { basePath } from '@/lib/config'
 
 export default function Contact() {
   return (
@@ -51,9 +51,9 @@ export default function Contact() {
                 Stephan Herrgott
               </a>{' '}
               |{' '}
-              <Link href="/mentions-legales" className="text-ivory hover:text-dm-red transition-colors duration-200">
+              <a href={`${basePath}/mentions-legales`} className="text-ivory hover:text-dm-red transition-colors duration-200">
                 Mentions Légales
-              </Link>
+              </a>
             </div>
             <div className="text-center sm:text-right">
               © 1999-2025 - DM Invest SA
