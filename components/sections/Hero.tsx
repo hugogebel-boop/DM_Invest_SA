@@ -11,10 +11,18 @@ export default function Hero() {
   const [isTabletLandscape, setIsTabletLandscape] = useState(false)
   const [windowWidth, setWindowWidth] = useState(0)
   const [isMounted, setIsMounted] = useState(false)
+  const [isIPad, setIsIPad] = useState(false)
   
   // Éviter les erreurs d'hydratation : on ne rend les éléments conditionnels qu'après le montage
   useEffect(() => {
     setIsMounted(true)
+    // Détection spécifique d'iPad
+    if (typeof window !== 'undefined' && typeof navigator !== 'undefined') {
+      const userAgent = navigator.userAgent.toLowerCase()
+      const isIPadDevice = /ipad/.test(userAgent) || 
+        (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)
+      setIsIPad(isIPadDevice)
+    }
   }, [])
   
   // Détection de l'orientation et de la largeur pour mobile et tablette
@@ -130,27 +138,30 @@ export default function Hero() {
         }}
         suppressHydrationWarning
       />
-      {/* Fond fixe du tableau tablette PAYSAGE - utilise 100% auto pour forcer largeur 100% sans zoomer */}
+      {/* Fond fixe du tableau tablette PAYSAGE - utilise balise img pour iPad (Safari interprète background-image différemment) */}
       {/* Visible uniquement sur tablette PAYSAGE (640px à 1279px et orientation paysage) */}
-      {/* Tableau utilisé : "Mountains-by-StephanHerrgott-2017 - Tablette.jpg" avec 100% auto pour éviter zoom excessif sur Safari iPad */}
-      <div 
-        className={`fixed inset-0 overflow-hidden xl:hidden ${!isMounted || !(windowWidth > 0 && windowWidth >= 640 && windowWidth < 1280 && isTabletLandscape) ? 'hidden' : ''}`}
-        style={{
-          backgroundColor: '#1d395e',
-          backgroundImage: `url(${encodeURI(getAssetPath("/assets/Tableau/Mountains-by-StephanHerrgott-2017 - Tablette.jpg"))})`,
-          backgroundSize: '100% auto',
-          WebkitBackgroundSize: '100% auto',
-          backgroundPosition: 'center top',
-          backgroundRepeat: 'no-repeat',
-          backgroundAttachment: 'scroll',
-          minHeight: '100vh',
-          height: '100vh',
-          maxHeight: '100vh',
-          width: '100%',
-          zIndex: tableauZIndex,
-        }}
-        suppressHydrationWarning
-      />
+      {/* Tableau utilisé : "Mountains-by-StephanHerrgott-2017 - Tablette.jpg" avec object-contain pour éviter zoom excessif */}
+      {isMounted && windowWidth > 0 && windowWidth >= 640 && windowWidth < 1280 && isTabletLandscape && (
+        <div 
+          className="fixed inset-0 overflow-hidden xl:hidden"
+          style={{
+            backgroundColor: '#1d395e',
+            zIndex: tableauZIndex,
+          }}
+        >
+          <img
+            src={getAssetPath("/assets/Tableau/Mountains-by-StephanHerrgott-2017 - Tablette.jpg")}
+            alt="Tableau de Stephan Herrgott"
+            className="w-full h-full object-contain object-top"
+            style={{
+              minHeight: '100vh',
+              height: '100vh',
+              maxHeight: '100vh',
+              width: '100%',
+            }}
+          />
+        </div>
+      )}
       {/* Fond fixe du tableau desktop - cover pour remplir exactement largeur ET hauteur avec zoom minimal */}
       {/* Visible à partir de 1280px uniquement (vrais écrans desktop) */}
       {/* Tableau utilisé : "Mountains-by-StephanHerrgott-2017.jpg" */}
