@@ -209,9 +209,9 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Titre et flèche fixes avec le fond - devant le logo */}
-      {/* Z-index 30 pour être devant le logo (z-index 20) */}
-      <div className="fixed inset-0 flex flex-col justify-center items-center pointer-events-none translate-y-52 sm:translate-y-0 md:translate-y-28 lg:translate-y-40 xl:translate-y-48" style={{ minHeight: '100svh', height: '100svh', zIndex: 30 }}>
+      {/* Titre et flèche fixes avec le fond - même niveau que le logo */}
+      {/* Z-index 20 comme le logo pour rester dans le hero uniquement */}
+      <div className="fixed inset-0 flex flex-col justify-center items-center pointer-events-none translate-y-52 sm:translate-y-0 md:translate-y-28 lg:translate-y-40 xl:translate-y-48" style={{ minHeight: '100svh', height: '100svh', zIndex: 20 }}>
         <div className="text-center px-4 sm:px-6 md:px-8 w-full max-w-5xl">
           {/* Titre */}
           <h1 className="text-[38px] sm:text-3xl md:text-5xl lg:text-6xl xl:text-6xl font-serif text-dm-red font-normal tracking-tight mb-4 sm:mb-20 md:mb-24 lg:mb-28 px-4">
@@ -244,12 +244,13 @@ export default function Hero() {
 
       <section 
         id="accueil" 
-        className="relative flex flex-col justify-start items-center z-[20]"
+        className="relative flex flex-col justify-start items-center"
         style={{
           margin: 0,
           paddingTop: '120px',
           minHeight: '100svh',
           height: '100svh',
+          zIndex: 25,
         }}
       >
       </section>
