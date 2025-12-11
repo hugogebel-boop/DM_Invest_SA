@@ -186,8 +186,9 @@ export default function Hero() {
         }}
       />
       
-      {/* Logo fixe - au-dessus de la peinture, en dessous du contenu */}
-      <div className="fixed inset-0 flex flex-col justify-start items-center z-[5] pointer-events-none" style={{ paddingTop: '80px', minHeight: '100svh', height: '100svh' }}>
+      {/* Logo fixe - au-dessus de la peinture, devant le tableau */}
+      {/* Z-index 20 pour être devant le tableau (z-index 10) */}
+      <div className="fixed inset-0 flex flex-col justify-start items-center pointer-events-none" style={{ paddingTop: '80px', minHeight: '100svh', height: '100svh', zIndex: 20 }}>
         <div className="text-center px-4 sm:px-6 md:px-8 w-full max-w-5xl">
           <div className="mb-80 sm:mb-32 md:mb-56 lg:mb-72 xl:mb-80">
             <div className="flex justify-center items-center">
@@ -199,6 +200,7 @@ export default function Hero() {
                   height={150}
                   className="w-full h-full object-contain"
                   priority
+                  fetchPriority="high"
                   sizes="(max-width: 640px) 200px, (max-width: 768px) 300px, (max-width: 1024px) 500px, (max-width: 1280px) 600px, 800px"
                 />
               </div>
@@ -207,8 +209,9 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Titre et flèche fixes avec le fond */}
-      <div className="fixed inset-0 flex flex-col justify-center items-center z-[10] pointer-events-none translate-y-52 sm:translate-y-0 md:translate-y-28 lg:translate-y-40 xl:translate-y-48" style={{ minHeight: '100svh', height: '100svh' }}>
+      {/* Titre et flèche fixes avec le fond - devant le logo */}
+      {/* Z-index 30 pour être devant le logo (z-index 20) */}
+      <div className="fixed inset-0 flex flex-col justify-center items-center pointer-events-none translate-y-52 sm:translate-y-0 md:translate-y-28 lg:translate-y-40 xl:translate-y-48" style={{ minHeight: '100svh', height: '100svh', zIndex: 30 }}>
         <div className="text-center px-4 sm:px-6 md:px-8 w-full max-w-5xl">
           {/* Titre */}
           <h1 className="text-[38px] sm:text-3xl md:text-5xl lg:text-6xl xl:text-6xl font-serif text-dm-red font-normal tracking-tight mb-4 sm:mb-20 md:mb-24 lg:mb-28 px-4">
