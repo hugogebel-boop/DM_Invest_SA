@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
 import Image from 'next/image'
-import { getAssetPath } from '@/lib/config'
+import { getAssetPath, basePath } from '@/lib/config'
 
 export const metadata: Metadata = {
   title: 'Mentions Légales',
@@ -27,11 +26,10 @@ export default function MentionsLegales() {
       <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
         {/* Logo en haut - cliquable pour retour à l'accueil */}
         <div className="mb-12 sm:mb-16 md:mb-20 flex justify-center">
-          <Link 
-            href="/" 
+          <a 
+            href={`${basePath}/`}
             className="relative w-full max-w-[300px] sm:max-w-[350px] md:max-w-[400px] aspect-[400/150] h-12 sm:h-16 md:h-20 block"
             aria-label="Retour à l'accueil - DM Invest SA"
-            prefetch={false}
           >
             <Image
               src={getAssetPath("/assets/webp/Logo DM Invest Black.webp")}
@@ -41,7 +39,7 @@ export default function MentionsLegales() {
               className="w-full h-full object-contain"
               priority
             />
-          </Link>
+          </a>
         </div>
 
         <h1 className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl xl:text-5xl font-serif text-dm-red mb-5 sm:mb-7 font-normal tracking-tight">
@@ -122,9 +120,9 @@ export default function MentionsLegales() {
           </div>
 
           <div className="pt-6 sm:pt-8 pb-12 sm:pb-16 md:pb-20 lg:pb-24">
-            <Link href="/" className="text-dm-red underline hover:opacity-80 transition-opacity" prefetch={false}>
+            <a href={`${basePath}/`} className="text-dm-red underline hover:opacity-80 transition-opacity">
               Retour à l&apos;accueil
-            </Link>
+            </a>
           </div>
         </div>
       </div>
@@ -173,9 +171,9 @@ export default function MentionsLegales() {
                   Stephan Herrgott
                 </a>{' '}
                 |{' '}
-                <Link href="/mentions-legales" className="text-ivory hover:text-dm-red transition-colors duration-200" prefetch={false}>
+                <a href={`${basePath}/mentions-legales`} className="text-ivory hover:text-dm-red transition-colors duration-200">
                   Mentions Légales
-                </Link>
+                </a>
               </div>
               <div className="text-center sm:text-right">
                 © 1999-2025 - DM Invest SA
