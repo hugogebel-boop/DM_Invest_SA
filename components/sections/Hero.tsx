@@ -17,9 +17,20 @@ export default function Hero() {
           height: '100svh',
         }}
       />
-      {/* Fond fixe du tableau desktop */}
+      {/* Fond fixe du tableau tablette (scroll pour éviter le zoom) */}
       <div 
-        className="hidden sm:block fixed inset-0 -z-10 overflow-hidden"
+        className="hidden sm:block lg:hidden fixed inset-0 -z-10 overflow-hidden"
+        style={{
+          backgroundImage: `url(${encodeURI(getAssetPath("/assets/Tableau/Mountains-by-StephanHerrgott-2017.jpg"))})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center top',
+          backgroundRepeat: 'no-repeat',
+          backgroundAttachment: 'scroll',
+        }}
+      />
+      {/* Fond fixe du tableau desktop (garde l'effet parallax) */}
+      <div 
+        className="hidden lg:block fixed inset-0 -z-10 overflow-hidden"
         style={{
           backgroundImage: `url(${encodeURI(getAssetPath("/assets/Tableau/Mountains-by-StephanHerrgott-2017.jpg"))})`,
           backgroundSize: 'cover',
