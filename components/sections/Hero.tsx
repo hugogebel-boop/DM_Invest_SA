@@ -26,17 +26,19 @@ export default function Hero() {
           zIndex: tableauZIndex,
         }}
       />
-      {/* Fond fixe du tableau tablette - même logique que mobile adaptée pour tablette */}
+      {/* Fond fixe du tableau tablette - même logique que mobile adaptée pour tablette avec ajustements Safari iPad */}
       <div 
         className="hidden sm:block lg:hidden fixed inset-0 overflow-hidden"
         style={{
           backgroundImage: `url(${encodeURI(getAssetPath("/assets/Tableau/Mountains-by-StephanHerrgott-2017 - Tablette.jpg"))})`,
-          backgroundSize: 'cover',
+          backgroundSize: '100% auto',
+          WebkitBackgroundSize: '100% auto',
           backgroundPosition: 'center top',
           backgroundRepeat: 'no-repeat',
           backgroundAttachment: 'scroll',
-          minHeight: '100svh',
-          height: '100svh',
+          minHeight: '100vh',
+          height: '100vh',
+          maxHeight: '100vh',
           zIndex: tableauZIndex,
         }}
       />
@@ -94,25 +96,25 @@ export default function Hero() {
             Gestion de fortune
           </h1>
 
-          {/* Flèche élégante vers le bas - style Playfair Display avec courbes calligraphiques */}
+          {/* Flèche élégante vers le bas - style Playfair Display avec courbes calligraphiques plus épaisses et arrondies */}
           <div className="flex justify-center mt-4 sm:mt-6 md:mt-8">
             <svg
               className="w-5 h-5 sm:w-6 sm:h-6 md:w-10 md:h-10 lg:w-12 lg:h-12 text-dm-red"
               fill="none"
               strokeLinecap="round"
               strokeLinejoin="round"
-              strokeWidth="1.2"
+              strokeWidth="2"
               viewBox="0 0 24 24"
               stroke="currentColor"
               style={{ 
                 fontFamily: 'Playfair Display, serif',
-                filter: 'drop-shadow(0 0 0.5px rgba(142, 54, 56, 0.2))'
+                filter: 'drop-shadow(0 0 1px rgba(142, 54, 56, 0.3))'
               }}
             >
               {/* Ligne verticale avec transition douce */}
               <path d="M12 3v18" />
-              {/* Flèche avec courbes arrondies style calligraphique Playfair Display */}
-              <path d="M19 14l-7 7m0 0l-7-7" />
+              {/* Flèche avec courbes arrondies style calligraphique Playfair Display - plus épaisse et arrondie */}
+              <path d="M18 13.5l-6 6.5-6-6.5" />
             </svg>
           </div>
         </div>
