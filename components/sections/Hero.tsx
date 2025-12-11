@@ -49,11 +49,8 @@ export default function Hero() {
       // Sur tablette (640px à 1279px), on détecte aussi l'orientation
       else if (width >= 640 && width < 1280) {
         setIsLandscape(false)
-        // Pour iPad, on vérifie aussi avec screen.orientation si disponible
-        const isLandscapeMode = width > height || 
-          (typeof window.screen !== 'undefined' && 
-           typeof window.screen.orientation !== 'undefined' && 
-           window.screen.orientation.angle % 180 !== 0)
+        // Paysage = largeur strictement supérieure à la hauteur
+        const isLandscapeMode = width > height
         setIsTabletLandscape(isLandscapeMode)
       } 
       else {
