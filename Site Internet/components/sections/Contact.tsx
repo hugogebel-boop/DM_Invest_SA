@@ -1,0 +1,67 @@
+import AnimateOnScroll from '@/components/AnimateOnScroll'
+import { basePath } from '@/lib/config'
+
+export default function Contact() {
+  return (
+    <section id="contact" className="bg-tableau-blue text-ivory">
+      {/* Section Contact */}
+      <div className="py-10 sm:py-12 md:py-16 lg:py-16">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
+          <AnimateOnScroll>
+            <h2 className="text-[40px] sm:text-3xl md:text-3xl lg:text-4xl xl:text-5xl font-serif text-ivory mb-10 sm:mb-12 md:mb-14 lg:mb-12 text-left font-normal tracking-tight pl-4 sm:pl-0">
+              Contact
+            </h2>
+          </AnimateOnScroll>
+
+          <AnimateOnScroll delay={0.1}>
+            <div className="pl-4 sm:pl-6 md:pl-8 pr-4 sm:pr-6 md:pr-8 text-left space-y-2.5 sm:space-y-3 text-base sm:text-lg md:text-lg lg:text-xl text-ivory leading-relaxed">
+              <div>
+                <p className="font-serif mb-2 sm:mb-3 text-lg sm:text-xl md:text-xl lg:text-2xl">
+                  <span className="text-dm-red">DM</span>{' '}
+                  <span className="text-ivory">Invest SA</span>
+                </p>
+                <p>Rue du Grand-Chêne 6</p>
+                <p>1003 Lausanne</p>
+                <p>Switzerland</p>
+              </div>
+              <div>
+                <p>
+                  <a href="tel:+41216480015" className="text-ivory hover:text-dm-red transition-colors duration-200 underline text-base sm:text-lg md:text-lg lg:text-xl">
+                    +41 (0)21 648 00 15
+                  </a>
+                </p>
+              </div>
+            </div>
+          </AnimateOnScroll>
+        </div>
+      </div>
+
+      {/* Footer intégré */}
+      <div className="py-5 sm:py-6 md:py-8">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-6 text-xs sm:text-sm md:text-sm font-sans text-ivory">
+            <div className="text-center sm:text-left text-ivory">
+              Art by{' '}
+              <a
+                href="https://www.stephan-herrgott.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-ivory hover:text-dm-red transition-colors duration-200"
+              >
+                Stephan Herrgott
+              </a>{' '}
+              |{' '}
+              <a href={`${basePath}/mentions-legales`} className="text-ivory hover:text-dm-red transition-colors duration-200">
+                Mentions Légales
+              </a>
+            </div>
+            <div className="text-center sm:text-right">
+              © 1999-2025 - DM Invest SA
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
