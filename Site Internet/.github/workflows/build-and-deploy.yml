@@ -23,6 +23,9 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: Site Internet
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -32,6 +35,7 @@ jobs:
         with:
           node-version: '20'
           cache: 'npm'
+          cache-dependency-path: 'Site Internet/package-lock.json'
 
       - name: Install dependencies
         run: npm ci
@@ -40,10 +44,10 @@ jobs:
         uses: actions/cache@v4
         with:
           path: |
-            .next/cache
-          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**/next.config.js', '**/tsconfig.json', '**/tailwind.config.ts') }}
+            Site Internet/.next/cache
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('Site Internet/package-lock.json') }}-${{ hashFiles('Site Internet/next.config.js', 'Site Internet/tsconfig.json', 'Site Internet/tailwind.config.ts') }}
           restore-keys: |
-            ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-
+            ${{ runner.os }}-nextjs-${{ hashFiles('Site Internet/package-lock.json') }}-
             ${{ runner.os }}-nextjs-
 
       - name: Build project
@@ -57,7 +61,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./out
+          path: Site Internet/out
 
   deploy:
     environment:
