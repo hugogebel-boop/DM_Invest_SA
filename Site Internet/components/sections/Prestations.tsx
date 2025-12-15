@@ -3,7 +3,7 @@ import AnimateOnScroll from '@/components/AnimateOnScroll'
 export default function Prestations() {
   return (
     <section id="prestations" className="py-16 sm:py-20 md:py-24 lg:py-24 xl:py-28 bg-ivory">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
+      <div className="max-w-[1000px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
         <AnimateOnScroll>
           <h2 className="text-[40px] sm:text-3xl md:text-3xl lg:text-4xl xl:text-5xl font-serif text-dm-red mb-10 sm:mb-12 md:mb-16 lg:mb-14 text-left font-normal tracking-tight pl-4 sm:pl-0">
             Prestations
@@ -14,7 +14,7 @@ export default function Prestations() {
           {/* Mandat de gestion */}
           <AnimateOnScroll delay={0.1}>
             <div>
-              <h3 className="text-xl sm:text-lg md:text-xl lg:text-2xl font-serif text-tableau-blue mb-5 sm:mb-6 md:mb-8 lg:mb-6 font-normal tracking-wide">
+              <h3 className="text-xl sm:text-lg md:text-xl lg:text-2xl font-serif text-dm-red mb-5 sm:mb-6 md:mb-8 lg:mb-6 font-normal tracking-wide">
                 Mandat de gestion
               </h3>
               <ul className="space-y-1 sm:space-y-2 md:space-y-1 lg:space-y-1 text-base sm:text-lg md:text-base lg:text-base text-anthracite leading-relaxed md:leading-normal">
@@ -45,7 +45,7 @@ export default function Prestations() {
           {/* Nos atouts */}
           <AnimateOnScroll delay={0.2}>
             <div>
-              <h3 className="text-xl sm:text-lg md:text-xl lg:text-2xl font-serif text-tableau-blue mb-5 sm:mb-6 md:mb-8 lg:mb-6 font-normal tracking-wide">
+              <h3 className="text-xl sm:text-lg md:text-xl lg:text-2xl font-serif text-dm-red mb-5 sm:mb-6 md:mb-8 lg:mb-6 font-normal tracking-wide">
                 Nos atouts
               </h3>
               <ul className="space-y-1 sm:space-y-2 md:space-y-1 lg:space-y-1 text-base sm:text-lg md:text-base lg:text-base text-anthracite leading-relaxed md:leading-normal">

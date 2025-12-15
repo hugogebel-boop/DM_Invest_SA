@@ -18,7 +18,7 @@ const config: Config = {
       },
       fontFamily: {
         // Serif élégant pour les titres
-        'serif': ['Playfair Display', 'Cormorant Garamond', 'Georgia', 'serif'],
+        'serif': ['Work Sans', 'Cormorant Garamond', 'Georgia', 'serif'],
         // Sans-serif sobre pour le texte
         'sans': ['Inter', 'Helvetica Neue', 'system-ui', 'sans-serif'],
       },

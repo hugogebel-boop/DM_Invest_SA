@@ -1,12 +1,13 @@
+import Image from 'next/image'
 import AnimateOnScroll from '@/components/AnimateOnScroll'
-import { basePath } from '@/lib/config'
+import { basePath, getAssetPath } from '@/lib/config'
 
 export default function Contact() {
   return (
     <section id="contact" className="bg-tableau-blue text-ivory">
       {/* Section Contact */}
       <div className="py-10 sm:py-12 md:py-16 lg:py-16">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
+        <div className="max-w-[1000px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
           <AnimateOnScroll>
             <h2 className="text-[40px] sm:text-3xl md:text-3xl lg:text-4xl xl:text-5xl font-serif text-ivory mb-10 sm:mb-12 md:mb-14 lg:mb-12 text-left font-normal tracking-tight pl-4 sm:pl-0">
               Contact
@@ -16,10 +17,18 @@ export default function Contact() {
           <AnimateOnScroll delay={0.1}>
             <div className="pl-4 sm:pl-6 md:pl-8 pr-4 sm:pr-6 md:pr-8 text-left space-y-2.5 sm:space-y-3 text-base sm:text-lg md:text-lg lg:text-xl text-ivory leading-relaxed">
               <div>
-                <p className="font-serif mb-2 sm:mb-3 text-lg sm:text-xl md:text-xl lg:text-2xl">
-                  <span className="text-dm-red">DM</span>{' '}
-                  <span className="text-ivory">Invest SA</span>
-                </p>
+                <div className="mb-2 sm:mb-3">
+                  <div className="relative h-6 sm:h-7 md:h-8 lg:h-9 w-auto inline-block -ml-2 sm:-ml-2.5 md:-ml-3 mt-0.5 sm:mt-0.5 md:mt-1">
+                    <Image
+                      src={getAssetPath("/assets/webp/Logo DM Invest White.webp")}
+                      alt="DM Invest SA"
+                      width={200}
+                      height={80}
+                      className="h-full w-auto object-contain"
+                      sizes="(max-width: 640px) 100px, (max-width: 768px) 120px, 150px"
+                    />
+                  </div>
+                </div>
                 <p>Rue du Grand-Chêne 6</p>
                 <p>1003 Lausanne</p>
                 <p>Switzerland</p>
@@ -38,8 +47,8 @@ export default function Contact() {
 
       {/* Footer intégré */}
       <div className="py-5 sm:py-6 md:py-8">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
-          <div className="flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-6 text-xs sm:text-sm md:text-sm font-sans text-ivory">
+        <div className="max-w-[1000px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
+          <div className="pl-4 sm:pl-6 md:pl-8 pr-4 sm:pr-6 md:pr-8 flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-6 text-xs sm:text-sm md:text-sm font-sans text-ivory">
             <div className="text-center sm:text-left text-ivory">
               Art by{' '}
               <a

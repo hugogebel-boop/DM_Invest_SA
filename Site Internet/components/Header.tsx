@@ -9,7 +9,7 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 bg-dm-red/98 backdrop-blur-sm border-b border-dm-red/30" style={{ margin: 0, padding: 0 }}>
-      <nav className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 py-3 sm:py-3.5 md:py-4" aria-label="Navigation principale">
+      <nav className="max-w-[1000px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 py-3 sm:py-3.5 md:py-4" aria-label="Navigation principale">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Logo />

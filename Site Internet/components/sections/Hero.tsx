@@ -228,7 +228,7 @@ export default function Hero() {
       {/* Logo fixe - au-dessus de la peinture, devant le tableau */}
       {/* Z-index dynamique : 20 dans le hero, -20 après scroll (derrière le fond bleu) */}
       <div className="fixed inset-0 flex flex-col justify-start items-center pointer-events-none" style={{ paddingTop: '80px', minHeight: '100svh', height: '100svh', zIndex: heroContentZIndex }}>
-        <div className="text-center px-4 sm:px-6 md:px-8 w-full max-w-5xl">
+        <div className="text-center px-4 sm:px-6 md:px-8 w-full max-w-[1000px]">
           <div className="mb-80 sm:mb-32 md:mb-56 lg:mb-72 xl:mb-80">
             <div className="flex justify-center items-center">
               <div className="relative w-full max-w-[400px] md:max-w-[600px] lg:max-w-[700px] xl:max-w-[800px] aspect-[400/150] h-16 sm:h-20 md:h-36 lg:h-44 xl:h-52 px-4">
@@ -251,13 +251,13 @@ export default function Hero() {
       {/* Titre et flèche fixes avec le fond - même niveau que le logo */}
       {/* Z-index dynamique : 20 dans le hero, -20 après scroll (derrière le fond bleu) */}
       <div className="fixed inset-0 flex flex-col justify-center items-center pointer-events-none translate-y-52 sm:translate-y-0 md:translate-y-28 lg:translate-y-40 xl:translate-y-48" style={{ minHeight: '100svh', height: '100svh', zIndex: heroContentZIndex }}>
-        <div className="text-center px-4 sm:px-6 md:px-8 w-full max-w-5xl">
+        <div className="text-center px-4 sm:px-6 md:px-8 w-full max-w-[1000px]">
           {/* Titre */}
           <h1 className="text-[38px] sm:text-3xl md:text-5xl lg:text-6xl xl:text-6xl font-serif text-dm-red font-normal tracking-tight mb-4 sm:mb-20 md:mb-24 lg:mb-28 px-4">
             Gestion de fortune
           </h1>
 
-          {/* Flèche élégante vers le bas - style Playfair Display avec courbes calligraphiques plus épaisses et arrondies */}
+          {/* Flèche élégante vers le bas - style Work Sans avec courbes calligraphiques plus épaisses et arrondies */}
           <div className="flex justify-center mt-4 sm:mt-6 md:mt-8">
             <svg
               className="w-5 h-5 sm:w-6 sm:h-6 md:w-10 md:h-10 lg:w-12 lg:h-12 text-dm-red"
@@ -268,13 +268,13 @@ export default function Hero() {
               viewBox="0 0 24 24"
               stroke="currentColor"
               style={{ 
-                fontFamily: 'Playfair Display, serif',
+                fontFamily: 'Work Sans, serif',
                 filter: 'drop-shadow(0 0 1px rgba(142, 54, 56, 0.3))'
               }}
             >
               {/* Ligne verticale qui se connecte bien avec la flèche */}
               <path d="M12 3v12.5" />
-              {/* Flèche avec courbes arrondies style calligraphique Playfair Display - plus épaisse et arrondie */}
+              {/* Flèche avec courbes arrondies style calligraphique Work Sans - plus épaisse et arrondie */}
               <path d="M18 13.5l-6 6.5-6-6.5" />
             </svg>
           </div>
