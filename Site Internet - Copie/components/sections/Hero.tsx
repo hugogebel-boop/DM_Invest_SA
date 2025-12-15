@@ -1,0 +1,299 @@
+'use client'
+
+import Image from 'next/image'
+import { getAssetPath } from '@/lib/config'
+import { useScroll } from '@/contexts/ScrollContext'
+import { useState, useEffect } from 'react'
+
+export default function Hero() {
+  const { isScrolledPastHero } = useScroll()
+  const [isLandscape, setIsLandscape] = useState(false)
+  const [isTabletLandscape, setIsTabletLandscape] = useState(false)
+  const [windowWidth, setWindowWidth] = useState(0)
+  const [isMounted, setIsMounted] = useState(false)
+  const [isIPad, setIsIPad] = useState(false)
+  const [isSafari, setIsSafari] = useState(false)
+  
+  // Éviter les erreurs d'hydratation : on ne rend les éléments conditionnels qu'après le montage
+  useEffect(() => {
+    setIsMounted(true)
+    // Détection spécifique d'iPad et Safari
+    if (typeof window !== 'undefined' && typeof navigator !== 'undefined') {
+      const userAgent = navigator.userAgent.toLowerCase()
+      const isIPadDevice = /ipad/.test(userAgent) || 
+        (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)
+      setIsIPad(isIPadDevice)
+      
+      // Détection Safari (sur appareil mobile/tablette)
+      const isSafariBrowser = /^((?!chrome|android).)*safari/i.test(navigator.userAgent) ||
+        (!!navigator.vendor && navigator.vendor.indexOf('Apple') > -1)
+      setIsSafari(!!isSafariBrowser)
+    }
+  }, [])
+  
+  // Détection de l'orientation et de la largeur pour mobile et tablette
+  // Amélioration pour iPad : délai après orientationchange pour laisser le temps au viewport de se mettre à jour
+  useEffect(() => {
+    const checkOrientation = () => {
+      if (typeof window === 'undefined') return
+      
+      // Sur iPad, on attend un peu après orientationchange pour que le viewport se mette à jour
+      const getDimensions = () => {
+        const width = window.innerWidth
+        const height = window.innerHeight
+        return { width, height }
+      }
+      
+      const { width, height } = getDimensions()
+      setWindowWidth(width)
+      
+      // Sur mobile (< 640px), on détecte l'orientation
+      if (width < 640) {
+        setIsLandscape(width > height)
+        setIsTabletLandscape(false)
+      } 
+      // Sur tablette (640px à 1399px), on détecte aussi l'orientation
+      // Limite à 1400px pour inclure les grandes tablettes, mais seulement si c'est vraiment une tablette
+      else if (width >= 640 && width < 1400) {
+        setIsLandscape(false)
+        // Paysage = largeur strictement supérieure à la hauteur
+        const isLandscapeMode = width > height
+        setIsTabletLandscape(isLandscapeMode)
+      } 
+      else {
+        setIsLandscape(false)
+        setIsTabletLandscape(false)
+      }
+    }
+    
+    // Initialisation immédiate
+    checkOrientation()
+    
+    // Écouteurs d'événements
+    window.addEventListener('resize', checkOrientation)
+    
+    // Pour orientationchange, on attend un peu pour iPad
+    const handleOrientationChange = () => {
+      // Délai pour laisser le viewport se mettre à jour sur iPad
+      setTimeout(checkOrientation, 100)
+    }
+    
+    window.addEventListener('orientationchange', handleOrientationChange)
+    
+    return () => {
+      window.removeEventListener('resize', checkOrientation)
+      window.removeEventListener('orientationchange', handleOrientationChange)
+    }
+  }, [])
+  
+  // Le fond bleu et le bouton rouge utilisent la même logique (isScrolledPastHero) pour synchronisation parfaite
+  // Z-index du tableau : 
+  // - Dans le hero (au chargement et avant scroll) : 10 (devant le fond bleu qui est à -50)
+  // - Après scroll : -20 (derrière le fond bleu qui est à 15)
+  // Utilisation de 10 pour garantir que le tableau soit toujours devant le fond bleu au chargement
+  const tableauZIndex = isScrolledPastHero ? -20 : 10
+  
+  // Z-index du logo, texte et flèche : même logique que le tableau
+  // - Dans le hero (au chargement et avant scroll) : 20 (devant le tableau à 10)
+  // - Après scroll : -20 (derrière le fond bleu qui est à 15)
+  const heroContentZIndex = isScrolledPastHero ? -20 : 20
+
+  return (
+    <>
+      {/* Fond fixe du tableau mobile PORTRAIT - cover pour remplir exactement largeur ET hauteur avec zoom minimal */}
+      {/* Visible uniquement sur mobile portrait (< 640px et orientation portrait) */}
+      {/* Tableau utilisé : "Mountains-by-StephanHerrgott-2017 - Mobile.webp" */}
+      <div 
+        className={`fixed inset-0 sm:hidden overflow-hidden ${!isMounted || windowWidth >= 640 || (windowWidth > 0 && isLandscape) ? 'hidden' : ''}`}
+        style={{
+          backgroundColor: '#1d395e',
+          backgroundImage: `url(${encodeURI(getAssetPath("/assets/webp/Mountains-by-StephanHerrgott-2017 - Mobile.webp"))})`,
+          backgroundSize: 'cover',
+          WebkitBackgroundSize: 'cover',
+          backgroundPosition: 'center top',
+          backgroundRepeat: 'no-repeat',
+          backgroundAttachment: 'scroll',
+          minHeight: '100vh',
+          height: '100vh',
+          maxHeight: '100vh',
+          width: '100%',
+          zIndex: tableauZIndex,
+        }}
+        suppressHydrationWarning
+      />
+      {/* Fond fixe du tableau mobile PAYSAGE / tablette PORTRAIT */}
+      {/* Visible sur mobile paysage (< 640px et orientation paysage) ET sur tablette PORTRAIT (640px à 1399px) */}
+      {/* Tableau utilisé : "Mountains-by-StephanHerrgott-2017 - Tablette.webp" */}
+      <div 
+        className={`fixed inset-0 overflow-hidden xl:hidden ${!isMounted || !(windowWidth > 0 && ((isLandscape && windowWidth < 640) || (windowWidth >= 640 && windowWidth < 1400 && !isTabletLandscape))) ? 'hidden' : ''}`}
+        style={{
+          backgroundColor: '#1d395e',
+          backgroundImage: `url(${encodeURI(getAssetPath("/assets/webp/Mountains-by-StephanHerrgott-2017 - Tablette.webp"))})`,
+          backgroundSize: 'cover',
+          WebkitBackgroundSize: 'cover',
+          backgroundPosition: 'center top',
+          backgroundRepeat: 'no-repeat',
+          backgroundAttachment: 'scroll',
+          minHeight: '100vh',
+          height: '100vh',
+          maxHeight: '100vh',
+          width: '100%',
+          zIndex: tableauZIndex,
+        }}
+        suppressHydrationWarning
+      />
+      {/* Fond fixe du tableau tablette PAYSAGE - Version spécifique pour Safari */}
+      {/* Visible uniquement sur tablette PAYSAGE (640px à 1399px et orientation paysage) */}
+      {/* Tableau utilisé : "Mountains-by-StephanHerrgott-2017 - Tablette.webp" */}
+      {isMounted && windowWidth > 0 && windowWidth >= 640 && windowWidth < 1400 && isTabletLandscape && isSafari && (
+        <div 
+          className="fixed inset-0 overflow-hidden xl:hidden"
+          style={{
+            backgroundColor: '#1d395e',
+            zIndex: tableauZIndex,
+          }}
+        >
+          {/* Version Safari : sans styles inline qui forcent la hauteur, laisse object-contain gérer */}
+          <img
+            src={getAssetPath("/assets/webp/Mountains-by-StephanHerrgott-2017 - Tablette.webp")}
+            alt="Tableau de Stephan Herrgott"
+            className="w-full h-full object-contain object-top"
+            // Pas de styles inline pour Safari - laisse le conteneur parent gérer les dimensions
+          />
+        </div>
+      )}
+      {/* Fond fixe du tableau tablette PAYSAGE - Version pour les autres navigateurs */}
+      {/* Visible uniquement sur tablette PAYSAGE (640px à 1399px et orientation paysage) */}
+      {/* Tableau utilisé : "Mountains-by-StephanHerrgott-2017 - Tablette.webp" */}
+      {isMounted && windowWidth > 0 && windowWidth >= 640 && windowWidth < 1400 && isTabletLandscape && !isSafari && (
+        <div 
+          className="fixed inset-0 overflow-hidden xl:hidden"
+          style={{
+            backgroundColor: '#1d395e',
+            zIndex: tableauZIndex,
+          }}
+        >
+          {/* Version autres navigateurs : avec styles inline pour compatibilité */}
+          <img
+            src={getAssetPath("/assets/webp/Mountains-by-StephanHerrgott-2017 - Tablette.webp")}
+            alt="Tableau de Stephan Herrgott"
+            className="w-full h-full object-contain object-top"
+            style={{
+              minHeight: '100vh',
+              height: '100vh',
+              maxHeight: '100vh',
+              width: '100%',
+            }}
+          />
+        </div>
+      )}
+      {/* Fond fixe du tableau desktop - cover pour remplir exactement largeur ET hauteur avec zoom minimal */}
+      {/* Visible à partir de 1400px uniquement (vrais écrans desktop) */}
+      {/* Tableau utilisé : "Mountains-by-StephanHerrgott-2017.webp" */}
+      <div 
+        className="hidden xl:block fixed inset-0 overflow-hidden"
+        style={{
+          backgroundColor: '#1d395e',
+          backgroundImage: `url(${encodeURI(getAssetPath("/assets/webp/Mountains-by-StephanHerrgott-2017.webp"))})`,
+          backgroundSize: 'cover',
+          WebkitBackgroundSize: 'cover',
+          backgroundPosition: 'center top',
+          backgroundRepeat: 'no-repeat',
+          backgroundAttachment: 'fixed',
+          minHeight: '100svh',
+          height: '100svh',
+          maxHeight: '100svh',
+          width: '100%',
+          zIndex: tableauZIndex,
+        }}
+      />
+      
+      {/* Overlay bleu qui passe devant le tableau et le texte du hero quand on scroll en bas */}
+      {/* Utilise EXACTEMENT la même logique que le bouton rouge : isScrolledPastHero */}
+      {/* Changement instantané (sans transition) mais au même moment où le bouton s'active */}
+      {/* Dans le hero (au chargement) : z-index -50 (très bas, derrière le tableau à 10) et opacity 0 + visibility hidden (invisible) */}
+      {/* Après scroll : z-index 15 (devant le tableau à -20) et opacity 1 + visibility visible (visible) */}
+      {/* Garantit que le tableau est toujours visible au chargement sur tous les navigateurs */}
+      <div 
+        className="fixed inset-0 pointer-events-none"
+        style={{
+          backgroundColor: '#1d395e',
+          zIndex: isScrolledPastHero ? 15 : -50,
+          opacity: isScrolledPastHero ? 1 : 0,
+          // Triple sécurité : visibility hidden + opacity 0 + z-index très bas pour garantir l'invisibilité au chargement
+          visibility: isScrolledPastHero ? 'visible' : 'hidden',
+        }}
+      />
+      
+      {/* Logo fixe - au-dessus de la peinture, devant le tableau */}
+      {/* Z-index dynamique : 20 dans le hero, -20 après scroll (derrière le fond bleu) */}
+      <div className="fixed inset-0 flex flex-col justify-start items-center pointer-events-none" style={{ paddingTop: '80px', minHeight: '100svh', height: '100svh', zIndex: heroContentZIndex }}>
+        <div className="text-center px-4 sm:px-6 md:px-8 w-full max-w-5xl">
+          <div className="mb-80 sm:mb-32 md:mb-56 lg:mb-72 xl:mb-80">
+            <div className="flex justify-center items-center">
+              <div className="relative w-full max-w-[400px] md:max-w-[600px] lg:max-w-[700px] xl:max-w-[800px] aspect-[400/150] h-16 sm:h-20 md:h-36 lg:h-44 xl:h-52 px-4">
+                <Image
+                  src={getAssetPath("/assets/webp/Logo DM Invest White.webp")}
+                  alt="DM Invest SA - Logo - Gestion de fortune à Lausanne, Suisse"
+                  width={400}
+                  height={150}
+                  className="w-full h-full object-contain"
+                  priority
+                  fetchPriority="high"
+                  sizes="(max-width: 640px) 200px, (max-width: 768px) 300px, (max-width: 1024px) 500px, (max-width: 1280px) 600px, 800px"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Titre et flèche fixes avec le fond - même niveau que le logo */}
+      {/* Z-index dynamique : 20 dans le hero, -20 après scroll (derrière le fond bleu) */}
+      <div className="fixed inset-0 flex flex-col justify-center items-center pointer-events-none translate-y-52 sm:translate-y-0 md:translate-y-28 lg:translate-y-40 xl:translate-y-48" style={{ minHeight: '100svh', height: '100svh', zIndex: heroContentZIndex }}>
+        <div className="text-center px-4 sm:px-6 md:px-8 w-full max-w-5xl">
+          {/* Titre */}
+          <h1 className="text-[38px] sm:text-3xl md:text-5xl lg:text-6xl xl:text-6xl font-serif text-dm-red font-normal tracking-tight mb-4 sm:mb-20 md:mb-24 lg:mb-28 px-4">
+            Gestion de fortune
+          </h1>
+
+          {/* Flèche élégante vers le bas - style Playfair Display avec courbes calligraphiques plus épaisses et arrondies */}
+          <div className="flex justify-center mt-4 sm:mt-6 md:mt-8">
+            <svg
+              className="w-5 h-5 sm:w-6 sm:h-6 md:w-10 md:h-10 lg:w-12 lg:h-12 text-dm-red"
+              fill="none"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              style={{ 
+                fontFamily: 'Playfair Display, serif',
+                filter: 'drop-shadow(0 0 1px rgba(142, 54, 56, 0.3))'
+              }}
+            >
+              {/* Ligne verticale qui se connecte bien avec la flèche */}
+              <path d="M12 3v12.5" />
+              {/* Flèche avec courbes arrondies style calligraphique Playfair Display - plus épaisse et arrondie */}
+              <path d="M18 13.5l-6 6.5-6-6.5" />
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <section 
+        id="accueil" 
+        className="relative flex flex-col justify-start items-center"
+        style={{
+          margin: 0,
+          paddingTop: '120px',
+          minHeight: '100svh',
+          height: '100svh',
+          zIndex: 25,
+        }}
+      >
+      </section>
+    </>
+  )
+}
+
