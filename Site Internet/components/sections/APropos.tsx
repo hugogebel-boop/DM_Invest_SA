@@ -46,7 +46,7 @@ export default function APropos() {
               href="https://www.vsv-asg.ch/fr/home"
               target="_blank"
               rel="noopener noreferrer"
-              className="relative w-full max-w-[180px] sm:max-w-[200px] aspect-[180/80] h-16 sm:h-20 bg-ivory flex items-center justify-center hover:opacity-80 transition-opacity px-4 overflow-hidden"
+              className="relative w-full max-w-[180px] sm:max-w-[200px] aspect-[180/80] h-16 sm:h-20 bg-ivory flex items-center justify-center hover:opacity-80 transition-opacity overflow-hidden"
             >
               <Image
                 src={getAssetPath("/assets/Certifications/Logo VSV-ASG.png")}
@@ -61,7 +61,7 @@ export default function APropos() {
               href="https://www.aoos.ch/?lang=fr"
               target="_blank"
               rel="noopener noreferrer"
-              className="relative w-full max-w-[180px] sm:max-w-[200px] aspect-[180/80] h-16 sm:h-20 bg-ivory flex items-center justify-center hover:opacity-80 transition-opacity px-4 overflow-hidden"
+              className="relative w-full max-w-[180px] sm:max-w-[200px] aspect-[180/80] h-16 sm:h-20 bg-ivory flex items-center justify-center hover:opacity-80 transition-opacity overflow-hidden"
             >
               <Image
                 src={getAssetPath("/assets/Certifications/Logo AOOS.png")}
@@ -76,7 +76,7 @@ export default function APropos() {
               href="https://ombudfinance.ch/accueil/"
               target="_blank"
               rel="noopener noreferrer"
-              className="relative w-full max-w-[180px] sm:max-w-[200px] aspect-[180/80] h-16 sm:h-20 bg-ivory flex items-center justify-center hover:opacity-80 transition-opacity px-4 overflow-hidden"
+              className="relative w-full max-w-[180px] sm:max-w-[200px] aspect-[180/80] h-16 sm:h-20 bg-ivory flex items-center justify-center hover:opacity-80 transition-opacity overflow-hidden"
             >
               <Image
                 src={getAssetPath("/assets/Certifications/Logo OFS.png")}
