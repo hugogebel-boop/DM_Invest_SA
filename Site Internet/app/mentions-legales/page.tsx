@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 export default function MentionsLegales() {
   return (
     <section className="pt-16 sm:pt-20 md:pt-24 lg:pt-32 xl:pt-40 bg-ivory">
-      <div className="max-w-[1000px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
+      <div className="max-w-[1000px] mx-auto">
         {/* Logo en haut - cliquable pour retour à l'accueil */}
         <div className="mb-12 sm:mb-16 md:mb-20 flex justify-center">
           <a 
@@ -131,7 +131,7 @@ export default function MentionsLegales() {
       <div className="bg-tableau-blue text-ivory">
         {/* Section Contact */}
         <div className="py-10 sm:py-12 md:py-16 lg:py-20">
-          <div className="max-w-[1000px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
+          <div className="max-w-[1000px] mx-auto">
             <h2 className="text-[40px] sm:text-3xl md:text-3xl lg:text-4xl xl:text-5xl font-serif text-ivory mb-10 sm:mb-12 md:mb-14 text-left font-normal tracking-tight">
               Contact
             </h2>
@@ -158,7 +158,7 @@ export default function MentionsLegales() {
 
         {/* Footer intégré */}
         <div className="py-5 sm:py-6 md:py-8">
-          <div className="max-w-[1000px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
+          <div className="max-w-[1000px] mx-auto">
             <div className="flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-6 text-xs sm:text-sm md:text-sm font-sans text-ivory">
               <div className="text-center sm:text-left text-ivory">
                 Art by{' '}

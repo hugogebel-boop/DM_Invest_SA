@@ -7,7 +7,7 @@ export default function Contact() {
     <section id="contact" className="bg-tableau-blue text-ivory">
       {/* Section Contact */}
       <div className="py-10 sm:py-12 md:py-16 lg:py-16">
-        <div className="max-w-[1000px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
+        <div className="max-w-[1000px] mx-auto">
           <AnimateOnScroll>
             <h2 className="text-[40px] sm:text-3xl md:text-3xl lg:text-4xl xl:text-5xl font-serif text-ivory mb-10 sm:mb-12 md:mb-14 lg:mb-12 text-left font-normal tracking-tight pl-4 sm:pl-0">
               Contact
@@ -47,7 +47,7 @@ export default function Contact() {
 
       {/* Footer intégré */}
       <div className="py-5 sm:py-6 md:py-8">
-        <div className="max-w-[1000px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
+        <div className="max-w-[1000px] mx-auto">
           <div className="pl-4 sm:pl-0 pr-4 sm:pr-0 flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-6 text-xs sm:text-sm md:text-sm font-sans text-ivory">
             <div className="text-center sm:text-left text-ivory">
               Art by{' '}
