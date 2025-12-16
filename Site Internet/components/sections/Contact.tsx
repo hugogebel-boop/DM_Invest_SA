@@ -48,7 +48,7 @@ export default function Contact() {
       {/* Footer intégré */}
       <div className="py-5 sm:py-6 md:py-8">
         <div className="max-w-[1000px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
-          <div className="pl-4 sm:pl-6 md:pl-8 pr-4 sm:pr-6 md:pr-8 flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-6 text-xs sm:text-sm md:text-sm font-sans text-ivory">
+          <div className="pl-4 sm:pl-0 pr-4 sm:pr-0 flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-6 text-xs sm:text-sm md:text-sm font-sans text-ivory">
             <div className="text-center sm:text-left text-ivory">
               Art by{' '}
               <a
