@@ -21,7 +21,7 @@ export default function APropos() {
             Son équipe a acquis son expérience et expertise auprès d&apos;institutions bancaires de premier ordre.
           </p>
           <p>
-            DM Invest cherche à construire une relation clientèle basée sur la <span className="font-bold">confiance</span>, la <span className="font-bold">transparence</span> et l&apos;<span className="font-bold">éthique</span>.
+            DM Invest construit un partenariat avec ses clients basé sur la <span className="font-bold">confiance</span>, la <span className="font-bold">transparence</span> et l&apos;<span className="font-bold">éthique</span>.
           </p>
           <p>
             L&apos;objectif est la création de valeur à long terme.

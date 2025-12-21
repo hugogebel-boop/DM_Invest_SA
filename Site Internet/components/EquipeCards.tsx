@@ -67,7 +67,6 @@ export default function EquipeCards() {
             </h3>
             <div className="space-y-1 text-base sm:text-base md:text-base lg:text-lg text-anthracite leading-relaxed">
               <p>Actionnaire et administrateur</p>
-              <p>de DM Invest SA</p>
               <p className="pt-2">Gestionnaire de fortune</p>
             </div>
           </div>
